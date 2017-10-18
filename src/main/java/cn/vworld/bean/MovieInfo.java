@@ -12,6 +12,17 @@ public class MovieInfo {
     private String time;        //时长
     private String country;     //国家
 
+    private MovieImage movieImage;  //电影图片
+
+
+    public MovieImage getMovieImage() {
+        return movieImage;
+    }
+
+    public void setMovieImage(MovieImage movieImage) {
+        this.movieImage = movieImage;
+    }
+
     public String getMovieId() {
         return movieId;
     }
