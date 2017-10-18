@@ -7,33 +7,33 @@ public class User extends BaseEntity{
     private Integer state;      //用户状态 邮箱已验证为1，否则为0
     private Integer ban;        //  1代表禁用',0启用
 
-    private UserInfo userInfo;  //用户信息
-    private Role role;          //用户角色信息
-    private Type type;          //用户喜欢的电影类型
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public UserInfo getUserInfo() {
-        return userInfo;
-    }
-
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
-    }
+//    private UserInfo userInfo;  //用户信息
+//    private Role role;          //用户角色信息
+//    private Type type;          //用户喜欢的电影类型
+//
+//    public Role getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
+//
+//    public Type getType() {
+//        return type;
+//    }
+//
+//    public void setType(Type type) {
+//        this.type = type;
+//    }
+//
+//    public UserInfo getUserInfo() {
+//        return userInfo;
+//    }
+//
+//    public void setUserInfo(UserInfo userInfo) {
+//        this.userInfo = userInfo;
+//    }
 
     public String getUserId() {
         return userId;
