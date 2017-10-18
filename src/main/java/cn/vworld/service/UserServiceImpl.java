@@ -6,11 +6,13 @@ import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserMapper userMapper;
@@ -28,13 +30,15 @@ public class UserServiceImpl implements UserService{
         return userMapper.findUserByU_P_simple(username,password);
     }
 
+
+
     @Override
-    public void regist(User user,UserInfo userInfo) {
+    public void saveUser(User user,UserInfo userInfo) {
         user.setUserId(UUID.randomUUID().toString());
         user.setCreateTime(new Date());
         user.setState(0);
         user.setBan(0);
-        userMapper.regist(user);
+        userMapper.saveUser(user);
         userInfo.setUserInfoId(user.getUserId());
         userInfo.setCreateTime(new Date());
         userInfoMapper.saveUserInfo(userInfo);
