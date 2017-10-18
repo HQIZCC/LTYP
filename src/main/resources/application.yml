@@ -1,0 +1,17 @@
+server:
+  port: 8090
+  context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lyyp
+    username: root
+    password: root
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  cn.vworld.mapper-locations: classpath:/mybatis/mappers/*.xml
+  type-aliases-package: cn.vworld.bean
