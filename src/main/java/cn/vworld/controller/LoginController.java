@@ -25,28 +25,29 @@ public class LoginController {
     public String login(Model model,String username,String password) {
 //        User user= userService.findUserByU_P(username, password);
         //通过username和password来查询数据库
-        User user= userService.findUserByU_P_simple(username, password);
+        User user= userService.findUserByU_P(username, password);
         if (user != null) {
             model.addAttribute("user", user);
             return "/index";
         }
         return "/login/signin";
     }
-
+    //转到注册页面
     @RequestMapping("/signup")
     public String signUp() {
         return "/login/sign-up";
     }
+
+    //转到忘记密码页面
     @RequestMapping("/forgetPassword")
     public String forgetPassword() {
         return "/login/reset-password";
     }
 
+    //注册操作
     @RequestMapping("/regist")
-    public String regist(User user, UserInfo userInfo) {
-        userService.regist(user,userInfo);
-
-
+    public String saveUser(User user, UserInfo userInfo) {
+        userService.saveUser(user,userInfo);
         return "redirect:/login/signin";
     }
 
