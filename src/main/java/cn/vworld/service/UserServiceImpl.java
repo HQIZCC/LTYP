@@ -39,4 +39,14 @@ public class UserServiceImpl implements UserService{
         userInfo.setCreateTime(new Date());
         userInfoMapper.saveUserInfo(userInfo);
     }
+
+    @Override
+    public void updateState(String userId) {
+        userMapper.updateState(userId);
+    }
+
+    @Override
+    public void updateBan(String userId, Integer ban) {
+        userMapper.updateBan(userId, ban);
+    }
 }
