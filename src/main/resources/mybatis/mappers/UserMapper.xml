@@ -4,6 +4,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.vworld.mapper.UserMapper">
+    <select id="findUserByU_P" resultMap="userRM">
+       select u.*,r.* from
+(select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+where username=#{username} and password = #{password}
+    </select>
+    <select id="findUserByU_P_simple" resultType="User">
+        select * from user
+        WHERE username=#{username} and password=#{password}
+    </select>
 
+    <resultMap id="userRM" type="User" autoMapping="true">
+        <id property="userId" column="user_id"/>
+        <association property="userInfo" javaType="UserInfo" resultMap="userInfoRM"></association>
+        <association property="role" javaType="Role">
+            <id property="roleId" column="role_id"/>
+            <result property="roleName" column="role_name"/>
+        </association>
+    </resultMap>
 
+    <resultMap id="userInfoRM" type="UserInfo" autoMapping="true">
+        <id property="userInfoId" column="user_info_id"/>
+    </resultMap>
+
+    <insert id="saveUser">
+        INSERT INTO USER (
+        <if test="username!=null">username,</if>
+        <if test="password!=null">password,</if>
+        <if test="state!=null">state,</if>
+        <if test="ban!=null">ban,</if>
+        <if test="createTime!=null">create_time,</if>
+        <if test="updateTime!=null">update_time,</if>
+        <if test="userId!=null">user_id</if>
+
+        ) VALUES (
+        <if test="username!=null">#{username},</if>
+        <if test="password!=null">#{password},</if>
+        <if test="state!=null">#{state},</if>
+        <if test="ban!=null">#{ban},</if>
+        <if test="createTime!=null">#{createTime},</if>
+        <if test="updateTime!=null">#{updateTime},</if>
+        <if test="userId!=null">#{userId}</if>
+        )
+    </insert>
 </mapper>

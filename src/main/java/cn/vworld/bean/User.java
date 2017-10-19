@@ -9,7 +9,7 @@ public class User extends BaseEntity{
 
     private UserInfo userInfo;  //用户信息
     private Role role;          //用户角色信息
-    private Type type;          //用户喜欢的电影类型
+
 
     public Role getRole() {
         return role;
@@ -19,13 +19,7 @@ public class User extends BaseEntity{
         this.role = role;
     }
 
-    public Type getType() {
-        return type;
-    }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
 
     public UserInfo getUserInfo() {
         return userInfo;

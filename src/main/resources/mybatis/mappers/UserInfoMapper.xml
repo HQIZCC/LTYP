@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.UserInfoMapper">
+      <insert id="saveUserInfo">
+          INSERT INTO user_info (
+          <if test="userInfoId!=null">user_info_id,</if>
+          <if test="name!=null">name,</if>
+          <if test="age!=null">age,</if>
+          <if test="gender!=null">gender,</if>
+          <if test="sign!=null">sign,</if>
+          <if test="phone!=null">phone,</if>
+          <if test="hpic!=null">hpic,</if>
+          <if test="nickname!=null">nickname,</if>
+          <if test="createTime!=null">create_time,</if>
+          <if test="updateTime!=null">update_time,</if>
+          <if test="email!=null">email</if>
+
+          ) VALUES
+          (
+          <if test="userInfoId!=null">#{userInfoId},</if>
+          <if test="name!=null">#{name},</if>
+          <if test="age!=null">#{age},</if>
+          <if test="gender!=null">#{gender},</if>
+          <if test="sign!=null">#{sign},</if>
+          <if test="phone!=null">#{phone},</if>
+          <if test="hpic!=null">#{hpic},</if>
+          <if test="nickname!=null">#{nickname},</if>
+          <if test="createTime!=null">#{createTime},</if>
+          <if test="updateTime!=null">#{updateTime},</if>
+          <if test="email!=null">#{email}</if>
+          )
+      </insert>
+
+
+
+
+</mapper>

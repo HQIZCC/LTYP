@@ -16,4 +16,11 @@ public class TestController {
         return "hello,现在是"+new Date().toLocaleString();
     }
 
+
+    //主页
+    @RequestMapping("/index")
+    public String index() {
+        return "/index";
+    }
+
 }
