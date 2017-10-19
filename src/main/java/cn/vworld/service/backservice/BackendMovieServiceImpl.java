@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class MovieServiceImpl implements MovieService {
+public class BackendMovieServiceImpl implements BackendMovieService {
 
     @Autowired
     private BackendMovieMapper backendMovieMapper;

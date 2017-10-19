@@ -4,7 +4,7 @@ import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.controller.BaseController;
-import cn.vworld.service.backservice.MovieService;
+import cn.vworld.service.backservice.BackendMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +14,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/backend")
-public class MovieController extends BaseController{
+public class BackMovieController extends BaseController{
 
     @Autowired
-    private MovieService movieService;
+    private BackendMovieService backendMovieService;
 
     /**
      * 跳转到后台主页
@@ -27,17 +27,17 @@ public class MovieController extends BaseController{
     @RequestMapping("/index")
     public String  toBackendInd(Model model) {
 
-        Integer movieNum = movieService.findMovieNum();
+        Integer movieNum = backendMovieService.findMovieNum();
 
-        Integer movieTypeNum = movieService.findMovieTypeNum();
+        Integer movieTypeNum = backendMovieService.findMovieTypeNum();
 
-        Integer userNum = movieService.findUserNum();
+        Integer userNum = backendMovieService.findUserNum();
 
-        List<MovieInfo> movieInfoList = movieService.findAllMovie();
+        List<MovieInfo> movieInfoList = backendMovieService.findAllMovie();
 
-        List<Type> movieTypeList = movieService.findAllMovieType();
+        List<Type> movieTypeList = backendMovieService.findAllMovieType();
 
-        List<User> userList = movieService.findUserByCommentNum();
+        List<User> userList = backendMovieService.findUserByCommentNum();
 
         model.addAttribute("movieNum", movieNum);
         model.addAttribute("movieTypeNum", movieTypeNum);
@@ -68,13 +68,13 @@ public class MovieController extends BaseController{
            }
 
 
-       int allmovies = movieService.findMovieNum();
+       int allmovies = backendMovieService.findMovieNum();
 
        int   allpages = allmovies % lines == 0 ? (allmovies / lines) : (allmovies / lines)+1;
 
-       List<MovieInfo> movieInfoList = movieService.findMovieList((page-1)*lines, lines);
+       List<MovieInfo> movieInfoList = backendMovieService.findMovieList((page-1)*lines, lines);
 
-       // List<MovieInfo> movieList = movieService.findAllMovie();
+       // List<MovieInfo> movieList = backendMovieService.findAllMovie();
 
         model.addAttribute("movieList", movieInfoList);
         model.addAttribute("allpages",allpages);
@@ -102,7 +102,7 @@ public class MovieController extends BaseController{
     public String toMovieList(MovieInfo movieInfo){
 
 
-        movieService.saveMovie(movieInfo);
+        backendMovieService.saveMovie(movieInfo);
 
         return "redirect:/backend/movieList";
     }
