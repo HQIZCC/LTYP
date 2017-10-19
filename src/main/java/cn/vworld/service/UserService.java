@@ -37,119 +37,6 @@ public interface UserService {
     void saveUser(User user, UserInfo userInfo);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * 修改密码的验证码验证
      * @param validate
@@ -231,4 +118,12 @@ public interface UserService {
      * @param types
      */
     void updateUserInfo(UserInfo userInfo, String[] types);
+
+    /**
+     * 通过username来查询有没有这个用户
+     * @param username 用户名
+     * @return user对象
+     */
+    User checkUsername(String username);
+
 }

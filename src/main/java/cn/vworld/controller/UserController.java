@@ -151,7 +151,6 @@ public class UserController {
 
 
 
-
     //发送修改密码验证邮件
     @RequestMapping("/sendUpdatePasswordMail")
     public String sendUpdatePasswordMail(Model model, String userId, @RequestParam("email") String to, HttpSession session){
@@ -207,6 +206,7 @@ public class UserController {
         model.addAttribute("userList", userList);
         return "用户列表显示页面";
     }
+
 
     //按照username查找用户
     @RequestMapping("/findUserByUsername")
