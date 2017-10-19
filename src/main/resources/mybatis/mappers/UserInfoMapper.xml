@@ -31,7 +31,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
           <if test="createTime!=null">#{createTime},</if>
           <if test="updateTime!=null">#{updateTime},</if>
           <if test="email!=null">#{email}</if>
-
           )
       </insert>
 
