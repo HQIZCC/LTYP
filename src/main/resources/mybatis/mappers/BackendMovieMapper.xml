@@ -46,19 +46,31 @@
     </select>
 
     <insert id="saveMovie">
-        insert into movie_info
+        insert into movie_info(
+        <if test="movieId != null">movie_id,</if>
+        <if test="movieName != null">movie_name,</if>
+        <if test="showTime != null">show_time,</if>
+        <if test="description != null">description,</if>
+        <if test="director != null">director,</if>
+        <if test="actor != null">actor,</if>
+        <if test="poster != null">poster,</if>
+        <if test="playtime != null">playtime,</if>
+        <if test="country != null">country,</if>
+        <if test="createTime != null">create_time,</if>
+        <if test="updateTime != null">update_time</if>
+        )
         values(
-        <if test="movieId != null">movie_id=#{movieId},</if>
-        <if test="movieName != null">movie_name=#{movieName},</if>
-        <if test="showTime != null">show_time=#{showTime},</if>
-        <if test="description != null">description=#{description},</if>
-        <if test="director != null">director=#{director},</if>
-        <if test="actor != null">actor=#{actor},</if>
-        <if test="poster != null">poster=#{poster},</if>
-        <if test="time != null">playTime=#{playTime},</if>
-        <if test="country != null">country=#{country},</if>
-        create_time=#{createTime, javaType=Date},
-        update_time=#{updateTime, javaType=Date}
+        <if test="movieId != null">#{movieId},</if>
+        <if test="movieName != null">#{movieName},</if>
+        <if test="showTime != null">#{showTime},</if>
+        <if test="description != null">#{description},</if>
+        <if test="director != null">#{director},</if>
+        <if test="actor != null">#{actor},</if>
+        <if test="poster != null">#{poster},</if>
+        <if test="playtime != null">#{playtime},</if>
+        <if test="country != null">#{country},</if>
+        #{createTime, javaType=Date},
+        #{updateTime, javaType=Date}
         )
     </insert>
 

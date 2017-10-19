@@ -8,14 +8,25 @@ import java.util.List;
 
 public interface MovieService {
 
+    /** 查看电影数量总数 */
     public Integer findMovieNum();
 
+    /** 查看电影类型总量 */
     public Integer findMovieTypeNum();
 
+    /** 查询所有的用户数量 */
     public Integer findUserNum();
 
+    /**
+     * 查询所有的电影
+     * @return 电影集合
+     */
     List<MovieInfo> findAllMovie();
 
+    /**
+     * 查询所有的电影类型
+     * @return 电影类型集合
+     */
     List<Type> findAllMovieType();
 
     // 通过评论总量去选取5个最活跃的用户

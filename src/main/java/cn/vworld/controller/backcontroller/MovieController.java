@@ -83,19 +83,28 @@ public class MovieController extends BaseController{
     }
 
 
+    /**
+     * 跳转到添加新电影列表
+     * @return
+     */
     @RequestMapping("/addMovie")
     public String toAddMovie(){
 
         return "/backend/addMovie";
     }
 
+    /**
+     * 保存新电影到数据库，并且跳转到电影列表页面
+     * @param movieInfo
+     * @return
+     */
     @RequestMapping("/toMovieList")
     public String toMovieList(MovieInfo movieInfo){
 
 
         movieService.saveMovie(movieInfo);
 
-        return "redirect:/backend/MovieList";
+        return "redirect:/backend/movieList";
     }
 
 

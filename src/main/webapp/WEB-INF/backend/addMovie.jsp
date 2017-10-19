@@ -189,11 +189,11 @@
             </div>
             <div class="fbneirong">
                 <form class="am-form" action="${ctx}/backend/toMovieList"  method="post">
-                     
+
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影名称：</div>
                         <div class="you">
-                            <input type="text" name="movieId" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入名称">
+                            <input type="text" name="movieName" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入名称">
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
