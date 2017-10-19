@@ -1,6 +1,6 @@
 package cn.vworld.bean;
 
-public class MovieInfo {
+public class MovieInfo extends BaseEntity {
     private String movieId;     //电影id
     private String movieName;   //电影名字
     private String showTime;    //上映时间
@@ -9,8 +9,11 @@ public class MovieInfo {
     private String director;    //导演
     private String actor;       //主演
     private String poster;      //海报 路径
+
+
     private String playtime;        //时长
     private String country;     //国家
+
 
 
 
