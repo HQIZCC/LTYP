@@ -6,7 +6,7 @@ import cn.vworld.bean.User;
 
 import java.util.List;
 
-public interface MovieService {
+public interface BackendMovieService {
 
     /** 查看电影数量总数 */
     public Integer findMovieNum();
