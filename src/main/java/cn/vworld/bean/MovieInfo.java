@@ -9,7 +9,7 @@ public class MovieInfo {
     private String director;    //导演
     private String actor;       //主演
     private String poster;      //海报 路径
-    private String time;        //时长
+    private String playtime;        //时长
     private String country;     //国家
 
 
@@ -79,12 +79,12 @@ public class MovieInfo {
         this.poster = poster;
     }
 
-    public String getTime() {
-        return time;
+    public String getPlaytime() {
+        return playtime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setPlaytime(String playtime) {
+        this.playtime = playtime;
     }
 
     public String getCountry() {
