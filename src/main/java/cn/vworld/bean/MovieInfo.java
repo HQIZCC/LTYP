@@ -9,8 +9,13 @@ public class MovieInfo extends BaseEntity {
     private String director;    //导演
     private String actor;       //主演
     private String poster;      //海报 路径
-    private String playtime;    //时长
+
+
+    private String playtime;        //时长
     private String country;     //国家
+
+
+
 
 
     public String getMovieId() {

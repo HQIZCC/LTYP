@@ -15,4 +15,6 @@ public interface UserMapper {
     void updateBan(@Param("userId") String userId, @Param("ban") Integer ban);
 
     void saveUser(User user);
+
+    User checkUsername(String username);
 }
