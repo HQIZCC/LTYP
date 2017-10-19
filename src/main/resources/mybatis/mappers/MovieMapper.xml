@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.MovieMapper">
+      <select id="findfirstfourMovie" resultType="MovieInfo">
+          select * from movie_info where movie_id &lt;= 4
+      </select>
+    <select id="findsecondfourMovie" resultType="MovieInfo">
+          select * from movie_info where movie_id BETWEEN 5 AND 8
+      </select>
+    <select id="findthirdfourMovie" resultType="MovieInfo">
+          select * from movie_info where movie_id BETWEEN 9 AND 12
+      </select>
+</mapper>
