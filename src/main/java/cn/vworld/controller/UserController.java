@@ -43,24 +43,6 @@ public class UserController {
         return "用户列表页面";
     }
 
-    @RequestMapping("/asdas")
-    public String updateBan1(String userId, @RequestParam("ban") String b){
-        Integer ban = Integer.parseInt(b);
-        userService.updateBan(userId, ban);
-        return "用户列表页面";
-    }
-    @RequestMapping("/asdas1")
-    public String updateBan2(String userId, @RequestParam("ban") String b){
-        Integer ban = Integer.parseInt(b);
-        userService.updateBan(userId, ban);
-        return "用户列表页面";
-    }
-    @RequestMapping("/asdas2")
-    public String updateBan3(String userId, @RequestParam("ban") String b){
-        Integer ban = Integer.parseInt(b);
-        userService.updateBan(userId, ban);
-        return "用户列表页面";
-    }
 
 
 
@@ -171,15 +153,8 @@ public class UserController {
 
 
 
-    @RequestMapping("/sad")
-    public String asdasd(){
-        return "";
-    }
 
-    @RequestMapping("/qwe")
-    public String qqwe(){
-        return "";
-    }
+
 
 
 
