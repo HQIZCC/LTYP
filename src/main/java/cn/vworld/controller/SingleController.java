@@ -25,11 +25,11 @@ public class SingleController {
 
     //主页
     @RequestMapping("/index")
-    public String index1(Model model,Integer page) {
+    public String index1() {
 
         return "redirect:/movie/showmovie";
     }
-
+    //为了localhost:8090的直接跳转
     @RequestMapping("/")
     public String index() {
         return "redirect:/index";

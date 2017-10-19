@@ -55,7 +55,13 @@ public class LoginController {
         userService.saveUser(user,userInfo);
         return "redirect:/login/signin";
     }
-
+    //TODO :需要纠正乱码
+    /**
+     * Ajax异步查询数据库 判断用户名是否被占用
+     * @param response
+     * @param request
+     * @throws IOException
+     */
     @RequestMapping(value = "/AjaxCheckUsername",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
     public void checkUsername(HttpServletResponse response, HttpServletRequest request) throws IOException {
        String username = request.getParameter("username");

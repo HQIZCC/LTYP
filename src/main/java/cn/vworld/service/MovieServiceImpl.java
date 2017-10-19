@@ -13,17 +13,6 @@ public class MovieServiceImpl implements MovieService{
     private MovieMapper movieMapper;
 
 
-    @Override
-    public ArrayList<MovieInfo> findMovie(Integer page) {
-        ArrayList<MovieInfo> first = movieMapper.findfirstfourMovie(page);
-        ArrayList<MovieInfo> second = movieMapper.findsecondfourMovie(page);
-        ArrayList<MovieInfo> third = movieMapper.findthirdfourMovie(page);
-        ArrayList<MovieInfo> list = new ArrayList<>();
-        list.addAll(first);
-        list.addAll(second);
-        list.addAll(third);
-        return list;
-    }
 
     @Override
     public Integer findMovieNum() {

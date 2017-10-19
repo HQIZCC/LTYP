@@ -34,5 +34,10 @@ public interface UserService {
      */
     void saveUser(User user, UserInfo userInfo);
 
+    /**
+     * 通过username来查询有没有这个用户
+     * @param username 用户名
+     * @return user对象
+     */
     User checkUsername(String username);
 }

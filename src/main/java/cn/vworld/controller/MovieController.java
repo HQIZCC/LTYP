@@ -20,11 +20,16 @@ public class MovieController {
     private Integer pageMovie = 12;//每页显示的电影数
     private Integer movieNum = 0;//书籍的数量
 
+    /**
+     * 展现首页 默认页码为1
+     * @param model
+     * @param page 当前的页面
+     * @return
+     */
     @RequestMapping("/showmovie")
     public String showMovie(Model model,Integer page) {
         movieNum= movieService.findMovieNum();
         pages = movieNum % pageMovie == 0 ? (movieNum / pageMovie) : (movieNum / pageMovie)+1;
-        List<MovieInfo> list = movieService.findMovie(page);
         model.addAttribute("pages",pages);
         page=1;
       ArrayList<MovieInfo> movieList= movieService.findfirstfourMovie((page-1)*pageMovie+1);
@@ -36,11 +41,16 @@ public class MovieController {
         return "index";
     }
 
+    /**
+     * 根据页码来翻页
+     * @param model
+     * @param page 当前页面
+     * @return
+     */
     @RequestMapping("/findeAllPage")
     public String findAllBook(Model model,Integer page) {
         movieNum= movieService.findMovieNum();
         pages = movieNum % pageMovie == 0 ? (movieNum / pageMovie) : (movieNum / pageMovie)+1;
-        List<MovieInfo> list = movieService.findMovie(page);
         model.addAttribute("pages",pages);
 
         ArrayList<MovieInfo> movieList= movieService.findfirstfourMovie(pageMovie*(page-1)+1);
