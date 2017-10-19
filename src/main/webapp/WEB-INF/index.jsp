@@ -234,16 +234,11 @@
 								<%--</div>--%>
 							<%--</div>--%>
 						<%--</div>--%>
-
-					<center><div class="pagination">
-						<a href="#" class="page gradient">first</a><a
-						href="#" class="page gradient">2</a><a href="#"
-						class="page gradient">3</a><span class=
-						"page active">4</span><a href="#" class=
-						"page gradient">5</a><a href="#" class=
-						"page gradient">6</a><a href="#" class=
-						"page gradient">last</a>
-					</div></center>
+                    <center>
+                    <c:forEach begin="1" end="${pages}" step="1" var="p">
+                        <a class="page gradient" href="${ctx}/movie/findeAllPage?page=${p}">${p}</a>
+                    </c:forEach>
+                    </center>
 				</div>
 		</div>
 

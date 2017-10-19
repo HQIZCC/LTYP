@@ -26,6 +26,11 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
+    public Integer findMovieNum() {
+        return movieMapper.findMovieNum();
+    }
+
+    @Override
     public ArrayList<MovieInfo> findthirdfourMovie(Integer page) {
         ArrayList<MovieInfo> third = movieMapper.findthirdfourMovie(page);
         return third;

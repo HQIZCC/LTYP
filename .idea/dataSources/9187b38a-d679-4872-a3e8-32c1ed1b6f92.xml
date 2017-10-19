@@ -115,7 +115,7 @@
       <Comment>路径</Comment>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="45" parent="17" name="time">
+    <column id="45" parent="17" name="playtime">
       <Position>9</Position>
       <DataType>varchar(50)|0</DataType>
     </column>

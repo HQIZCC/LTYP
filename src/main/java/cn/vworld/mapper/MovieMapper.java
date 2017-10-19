@@ -11,4 +11,6 @@ public interface MovieMapper {
     ArrayList<MovieInfo> findsecondfourMovie(Integer page);
 
     ArrayList<MovieInfo> findthirdfourMovie(Integer page);
+
+    Integer findMovieNum();
 }

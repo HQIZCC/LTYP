@@ -7,8 +7,15 @@
 <script src="${ctx}/staticfile/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function(){
-
-
+        $("input[name='username']").blur(function () {
+            if (!formObj.checkNull("username","用户名不能为空")){
+                return;
+            }
+            var username = $(this).val();
+        $.post("${ctx}/login/AjaxCheckUsername",{"username":username},function (result) {
+            $("#username_msg").html(result);
+        });
+        });
 
 
 

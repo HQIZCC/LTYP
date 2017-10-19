@@ -33,4 +33,6 @@ public interface UserService {
      * @param userInfo 读到的userInfo对象信息
      */
     void saveUser(User user, UserInfo userInfo);
+
+    User checkUsername(String username);
 }
