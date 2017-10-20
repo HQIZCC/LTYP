@@ -9,7 +9,15 @@ public class MovieInfo extends BaseEntity {
     private String director;    //导演
     private String actor;       //主演
     private String poster;      //海报 路径
+    private Score score;
 
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 
     private String playtime;        //时长
     private String country;     //国家
