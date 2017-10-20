@@ -50,12 +50,12 @@
 									<div class="view effect">
 									 <img class="thumb" src="${ctx}/${m.poster}"/>
 									  <div class="mask">
-										<a href="/movie/single?movieInfoId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+										<a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
 									  </div>
 
 									</div>
 									<div class="clear"></div>
-									<a href="/movie/single?movieInfoId=${m.movieId}"><h3>${m.movieName}</h3></a>
+									<a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
 									<span>${m.country}</span>
 								</div>
 							</div>
@@ -114,12 +114,12 @@
                                     <div class="view effect">
                                         <img class="thumb" src="${ctx}/${m.poster}"/>
                                         <div class="mask">
-                                            <a href="/movie/single?movieInfoId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                            <a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
                                         </div>
 
                                     </div>
                                     <div class="clear"></div>
-                                    <a href="/movie/single?movieInfoId=${m.movieId}"><h3>${m.movieName}</h3></a>
+                                    <a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
                                     <span>${m.country}</span>
                                 </div>
                             </div>
@@ -180,12 +180,12 @@
                                         <div class="view effect">
                                             <img class="thumb" src="${ctx}/${m.poster}"/>
                                             <div class="mask">
-                                                <a href="/movie/single?movieInfoId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                                <a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
                                             </div>
 
                                         </div>
                                         <div class="clear"></div>
-                                        <a href="/movie/single?movieInfoId=${m.movieId}"><h3>${m.movieName}</h3></a>
+                                        <a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
                                         <span>${m.country}</span>
                                     </div>
                                 </div>

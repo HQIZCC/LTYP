@@ -27,12 +27,6 @@ public class RoleController {
         return "/role/roleList";
     }
 
-//    @RequestMapping("/tocreate")
-//    public String tocreate(){
-//
-//        return "";
-//    }
-
     @RequestMapping("/tosave")
     public String saveRole(Role role){
         roleService.saveRole(role);
@@ -41,21 +35,12 @@ public class RoleController {
 
     @RequestMapping("/delete")
     public String deleteRole(String roleId){
-
-        System.out.println("--------------"  + roleId);
-
-
         roleService.deleteRoleById_m(roleId);  //角色用户关联表
         roleService.deleteRoleById(roleId);
         return "redirect:/role/list";
     }
 
-    @RequestMapping("/toupdate")
-    public String toupdateRole(Model model){
-        List<Role> roleList=roleService.findAll();
-        model.addAttribute("roleList",roleList);
-        return "";
-    }
+
 
     @RequestMapping("/update")
     public String updateRole(String roleId){
