@@ -6,22 +6,21 @@
 				<div class="col-1-2">
 					<div class="wrap-col">
 						<ul>
-							<li class="mail"><p>刘备 乐途欢迎你</p></li>
-							 <li class="phone"><a href="#"><p>退出</p></a> </li>  
+							<li class="mail">
+                                <c:if test="${ empty sessionScope.user_login }">
+                                    <a href="${ ctx }/login/signin">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a- href="${ ctx }/login/signup">注册</a->
+                                </c:if>
+                                <c:if test="${ !(empty sessionScope.user_login) }">
+                                    欢迎 ${ user_login.username } 回来,&nbsp;
+                                    <a href="${ ctx }/login/logout">退出</a>
+                                </c:if>
+                            </li>
+							 <%--<li class="phone"><a href="#"><p>退出</p></a> </li>  --%>
 						</ul>
 					</div>
 				</div>
-				<div class="col-1-2"> 
-					<div class="wrap-col f-right">
-						<ul>
-							  <li><a href="/login/signin"><p>登 录</p></a>  </li>
 
-							 <li><p>|</p></li>
-							 
-							<li> <p><a href="/login/signup">注 册</a></p> </li>
-						</ul>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
