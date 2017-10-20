@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
+    <script src="${ctx}/staticfile/js/jquery.min.js"></script>
 </head>
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p>
@@ -219,7 +220,7 @@
                 <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
                     <thead>
                     <tr class="am-success">
-                        <th class="table-check"><input type="checkbox"/></th>
+                        <th class="table-check"><input type="checkbox" name="selectId" onclick="checkAll('movieId',this)"/></th>
                         <th class="table-id">排序</th>
                         <th class="table-title">电影名称</th>
                         <th class="table-author am-hide-sm-only">上映时间</th>
@@ -230,8 +231,7 @@
                     <tbody>
                     <c:forEach items="${movieList}" var="m" varStatus="status">
                         <tr>
-                            <td hidden="hidden"><input type="text" value="${m.movieId}"></td>
-                            <td><input type="checkbox"/></td>
+                            <td><input type="checkbox" name="movieId" value="${m.movieId}"/></td>
                             <td>${status.index+1}</td>
                             <td>${m.movieName}</td>
                             <td>${m.showTime}</td>
@@ -243,16 +243,8 @@
                 </table>
 
                 <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 删除</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 上架</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 下架</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 移动</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 移动
-                    </button>
-                    <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除
-                    </button>
+                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit('toview','_self');this.blur();"><span class="am-icon-plus"></span> 查看</a>
+
                 </div>
 
                 <ul class="am-pagination am-fr">
