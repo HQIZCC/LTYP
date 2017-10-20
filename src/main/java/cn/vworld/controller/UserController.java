@@ -1,11 +1,13 @@
 package cn.vworld.controller;
 
+import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.service.UserService;
 import cn.vworld.utils.SendMail;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    //TODO
     //发送激活邮件
     @RequestMapping("/sendValidateMail")
     public String sendMail(Model model, String userId, @RequestParam("email") String to){
@@ -33,6 +37,8 @@ public class UserController {
         }
         return "输入注册成功的页面";
     }
+
+    //TODO
     //激活邮件页面
     @RequestMapping("/activateAccount")
     public String activateAccount(Model model, String userId){
@@ -41,13 +47,15 @@ public class UserController {
         return "显示信息的页面";
     }
     //管理员修改用户禁用状态
-    @RequestMapping("/updateBan")
+    @RequestMapping("/backend/updateBan")
     public String updateBan(String userId, @RequestParam("ban") String b){
         Integer ban = Integer.parseInt(b);
         userService.updateBan(userId, ban);
-        return "用户列表页面";
+        return "redirect:/backend/userList";
     }
 
+
+    //TODO
     //发送修改密码验证邮件
     @RequestMapping("/sendUpdatePasswordMail")
     public String sendUpdatePasswordMail(Model model, String userId, @RequestParam("email") String to, HttpSession session){
@@ -99,45 +107,43 @@ public class UserController {
         return "显示信息的网址";
     }
 
-    //TODO
     //显示普通用户列表
-    @RequestMapping("/userList")
+    @RequestMapping("/backend/userList")
     public String showUserList(Model model){
         List<User> userList = userService.findAllUser();
         model.addAttribute("userList", userList);
-        return "用户列表显示页面";
+        return "/backend/userList";
     }
 
-    //TODO
-    //按照username查找用户
-    @RequestMapping("/findUserByUsername")
-    public String findUserByUsername(Model model, String username){
-        List<User> userList = userService.findUserByUsername(username);
-        model.addAttribute("userList", userList);
-        return "用户列表显示页面";
-    }
 
-    //TODO
+//    //按照username查找用户
+//    @RequestMapping("/backend/findUserByUsername")
+//    public String findUserByUsername(Model model, String username){
+//        List<User> userList = userService.findUserByUsername(username);
+//        model.addAttribute("userList", userList);
+//        return "/backend/userList";
+//    }
+
     //显示管理员列表
-    @RequestMapping("/adminList")
+    @RequestMapping("/backend/adminList")
     public String showAdminList(Model model){
         List<User> adminList = userService.findAllAdmin();
         model.addAttribute("adminList", adminList);
-        return "管理员列表显示页面";
+        return "backend/adminList";
     }
 
     //删除管理员
-    @RequestMapping("/deleteAdmin")
+    @RequestMapping("/backend/deleteAdmin")
     public String deleteAdmin(String userId){
         userService.deleteAdmin(userId);
-        return "/adminList";
+        return "redirect:/backend/adminList";
     }
 
     //新增管理员
-    @RequestMapping("/saveAdmin")
-    public String saveAdmin(User user, UserInfo userInfo){
-        userService.saveAdmin(user, userInfo);
-        return "/adminList";
+    @RequestMapping("/backend/saveAdmin")
+    public String saveAdmin(User user, UserInfo userInfo, String roleId) {
+        userService.saveAdmin(user, userInfo, roleId);
+        return "redirect:/backend/adminList";
     }
 
     //TODO
@@ -151,12 +157,28 @@ public class UserController {
         return "用户详情界面";
     }
 
-    //TODO
+
     //用户信息修改
     @RequestMapping("/updateUserInfo")
     public String updateUserInfo(UserInfo userInfo, String[] types){
         userService.updateUserInfo(userInfo, types);
         return "/findUserInfo";
+    }
+
+    //跳转到管理员新增页面
+    @RequestMapping("/backend/toAddAdmin")
+    public String toAddAdmin(Model model) {
+//        List<Role> roleList = roleService.findAll();
+//        model.addAttribute("roleList", roleList);
+        return "/backend/addAdmin";
+    }
+
+    //总管理员修改管理员禁用状态
+    @RequestMapping("/backend/updateAdminBan")
+    public String updateAdminBan(String userId, @RequestParam("ban") String b) {
+        Integer ban = Integer.parseInt(b);
+        userService.updateBan(userId, ban);
+        return "redirect:/backend/adminList";
     }
 
 }

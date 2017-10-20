@@ -147,10 +147,10 @@ function checkAllBox(formObject) {
 
 /* 全选*/
 function checkAll(who, obj){
-	var curCheckBox = document.getElementsByName(who);
-	for(i = 0; i < curCheckBox.length; i++){
-		curCheckBox.item(i).checked = obj.checked;
-	}
+    var curCheckBox = document.getElementsByName(who);
+    for(i = 0; i < curCheckBox.length; i++){
+        curCheckBox.item(i).checked = obj.checked;
+    }
 }
 
 /* add by tony 2007.12.27 */
