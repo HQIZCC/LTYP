@@ -19,7 +19,7 @@ public class MovieInfo extends BaseEntity {
         this.score = score;
     }
 
-    private String playtime;        //时长
+    private String playtime;    //时长
     private String country;     //国家
 
 
