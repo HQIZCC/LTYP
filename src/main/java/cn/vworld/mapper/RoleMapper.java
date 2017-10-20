@@ -14,5 +14,4 @@ public interface RoleMapper {
 
     void deleteRoleById(String roleId);
 
-    void updateRoleById(String roleId);
 }

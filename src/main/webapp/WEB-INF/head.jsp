@@ -8,8 +8,8 @@
 						<ul>
 							<li class="mail">
                                 <c:if test="${ empty sessionScope.user_login }">
-                                    <a href="${ ctx }/login/signin">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                                    <a- href="${ ctx }/login/signup">注册</a->
+                                    <a style="color: white" href="${ ctx }/login/signin">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a style="color: white" href="${ ctx }/login/signup">注册</a>
                                 </c:if>
                                 <c:if test="${ !(empty sessionScope.user_login) }">
                                     欢迎 ${ user_login.username } 回来,&nbsp;
@@ -33,8 +33,8 @@
 			</div>
 			<div class="col-1-2">
 				<div class="wrap-col f-right">
-					<form method="get" action="/search" id="search"  >
-					  <input name="q" type="text" size="40" placeholder="Search..." />
+                    <form method="get" action="/movie/search" id="search">
+                        <input name="search" type="text" size="40" placeholder="Search..."/>
 					  <input type="submit" value="提 交">
 					</form>
 				</div>

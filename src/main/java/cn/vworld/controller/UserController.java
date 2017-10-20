@@ -48,109 +48,6 @@ public class UserController {
         return "用户列表页面";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //发送修改密码验证邮件
     @RequestMapping("/sendUpdatePasswordMail")
     public String sendUpdatePasswordMail(Model model, String userId, @RequestParam("email") String to, HttpSession session){
@@ -165,6 +62,7 @@ public class UserController {
         return "显示信息的网址";
     }
 
+    //TODO
     //跳转到修改密码页面
     @RequestMapping("/toUpdatePassword")
     public String toUpdatePassword(String userId, String validate, Model model,  HttpSession session){
@@ -176,6 +74,7 @@ public class UserController {
         return "显示信息的网址";
     }
 
+    //TODO
     //修改用户密码
     @RequestMapping("/updatePassword")
     public String updatePassword(String userId, String password, Model model, HttpSession session){
@@ -184,6 +83,7 @@ public class UserController {
         return "显示修改密码成功/或者跳转到登录页面";
     }
 
+    //TODO
     //用户“忘记密码”界面的发送邮件
     @RequestMapping("/sendForgetMail")
     public String sendForgetMail(Model model, @RequestParam("email") String to, HttpSession session){
@@ -199,6 +99,7 @@ public class UserController {
         return "显示信息的网址";
     }
 
+    //TODO
     //显示普通用户列表
     @RequestMapping("/userList")
     public String showUserList(Model model){
@@ -207,7 +108,7 @@ public class UserController {
         return "用户列表显示页面";
     }
 
-
+    //TODO
     //按照username查找用户
     @RequestMapping("/findUserByUsername")
     public String findUserByUsername(Model model, String username){
@@ -216,6 +117,7 @@ public class UserController {
         return "用户列表显示页面";
     }
 
+    //TODO
     //显示管理员列表
     @RequestMapping("/adminList")
     public String showAdminList(Model model){
@@ -238,6 +140,7 @@ public class UserController {
         return "/adminList";
     }
 
+    //TODO
     //用户信息查看
     @RequestMapping("/findUserInfo")
     public String findUserInfo(Model model, String userId){
@@ -248,7 +151,7 @@ public class UserController {
         return "用户详情界面";
     }
 
-
+    //TODO
     //用户信息修改
     @RequestMapping("/updateUserInfo")
     public String updateUserInfo(UserInfo userInfo, String[] types){

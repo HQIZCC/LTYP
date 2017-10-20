@@ -84,7 +84,7 @@ public class MovieController {
         model.addAttribute("commentList", commentList);
         return "/movie/single";
     }
-    //TODO 加入评论需要操作 先去做用户的保存
+
     @RequestMapping("/commitComment")
     public String commitComment(Integer movieId, String commDetail, HttpSession session) {
         User user_login = (User) session.getAttribute("user_login");
@@ -98,6 +98,15 @@ public class MovieController {
         movieService.insertComment(comment);
 
         return "redirect:/movie/single?movieId="+movieId;
+    }
+
+    @RequestMapping("/search")
+    public String search(String search, Model model) {
+        List<MovieInfo> movieInfoList = movieService.findMovieListBySearch(search);
+        model.addAttribute("movieInfoList", movieInfoList);
+
+
+        return "/movie/result";
     }
 
 }

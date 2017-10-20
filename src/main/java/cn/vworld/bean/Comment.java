@@ -5,7 +5,7 @@ public class Comment extends BaseEntity {
 //    private String userId;      //userId
     private String movieId;     //电影id
     private String commDetail;  //评论内容
-    private User user;
+    private User user;          //User对象
     public String getCommId() {
         return commId;
     }

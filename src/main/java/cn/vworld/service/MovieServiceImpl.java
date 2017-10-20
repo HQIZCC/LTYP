@@ -26,6 +26,11 @@ public class MovieServiceImpl implements MovieService{
     private CommentMapper commentMapper;
 
     @Override
+    public List<MovieInfo> findMovieListBySearch(String search) {
+        return movieMapper.findMovieListBySearch(search);
+    }
+
+    @Override
     public void insertComment(Comment comment) {
         comment.setCommId(UUID.randomUUID().toString());
         comment.setCreateTime(new Date());
