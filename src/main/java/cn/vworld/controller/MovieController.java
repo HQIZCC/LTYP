@@ -1,13 +1,16 @@
 package cn.vworld.controller;
 
+import cn.vworld.bean.Comment;
 import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
+import cn.vworld.bean.User;
 import cn.vworld.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,12 +67,11 @@ public class MovieController {
         model.addAttribute("movieList3", movieList3);
         return "index";
     }
-    //TODO 记得有一个jpeg后缀的文件名
     @RequestMapping("/single")
-    public String tosingle(String movieInfoId, Model model) {
-        MovieInfo movieInfo = movieService.findMovieInfoByMovieInfoId(movieInfoId);
+    public String tosingle(String movieId, Model model) {
+        MovieInfo movieInfo = movieService.findMovieInfoByMovieInfoId(movieId);
         model.addAttribute("movieInfo", movieInfo);
-        List<MovieImage> imageList = movieService.findMovieImageByMovieInfoId(movieInfoId);
+        List<MovieImage> imageList = movieService.findMovieImageByMovieInfoId(movieId);
         if (imageList != null) {
             imageList.remove(0);
             if (System.currentTimeMillis() % 2 == 1) {
@@ -78,8 +80,33 @@ public class MovieController {
                 model.addAttribute("movieimg", imageList.get(1));
             }
         }
-
+        List<Comment> commentList= movieService.findCommentsByMovie(movieId);
+        model.addAttribute("commentList", commentList);
         return "/movie/single";
+    }
+
+    @RequestMapping("/commitComment")
+    public String commitComment(Integer movieId, String commDetail, HttpSession session) {
+        User user_login = (User) session.getAttribute("user_login");
+        if (user_login == null) {
+            return "redirect:/login/signin";
+        }
+        Comment comment = new Comment();
+        comment.setCommDetail(commDetail);
+        comment.setMovieId(String.valueOf(movieId));
+        comment.setUser(user_login);
+        movieService.insertComment(comment);
+
+        return "redirect:/movie/single?movieId="+movieId;
+    }
+
+    @RequestMapping("/search")
+    public String search(String search, Model model) {
+        List<MovieInfo> movieInfoList = movieService.findMovieListBySearch(search);
+        model.addAttribute("movieInfoList", movieInfoList);
+
+
+        return "/movie/result";
     }
 
 }

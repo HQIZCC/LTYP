@@ -1,5 +1,6 @@
 package cn.vworld.service;
 
+import cn.vworld.bean.Comment;
 import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 
@@ -49,4 +50,26 @@ public interface MovieService {
      * @return 返回查找到的movie_image对象集合
      */
     List<MovieImage> findMovieImageByMovieInfoId(String movieInfoId);
+
+    /**
+     * 根据电影ID来寻找评论
+     *
+     * @param movieInfoId 电影id
+     * @return 返回评论集合
+     */
+    List<Comment> findCommentsByMovie(String movieInfoId);
+
+    /**
+     * 插入评论
+     * @param comment 评论对象
+     */
+    void insertComment(Comment comment);
+
+    /**
+     * 通过输入框内容来进行电影查询
+     *
+     * @param search 搜索框的内容
+     * @return 电影集合
+     */
+    List<MovieInfo> findMovieListBySearch(String search);
 }
