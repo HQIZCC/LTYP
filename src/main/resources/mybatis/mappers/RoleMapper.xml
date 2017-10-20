@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.RoleMapper">
+
+<select id="findAll" resultType="Role">
+      select * from role
+</select>
+
+<!--    <resultMap id="roleRM" type="Role">
+       <id column="role_id" property="roleId"></id>
+        <result column="role_name" property="roleName"></result>
+    </resultMap>-->
+
+    <select id="saveRole">
+      insert into role VALUES (#{roleId},#{roleName})
+</select>
+
+    <delete id="deleteRoleById">
+        DELETE from role WHERE role_id =#{roleId}
+
+    </delete>
+    <delete id="deleteRoleById_m">
+        DELETE from role_user WHERE role_id =#{roleId}
+    </delete>
+
+    <update id="updateRoleById">
+        UPDATE role SET role_name=#{roleId}
+
+    </update>
+</mapper>
