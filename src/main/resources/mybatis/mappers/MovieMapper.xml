@@ -17,4 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="findMovieNum" resultType="java.lang.Integer">
         select COUNT(*) from movie_info
     </select>
+
+    <select id="findMovieInfoByMovieInfoId" resultType="MovieInfo">
+         select * from movie_info where movie_id=#{movieId}
+    </select>
 </mapper>

@@ -50,12 +50,12 @@
 									<div class="view effect">
 									 <img class="thumb" src="${ctx}/${m.poster}"/>
 									  <div class="mask">
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+										<a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
 									  </div>
 
 									</div>
 									<div class="clear"></div>
-									<a href="single.html"><h3>${m.movieName}</h3></a>
+									<a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
 									<span>${m.country}</span>
 								</div>
 							</div>
@@ -66,10 +66,10 @@
 									<%--<div class="view effect">  --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Film's Name</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Film's Name</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -80,10 +80,10 @@
 									<%--<div class="view effect">  --%>
 									 <%--<img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Lord Of War</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Lord Of War</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -94,10 +94,10 @@
 									<%--<div class="view effect"> --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/5.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>--%>
+									<%--<a href="single.jsp"><h3>The Sorcerer's Apprentice</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -114,12 +114,12 @@
                                     <div class="view effect">
                                         <img class="thumb" src="${ctx}/${m.poster}"/>
                                         <div class="mask">
-                                            <a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                            <a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
                                         </div>
 
                                     </div>
                                     <div class="clear"></div>
-                                    <a href="single.html"><h3>${m.movieName}</h3></a>
+                                    <a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
                                     <span>${m.country}</span>
                                 </div>
                             </div>
@@ -132,10 +132,10 @@
 									<%--<div class="view effect">  --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Film's Name</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Film's Name</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -147,10 +147,10 @@
 									<%--<div class="view effect">  --%>
 									 <%--<img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Lord Of War</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Lord Of War</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -161,10 +161,10 @@
 									<%--<div class="view effect"> --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile//images/5.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>--%>
+									<%--<a href="single.jsp"><h3>The Sorcerer's Apprentice</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -180,12 +180,12 @@
                                         <div class="view effect">
                                             <img class="thumb" src="${ctx}/${m.poster}"/>
                                             <div class="mask">
-                                                <a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                                <a href="/movie/single?movieId=${m.movieId}" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
                                             </div>
 
                                         </div>
                                         <div class="clear"></div>
-                                        <a href="single.html"><h3>${m.movieName}</h3></a>
+                                        <a href="/movie/single?movieId=${m.movieId}"><h3>${m.movieName}</h3></a>
                                         <span>${m.country}</span>
                                     </div>
                                 </div>
@@ -198,10 +198,10 @@
 									<%--<div class="view effect">  --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/6.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Seeking Justice</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Seeking Justice</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -212,10 +212,10 @@
 									<%--<div class="view effect">  --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/7.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Season Of The Witch</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Season Of The Witch</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -226,10 +226,10 @@
 									<%--<div class="view effect">  --%>
 									  <%--<img class="thumb" src="${ctx}/staticfile/images/8.jpg"  />--%>
 									  <%--<div class="mask">  --%>
-										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+										<%--<a href="single.jsp" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
 									  <%--</div>  --%>
 									<%--</div>--%>
-									<%--<a href="single.html"><h3>Three Mustketeers</h3></a>--%>
+									<%--<a href="single.jsp"><h3>Three Mustketeers</h3></a>--%>
 									<%--<span>Lorem ipsum dolor sit</span>--%>
 								<%--</div>--%>
 							<%--</div>--%>
@@ -252,7 +252,7 @@
 					<div class="wid-content">
 						<ul>
 						<li><a href="#">Mad Max: Fury Road</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						<li><a href="#">The Age of Adaline</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
+						<li><a href="http://www.dytt8.net/html/gndy/dyzz/20171010/55256.html">猩球崛起3:终极之战</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
 						<li><a href="#">Pound of Flesh</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
 						<li><a href="#">Bloodbath Island</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
 						<li><a href="#">Pound of Flesh</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
