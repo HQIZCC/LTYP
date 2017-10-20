@@ -1,8 +1,10 @@
 package cn.vworld.service;
 
+import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface MovieService {
 
@@ -33,4 +35,18 @@ public interface MovieService {
      * @return 电影的数量
      */
     Integer findMovieNum();
+
+    /**
+     * 通过movieInfoid来查找movieInfo对象
+     * @param movieInfoId movieInfo的id
+     * @return 返回的是movieInfo对象
+     */
+    MovieInfo findMovieInfoByMovieInfoId(String movieInfoId);
+
+    /**
+     * 通过movieInfoId来查找movieImage表上的内容
+     * @param movieInfoId movieInfo的id
+     * @return 返回查找到的movie_image对象集合
+     */
+    List<MovieImage> findMovieImageByMovieInfoId(String movieInfoId);
 }
