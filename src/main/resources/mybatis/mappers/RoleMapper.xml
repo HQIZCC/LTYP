@@ -22,12 +22,10 @@
         DELETE from role WHERE role_id =#{roleId}
 
     </delete>
+
     <delete id="deleteRoleById_m">
         DELETE from role_user WHERE role_id =#{roleId}
     </delete>
 
-    <update id="updateRoleById">
-        UPDATE role SET role_name=#{roleId}
 
-    </update>
 </mapper>

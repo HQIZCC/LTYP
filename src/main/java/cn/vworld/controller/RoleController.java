@@ -42,9 +42,4 @@ public class RoleController {
 
 
 
-    @RequestMapping("/update")
-    public String updateRole(String roleId){
-        roleService.updateRoleById(roleId);
-        return "redirect:";
-    }
 }

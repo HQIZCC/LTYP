@@ -35,8 +35,4 @@ public class RoleServiceImpl implements RoleService {
     }
 
 
-    @Override
-    public void updateRoleById(String roleId) {
-    roleMapper.updateRoleById(roleId);
-    }
 }
