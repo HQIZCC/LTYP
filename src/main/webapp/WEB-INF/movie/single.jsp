@@ -94,45 +94,21 @@
 					</div>
 					<div class="wid-content">
 						<table width="95%" border="1" cellpadding="2" cellspacing="1" style="table-layout:fixed;font-size:18px;">   
+						<c:forEach items="${commentList}" var="c">
 						<tr>
-							
 							<td>
 								<!-- 用户 -->
-								lee 评价:2017-10-19
+								评价时间:<fmt:formatDate value="${c.createTime}" pattern="yyyy-MM-dd"/> 评价人: ${c.user.username} 评价:
 								<br/>
 								<!-- 影评内容 -->
-								故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，
+								${c.commDetail}
 								<br/>
 								<button type="submit" value="good" style="margin-left:680px">点赞(5)</button>
-  								
-								<hr style="height:1px;border:none;border-top:1px dashed #F8F8FF;"/>
-								
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<!-- 用户 -->
-								lee 评价:2017-10-19
-								<br/>
-								<!-- 影评内容 -->
-								故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，
-								<br/>
-								<button type="submit" value="good" style="margin-left:680px">点赞(1)</button>
 								<hr style="height:1px;border:none;border-top:1px dashed #F8F8FF;"/>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<!-- 用户 -->
-								lee 评价:2017-10-19
-								<br/>
-								<!-- 影评内容 -->
-								故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，
-								<br/>
-								<button type="submit" value="good" style="margin-left:670px">点赞(7)</button>
-								<hr style="height:1px;border:none;border-top:1px dashed #F8F8FF;"/>
-							</td>
-						</tr>
+                        </c:forEach>
+
 
 						</table>
 						<button class="comm" onclick="commClick()">评论</button>
@@ -140,12 +116,12 @@
 						
 						
 						<div class="commForm">
-						<form>
+						<form action="/movie/commitComment" target="_self">
 							<input type="hidden" name="userId" value="${user.userId}">
-							<input type="hidden" name="movieId" value="${movie.movieId}">
+							<input type="hidden" name="movieId" value="${movieInfo.movieId}">
 							<label for="comment">用户评论:</label>
-							<textarea name="" style="width: 600px; height: 80px"></textarea>
-							<button type="submit" >确定</button>
+							<textarea name="commDetail" style="width: 600px; height: 80px" placeholder="您对此电影有什么看法呢?小影期待您的评论"></textarea>
+							<button type="submit">确定</button>
 						</form>
 						
 						</div>
