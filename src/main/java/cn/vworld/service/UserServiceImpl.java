@@ -1,5 +1,6 @@
 package cn.vworld.service;
 
+import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
@@ -202,7 +203,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void saveAdmin(User user, UserInfo userInfo) {
+    public void saveAdmin(User user, UserInfo userInfo, String roleId) {
         user.setUserId(UUID.randomUUID().toString());
         user.setCreateTime(new Date());
         user.setState(1);
@@ -211,6 +212,7 @@ public class UserServiceImpl implements UserService{
         userInfo.setUserInfoId(user.getUserId());
         userInfo.setCreateTime(new Date());
         userInfoMapper.saveUserInfo(userInfo);
+        userMapper.saveUserRole(user.getUserId(), roleId);
     }
 
     @Override

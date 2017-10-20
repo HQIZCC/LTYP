@@ -7,7 +7,8 @@
 					<div class="wrap-col">
 						<ul>
 							<li class="mail"><p>刘备 乐途欢迎你</p></li>
-							 <li class="phone"><a href="#"><p>退出</p></a> </li>  
+                            <li class="phone"><a href="${ctx}/backend/index"><p>[管理员中心]</p></a></li>
+                            <li class="phone"><a href="#"><p>退出</p></a></li>
 						</ul>
 					</div>
 				</div>
