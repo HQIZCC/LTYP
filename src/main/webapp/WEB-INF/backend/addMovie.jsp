@@ -20,8 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${ctx}/staticfile/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${ctx}/staticfile/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
@@ -188,8 +188,8 @@
 
             </div>
             <div class="fbneirong">
-                <form class="am-form" action="${ctx}/backend/toMovieList"  method="post">
-
+                <form class="am-form" action="${ctx}/backend/toMovieList"  method="post" enctype="multipart/form-data">
+                    <input name="poster" hidden="hidden" value="">
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影名称：</div>
                         <div class="you">
@@ -199,7 +199,7 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">上映时间：</div>
                         <div class="you">
-                            <input type="text" name="showTime" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="上映日期" data-am-datepicker="{theme: 'success',}"  readonly/>
+                            <input type="text" name="showTime" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="上映日期" data-am-datepicker="{theme: 'success',}" readonly="readonly"/>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
@@ -222,7 +222,17 @@
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影海报：</div>
-                        <div class="you"><input type="file" id="doc-ipt-file-1" name="poster">
+                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
+                            <p class="am-form-help">请选择要上传的文件...</p></div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">详情页1：</div>
+                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
+                            <p class="am-form-help">请选择要上传的文件...</p></div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">详情页2：</div>
+                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
                             <p class="am-form-help">请选择要上传的文件...</p></div>
                     </div>
                     <div class="am-form-group am-cf">
