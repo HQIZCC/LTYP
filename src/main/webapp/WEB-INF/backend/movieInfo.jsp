@@ -132,28 +132,6 @@
 
 
     </div>
-        <!-- sideMenu End -->
-
-        <script type="text/javascript">
-            jQuery(".sideMenu").slide({
-                titCell:"h3", //鼠标触发对象
-                targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
-                effect:"slideDown", //targetCell下拉效果
-                delayTime:300 , //效果时间
-                triggerTime:150, //鼠标延迟触发时间（默认150）
-                defaultPlay:true,//默认是否执行效果（默认true）
-                returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
-            });
-
-
-        </script>
-
-
-
-
-
-
-
 
     </div>
 
@@ -193,31 +171,31 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影名称：</div>
                         <div class="you">
-                            <input type="text" name="movieName" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入名称">
+                            <input type="text" name="movieName" class="am-input-sm" id="doc-ipt-email-1" value="${movieInfo.movieName}" readonly="readonly"/>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">上映时间：</div>
                         <div class="you">
-                            <input type="text" name="showTime" class="am-form-field am-input-sm am-input-zm  am-icon-calendar" placeholder="上映日期" data-am-datepicker="{theme: 'success',}" readonly="readonly"/>
+                            <input type="text" name="showTime" class="am-form-field am-input-sm am-input-zm  am-icon-calendar"  value="${movieInfo.showTime}" readonly="readonly" >
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影描述：</div>
                         <div class="you">
-                            <textarea class="" name="description" rows="2" id="doc-ta-1"></textarea>
+                            <textarea class="" name="description" rows="2" id="doc-ta-1">${movieInfo.description}</textarea>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影导演：</div>
                         <div class="you">
-                            <input type="text" name="director" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入导演名称">
+                            <input type="text" name="director" class="am-input-sm" id="doc-ipt-email-1" value="${movieInfo.director}" readonly="readonly">
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影演员：</div>
                         <div class="you">
-                            <input type="text" name="actor" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入演员">
+                            <input type="text" name="actor" class="am-input-sm" id="doc-ipt-email-1" value="${movieInfo.actor}" readonly="readonly">
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
@@ -227,7 +205,7 @@
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">详情页1：</div>
-                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
+                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file" value="${movieInfo.poster}">
                             <p class="am-form-help">请选择要上传的文件...</p></div>
                     </div>
                     <div class="am-form-group am-cf">
@@ -238,13 +216,13 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影时长：</div>
                         <div class="you">
-                            <input type="text" name="playtime" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入电影放映总时长">
+                            <input type="text" name="playtime" class="am-input-sm" id="doc-ipt-email-1" value="${movieInfo.playtime}" readonly="readonly">
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影来源地：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="text" name="country" id="doc-ipt-file-1" placeholder="请选择上映国家"></input>
+                            <input type="text" name="country" id="doc-ipt-file-1" value="${movieInfo.country}" readonly="readonly"></input>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
