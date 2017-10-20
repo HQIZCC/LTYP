@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
-    <script src="${ctx}/staticfile/js/jquery.min.js"></script>
 </head>
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p>
@@ -161,91 +160,49 @@
         <div class="admin-biaogelist">
 
             <div class="listbiaoti am-cf">
-                <ul class="am-icon-flag on"> 栏目名称</ul>
+                <ul class="am-icon-flag on"> 角色列表</ul>
 
                 <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="${ctx}/backend/movieList">电影列表</a>
                 </dl>
 
-                <dl>
-                    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"><a href="${ctx}/backend/addMovie">添加新电影</a></button>
-                </dl>
 
 
             </div>
 
-            <div class="am-btn-toolbars am-btn-toolbar am-kg am-cf">
-                <ul>
-                    <li>
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">电影分类</option>
-                                <option value="o">电影评分</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">产品分类</option>
-                                <option value="o">下架</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li style="margin-right: 0;">
-                        <span class="tubiao am-icon-calendar"></span>
-                        <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar"
-                               placeholder="上映日期" data-am-datepicker="{theme: 'success',}" readonly/>
-                    </li>
 
 
-                    <li style="margin-left: -10px;">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">电影分类</option>
-                                <option value="o">下架</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li><input type="text" class="am-form-field am-input-sm am-input-xm" placeholder="关键词搜索"/></li>
-                    <li>
-                        <button type="button" class="am-btn am-radius am-btn-xs am-btn-success"
-                                style="margin-top: -1px;">搜索
-                        </button>
-                    </li>
-                </ul>
-            </div>
 
-
-            <form class="am-form am-g">
+            <form class="am-form am-g" action="delete" method="post">
                 <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
                     <thead>
                     <tr class="am-success">
-                        <th class="table-check"><input type="checkbox" name="selectId" onclick="checkAll('movieId',this)"/></th>
-                        <th class="table-id">排序</th>
-                        <th class="table-title">电影名称</th>
-                        <th class="table-author am-hide-sm-only">上映时间</th>
-                        <th class="table-date am-hide-sm-only">所属国家</th>
-                        <th width="163px" class="table-set">电影评分</th>
+                        <%--<th class="table-check"><input type="checkbox"/></th>--%>
+                        <th class="table-id" style="width: 150px">角色ID</th>
+                        <th class="table-title">角色名称</th>
+
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${movieList}" var="m" varStatus="status">
+                 <c:forEach items="${roleList}" var="r" varStatus="status">
                         <tr>
-                            <td><input type="checkbox" name="movieId" value="${m.movieId}"/></td>
-                            <td>${status.index+1}</td>
-                            <td>${m.movieName}</td>
-                            <td>${m.showTime}</td>
-                            <td class="am-hide-sm-only">${m.country}</td>
-                            <td class="am-hide-sm-only">${m.avgscore}</td>
+                            <td hidden="hidden"><input type="text" name="roleId" value="${r.roleId}"></td>
+                            <%--<td><input type="checkbox"/></td>--%>
+                            <td>${r.roleId}</td>
+                            <td>${r.roleName}</td>
+                            <td>
+                                <%--<button type="submit">删除 </button>--%>
+                                    <a href="${ctx}/role/delete?roleId=${r.roleId}"><font color="#8b0000">删除</font></a>
+
+                            </td>
+
                         </tr>
                     </c:forEach>
+                    <tr  style="text-align: center">
+                        <td colspan="3"><a  href="${ctx}/role/addRole"><font color="green">添加</font></a></td>
+                    </tr>
                     </tbody>
                 </table>
-
-                <div class="am-btn-group am-btn-group-xs">
-                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit('toview','_self');this.blur();"><span class="am-icon-plus"></span> 查看</a>
-
-                </div>
+            </form>
 
                 <ul class="am-pagination am-fr">
                     <c:forEach begin="1" end="${allpages}" step="1" var="p">
@@ -258,7 +215,7 @@
 
                 <hr/>
                 <p style="color:red;">注：各大站内管理员删除数据是请谨慎操作</p>
-            </form>
+
 
 
             <div class="foods">
