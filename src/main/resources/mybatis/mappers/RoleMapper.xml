@@ -15,16 +15,16 @@
     </resultMap>-->
 
     <select id="saveRole">
-      insert into role VALUES (#{roleId},#{roleName})
+        insert into role values (#{roleId},#{roleName})
 </select>
 
     <delete id="deleteRoleById">
-        DELETE from role WHERE role_id =#{roleId}
+        delete from role where role_id =#{roleId}
 
     </delete>
 
     <delete id="deleteRoleById_m">
-        DELETE from role_user WHERE role_id =#{roleId}
+        delete from role_user where role_id =#{roleId}
     </delete>
 
 

@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Amaze UI Admin index Examples</title>
+    <title>电影详情页</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -138,17 +138,6 @@
     <div class=" admin-content">
 
         <div class="daohang">
-            <ul>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-
-
-            </ul>
-
-
-
 
         </div>
 
@@ -160,7 +149,7 @@
             <div class="listbiaoti am-cf">
                 <ul class="am-icon-flag on"> 电影</ul>
 
-                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="电影列表.html">电影列表</a></dl>
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="">电影详情</a></dl>
 
 
 
@@ -183,7 +172,8 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影描述：</div>
                         <div class="you">
-                            <textarea class="" name="description" rows="2" id="doc-ta-1">${movieInfo.description}</textarea>
+                            <textarea class="" name="description" rows="2" id="doc-ta-1"
+                                      readonly="readonly">${movieInfo.description}</textarea>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
@@ -200,18 +190,21 @@
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影海报：</div>
-                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
-                            <p class="am-form-help">请选择要上传的文件...</p></div>
+                        <div class="you"><img id="doc-ipt-file-1" src="${ctx}/${movieInfo.poster}"
+                                              style="width: 230px;height: 190px"></div>
+
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">详情页1：</div>
-                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file" value="${movieInfo.poster}">
-                            <p class="am-form-help">请选择要上传的文件...</p></div>
+                        <div class="you"><img id="doc-ipt-file-1" src="${ctx}/${movieImage0.imageUrl}"
+                                              style="width: 230px;height: 150px"></div>
+
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">详情页2：</div>
-                        <div class="you"><input type="file" id="doc-ipt-file-1" name="file">
-                            <p class="am-form-help">请选择要上传的文件...</p></div>
+                        <div class="you"><img id="doc-ipt-file-1" src="${ctx}/${movieImage1.imageUrl}"
+                                              style="width: 230px;height: 150px"></div>
+
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影时长：</div>
@@ -223,12 +216,6 @@
                         <div class="zuo">电影来源地：</div>
                         <div class="you" style="height: 45px;">
                             <input type="text" name="country" id="doc-ipt-file-1" value="${movieInfo.country}" readonly="readonly"></input>
-                        </div>
-                    </div>
-                    <div class="am-form-group am-cf">
-                        <div class="you" style="margin-left: 11%;">
-                            <button type="submit" class="am-btn am-btn-success am-radius">发布并关闭窗口</button>&nbsp;  &raquo; &nbsp; <button type="submit" class="am-btn am-btn-secondary am-radius">发布并继续发布</button>
-
                         </div>
                     </div>
                 </form>

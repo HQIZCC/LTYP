@@ -74,6 +74,12 @@ public class LoginController {
         response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
     }
 
+    @RequestMapping("logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user_login");
+        return "redirect:/index";
+    }
+
 
 
 

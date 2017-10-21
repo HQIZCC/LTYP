@@ -5,6 +5,7 @@ import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.controller.BaseController;
+import cn.vworld.service.MovieService;
 import cn.vworld.service.backservice.BackendMovieService;
 import cn.vworld.tool.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.UUID;
 
@@ -106,7 +108,15 @@ public class BackMovieController extends BaseController{
      * @return
      */
     @RequestMapping("/toMovieList")
-    public String toMovieList(MovieInfo movieInfo,HttpServletRequest request){
+    public String toMovieList(MovieInfo movieInfo, HttpServletRequest request) {
+
+        if ("".equals(movieInfo.getMovieName()) && "".equals(movieInfo.getShowTime())
+                && "".equals(movieInfo.getDescription()) && "".equals(movieInfo.getDirector())
+                && "".equals(movieInfo.getActor()) && "".equals(movieInfo.getPoster())
+                && "".equals(movieInfo.getPlaytime()) && "".equals(movieInfo.getCountry())) {
+
+            return "redirect:/backend/addMovie";
+        }
 
         List<MultipartFile> files =((MultipartHttpServletRequest)request).getFiles("file");
         MultipartFile file = null;
