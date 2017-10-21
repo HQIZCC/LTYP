@@ -121,7 +121,7 @@ where username=#{username} and password = #{password}
     (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
     ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
     left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
-    where username=#{username}
+        where username=#{username} or u.email=#{username}
     </select>
 
 
@@ -133,4 +133,9 @@ where username=#{username} and password = #{password}
     <insert id="saveUserRole">
         insert into role_user values (#{userId}, #{roleId});
     </insert>
+
+    <!--邮箱激活修改状态-->
+    <update id="updateState">
+        update user set state = 1 where user_id = #{userId}
+    </update>
 </mapper>

@@ -97,7 +97,8 @@
                             <select name="roleId">
                                 <option value="">---请选择---</option>
                                 <c:forEach items="${roleList}" var="r">
-                                    <option value="${r.roleId}">${r.roleName}</option>
+                                    <option value="${r.roleId}"
+                                            <c:if test="${r.roleId<=2}">hidden="hidden"</c:if>>${r.roleName}</option>
                                 </c:forEach>
                             </select>
                         </td>

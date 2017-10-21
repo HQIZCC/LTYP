@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
         userMapper.saveUser(user);
         roleUserMapper.saveNormalRole(user.getUserId());
         userInfo.setUserInfoId(user.getUserId());
+        userInfo.setNickname(user.getUsername());
         userInfo.setCreateTime(new Date());
         userInfoMapper.saveUserInfo(userInfo);
 
@@ -178,7 +179,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void sendUpdatePasswordMail(String to, String userId, HttpSession session) throws Exception {
         String validate = UUID.randomUUID().toString();
-        String validateUrl = "链接地址?userId="+userId+"&validate="+validate;
+        String validateUrl = "toUpdatePassword?userId=" + userId + "&validate=" + validate;
         session.setAttribute("validate", validate);
         SendMail.sendMail(to, validateUrl);
     }
