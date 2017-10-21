@@ -114,7 +114,6 @@
                     </div>
                 </div>
                 <%@include file="right.jsp" %>
-
             </div>
         </div>
     </section>

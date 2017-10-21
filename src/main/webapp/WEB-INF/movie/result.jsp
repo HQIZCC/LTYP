@@ -101,7 +101,18 @@
                                     </tr>
                                 </c:forEach>
                             </table>
-
+                            <center>
+                                <c:forEach begin="1" end="${pages}" step="1" var="p">
+                                    <a class="page gradient"
+                                       href="${ctx}/movie/findeResultPage?page=${p}&search=${search}">${p}</a>
+                                </c:forEach>
+                            </center>
+                            <center>
+                                <c:forEach begin="1" end="${typepages}" step="1" var="p">
+                                    <a class="page gradient"
+                                       href="${ctx}/movie/typeSearch?page=${p}&typeId=${typeId}">${p}</a>
+                                </c:forEach>
+                            </center>
                         </div>
                     </div>
                 </div>

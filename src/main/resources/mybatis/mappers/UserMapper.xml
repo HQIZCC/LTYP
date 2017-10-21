@@ -13,7 +13,7 @@ where username=#{username} and password = #{password}
     </select>
     <select id="findUserByU_P_simple" resultType="User">
         select * from user
-        WHERE username=#{username} and password=#{password}
+        where username=#{username} and password=#{password}
     </select>
 
     <resultMap id="userRM" type="User" autoMapping="true">
@@ -30,7 +30,7 @@ where username=#{username} and password = #{password}
     </resultMap>
 
     <insert id="saveUser">
-        INSERT INTO USER (
+        insert into user (
         <if test="username!=null">username,</if>
         <if test="password!=null">password,</if>
         <if test="state!=null">state,</if>
@@ -39,7 +39,7 @@ where username=#{username} and password = #{password}
         <if test="updateTime!=null">update_time,</if>
         <if test="userId!=null">user_id</if>
 
-        ) VALUES (
+        ) values (
         <if test="username!=null">#{username},</if>
         <if test="password!=null">#{password},</if>
         <if test="state!=null">#{state},</if>

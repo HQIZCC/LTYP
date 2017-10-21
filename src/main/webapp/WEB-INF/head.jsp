@@ -1,10 +1,85 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <style>
-    #caidan {
-        height: 25px;
-        line-height: 25px;
+    #nav1 {
+        margin: 0px auto 0px auto;
+        display: inline-block;
+    }
+
+    #nav1 .active a {
+        background: #fcab2b !important;
+    }
+
+    #nav2 {
+        margin: 0px auto 0px auto;
+        display: inline-block;
+    }
+
+    #menu {
+        background-color: #000;
+        border-bottom: 4px solid #fcab2b;
+        text-align: center;
+    }
+
+    #menu ul {
         padding: 0px;
-        background: black;
+        margin: 0px;
+        list-style: none;
+    }
+
+    #menu ul li {
+        display: inline;
+    }
+
+    #menu ul form {
+        float: left;
+        padding: 0px 20px;
+    }
+
+    #menu ul a {
+        float: left;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    #menu a:hover {
+        background: #fcab2b;
+    }
+
+    #menu2 {
+        background-color: #000;
+        border-bottom: 4px solid #fcab2b;
+        text-align: center;
+    }
+
+    #menu2 ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    #menu2 ul li {
+        display: inline;
+    }
+
+    #menu2 ul form {
+        float: left;
+        padding: 0px 20px;
+    }
+
+    #menu2 ul a {
+        float: left;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 0px 20px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    #menu2 a:hover {
+        background: #fcab2b;
     }
 </style>
 <header>
@@ -66,21 +141,41 @@
                 </nav>
             </div>
 		</div>
+        <%--<div class="row">--%>
+        <%--<p id="caidan" class="active">--%>
+        <%--<div class="wrap-nav">--%>
+        <%--<a href="/movie/typeSearch?typeId=1" target="_self">剧情</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=10" target="_self">战争</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=2" target="_self">动画</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=3" target="_self">爱情</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=4" target="_self">科幻</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=5" target="_self">动作</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=6" target="_self">犯罪</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=7" target="_self">恐怖</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=8" target="_self">励志</a>--%>
+        <%--<a href="/movie/typeSearch?typeId=9" target="_self">喜剧</a>--%>
+        <%--</div>--%>
+        <%--</p>--%>
+        <%--</div>--%>
         <div class="row">
-            <p id="caidan" class="active">
-            <div class="wrap-nav">
-                <a href="/movie/typeSearch?typeId=1" target="_self">剧情</a>
-                <a href="/movie/typeSearch?typeId=10" target="_self">战争</a>
-                <a href="/movie/typeSearch?typeId=2" target="_self">动画</a>
-                <a href="/movie/typeSearch?typeId=3" target="_self">爱情</a>
-                <a href="/movie/typeSearch?typeId=4" target="_self">科幻</a>
-                <a href="/movie/typeSearch?typeId=5" target="_self">动作</a>
-                <a href="/movie/typeSearch?typeId=6" target="_self">犯罪</a>
-                <a href="/movie/typeSearch?typeId=7" target="_self">恐怖</a>
-                <a href="/movie/typeSearch?typeId=8" target="_self">励志</a>
-                <a href="/movie/typeSearch?typeId=9" target="_self">喜剧</a>
+            <div id="menu2">
+                <nav id="nav2">
+                    <div class="wrap-nav">
+                        <ul style="margin-right: 100px">
+                            <a href="/movie/typeSearch?typeId=1" target="_self">剧情</a>
+                            <a href="/movie/typeSearch?typeId=10" target="_self">战争</a>
+                            <a href="/movie/typeSearch?typeId=2" target="_self">动画</a>
+                            <a href="/movie/typeSearch?typeId=3" target="_self">爱情</a>
+                            <a href="/movie/typeSearch?typeId=4" target="_self">科幻</a>
+                            <a href="/movie/typeSearch?typeId=5" target="_self">动作</a>
+                            <a href="/movie/typeSearch?typeId=6" target="_self">犯罪</a>
+                            <a href="/movie/typeSearch?typeId=7" target="_self">恐怖</a>
+                            <a href="/movie/typeSearch?typeId=8" target="_self">励志</a>
+                            <a href="/movie/typeSearch?typeId=9" target="_self">喜剧</a>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-            </p>
         </div>
 	</div>
 </header>

@@ -123,9 +123,20 @@
 							<textarea name="commDetail" style="width: 600px; height: 80px" placeholder="您对此电影有什么看法呢?小影期待您的评论"></textarea>
 							<button type="submit">确定</button>
 						</form>
-						
 						</div>
-					</div>
+
+                        <form action="/movie/insertScore" target="_self">
+                            <input type="text" name="userId" value="${user_login.userId}" hidden="hidden">
+                            <input type="text" name="movieId" value="${movieInfo.movieId}" hidden="hidden">
+                            请评分:
+                            <input type="radio" name="score" value="1">1
+                            <input type="radio" name="score" value="2">2
+                            <input type="radio" name="score" value="3" checked="checked">3
+                            <input type="radio" name="score" value="4">4
+                            <input type="radio" name="score" value="5">5
+                            <button type="submit">提交评分</button>
+                        </form>
+                    </div>
 				</div>
 			</div>
 		</div>
