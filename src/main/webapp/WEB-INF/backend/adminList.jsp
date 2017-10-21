@@ -79,7 +79,7 @@
                                         href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=1"
                                         class="am-btn am-btn-default"><span class="am-icon-lock"></span> 封 号</a></c:if>
                                 <c:if test="${a.ban==1}"><a
-                                        href="${ctx}/backend/updateAdmin9Ban?userId=${a.userId}&ban=0"
+                                        href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=0"
                                         class="am-btn am-btn-default"><span class="am-icon-unlock"></span> 解
                                     封</a></c:if>
                                 &nbsp;&nbsp;&nbsp;&nbsp;<a href="${ctx}/backend/deleteAdmin?userId=${a.userId}"

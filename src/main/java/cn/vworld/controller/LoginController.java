@@ -53,9 +53,11 @@ public class LoginController {
 
     //注册操作
     @RequestMapping("/regist")
-    public String saveUser(User user, UserInfo userInfo) {
+    public String saveUser(User user, UserInfo userInfo, Model model, HttpSession session) {
         userService.saveUser(user,userInfo);
-        return "redirect:/login/signin";
+        User userSendMail = userService.findUserByEmail(userInfo.getEmail());
+        session.setAttribute("userSendMail", userSendMail);
+        return "redirect:/sendValidateMail";
     }
 
     /**
