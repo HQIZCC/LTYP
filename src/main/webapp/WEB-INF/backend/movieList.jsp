@@ -29,9 +29,7 @@
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
     <script src="${ctx}/staticfile/js/jquery.min.js"></script>
 </head>
-<body>
-<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p>
-<![endif]-->
+
 
 
 <body>
@@ -51,7 +49,7 @@
 
 
                     <li><a href="#">添加新电影 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></a></li>
+                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></li>
                     <li><a href="#">电影分类</a></li>
                     <li><a href="#">用户列表</a></li>
 
@@ -92,69 +90,11 @@
 
 <div class="am-cf admin-main">
 
-    <div class="nav-navicon admin-main admin-sidebar">
-
-
-        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
-        <div class="sideMenu">
-            <h3 class="am-icon-flag"><em></em> <a href="#">电影集中营</a></h3>
-            <ul>
-                <li><a href="${ctx}/backend/movieList">电影列表</a></li>
-                <li><a href="电影分类.html">电影分类</a></li>
-            </ul>
-            <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 电影管理</a></h3>
-            <ul>
-                <li><a href="${ctx}/backend/addMovie">添加新电影</a></li>
-            </ul>
-            <h3 class="am-icon-users"><em></em> <a href="#">用户管理</a></h3>
-            <ul>
-                <li><a href="用户列表.html">用户列表</a></li>
-            </ul>
-        </div>
-        <!-- sideMenu End -->
-
-        <script type="text/javascript">
-            jQuery(".sideMenu").slide({
-                titCell: "h3", //鼠标触发对象
-                targetCell: "ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
-                effect: "slideDown", //targetCell下拉效果
-                delayTime: 300, //效果时间
-                triggerTime: 150, //鼠标延迟触发时间（默认150）
-                defaultPlay: true,//默认是否执行效果（默认true）
-                returnDefault: true //鼠标从.sideMen移走后返回默认状态（默认false）
-            });
-        </script>
-
-
-    </div>
+    <jsp:include page="backleft.jsp"/>
 
     <div class=" admin-content">
 
         <div class="daohang">
-            <ul>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页
-                </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a
-                            href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a
-                            href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a
-                            href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a>
-                    </button>
-                </li>
-
-
-            </ul>
-
-
         </div>
 
 
@@ -257,18 +197,11 @@
 
 
                 <hr/>
-                <p style="color:red;">注：各大站内管理员删除数据是请谨慎操作</p>
+                <p style="color:red;">注：各大站内管理员删除数据时请谨慎操作</p>
             </form>
 
 
-            <div class="foods">
-                <ul>
-                    版权所有@2017 V_WORD
-                </ul>
-                <dl>
-                    <a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a>
-                </dl>
-            </div>
+            <jsp:include page="backfoot.jsp"/>
 
 
         </div>
