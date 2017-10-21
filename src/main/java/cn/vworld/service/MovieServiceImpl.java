@@ -26,6 +26,16 @@ public class MovieServiceImpl implements MovieService{
     private CommentMapper commentMapper;
 
     @Override
+    public List<MovieInfo> typeSearch(String typeId) {
+        return movieMapper.typeSearch(typeId);
+    }
+
+    @Override
+    public List<MovieInfo> findNewUpdateMovie(Integer number) {
+        return movieMapper.findNewUpdateMovie(number);
+    }
+
+    @Override
     public List<MovieInfo> findMovieListBySearch(String search) {
         return movieMapper.findMovieListBySearch(search);
     }

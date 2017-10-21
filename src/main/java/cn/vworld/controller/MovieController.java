@@ -23,6 +23,7 @@ public class MovieController {
     private Integer pages = 0;//总共有多少页
     private Integer pageMovie = 12;//每页显示的电影数
     private Integer movieNum = 0;//书籍的数量
+    private Integer updateNum = 3;//右侧最近更新电影的数量
 
     /**
      * 展现首页 默认页码为1
@@ -32,7 +33,7 @@ public class MovieController {
      * @return
      */
     @RequestMapping("/showmovie")
-    public String showMovie(Model model, Integer page) {
+    public String showMovie(Model model, Integer page, HttpSession session) {
         movieNum = movieService.findMovieNum();
         pages = movieNum % pageMovie == 0 ? (movieNum / pageMovie) : (movieNum / pageMovie) + 1;
         model.addAttribute("pages", pages);
@@ -43,6 +44,10 @@ public class MovieController {
         model.addAttribute("movieList2", movieList2);
         ArrayList<MovieInfo> movieList3 = movieService.findthirdfourMovie((page - 1) * pageMovie + 9);
         model.addAttribute("movieList3", movieList3);
+        //右边的最近更新电影
+
+        List<MovieInfo> newUpdate = movieService.findNewUpdateMovie(updateNum);
+        session.setAttribute("newUpdate", newUpdate);
         return "index";
     }
 
@@ -65,6 +70,7 @@ public class MovieController {
         model.addAttribute("movieList2", movieList2);
         ArrayList<MovieInfo> movieList3 = movieService.findthirdfourMovie((page - 1) * pageMovie + 9);
         model.addAttribute("movieList3", movieList3);
+
         return "index";
     }
     @RequestMapping("/single")
@@ -81,6 +87,7 @@ public class MovieController {
             }
         }
         List<Comment> commentList= movieService.findCommentsByMovie(movieId);
+
         model.addAttribute("commentList", commentList);
         return "/movie/single";
     }
@@ -104,9 +111,15 @@ public class MovieController {
     public String search(String search, Model model) {
         List<MovieInfo> movieInfoList = movieService.findMovieListBySearch(search);
         model.addAttribute("movieInfoList", movieInfoList);
-
-
         return "/movie/result";
     }
+
+    @RequestMapping("/typeSearch")
+    public String typeSearch(String typeId, Model model) {
+        List<MovieInfo> movieInfoList = movieService.typeSearch(typeId);
+        model.addAttribute("movieInfoList", movieInfoList);
+        return "/movie/result";
+    }
+
 
 }

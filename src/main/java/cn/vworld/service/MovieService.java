@@ -72,4 +72,20 @@ public interface MovieService {
      * @return 电影集合
      */
     List<MovieInfo> findMovieListBySearch(String search);
+
+    /**
+     * 查找最近更新的电影
+     *
+     * @param number 选择最近的更新的电影数量
+     * @return 返回最近更新的电影集合
+     */
+    List<MovieInfo> findNewUpdateMovie(Integer number);
+
+    /**
+     * 根据类型查找电影
+     *
+     * @param typeId 电影类型的id
+     * @return 电影的列表
+     */
+    List<MovieInfo> typeSearch(String typeId);
 }

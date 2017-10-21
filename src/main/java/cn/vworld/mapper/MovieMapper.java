@@ -18,4 +18,8 @@ public interface MovieMapper {
     MovieInfo findMovieInfoByMovieInfoId(String movieInfoId);
 
     List<MovieInfo> findMovieListBySearch(String search);
+
+    List<MovieInfo> findNewUpdateMovie(Integer number);
+
+    List<MovieInfo> typeSearch(String typeId);
 }

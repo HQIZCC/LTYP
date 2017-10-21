@@ -27,4 +27,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
       or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
     </select>
+
+    <select id="findNewUpdateMovie" resultType="MovieInfo">
+        select * from movie_info order by update_time DESC LIMIT 0,#{number}
+    </select>
+
+    <select id="typeSearch" resultType="MovieInfo">
+        select movie_info.* from movie_info left join movie_type on movie_info.movie_id=movie_type.movie_id where movie_type.type_id=#{typeId};
+    </select>
 </mapper>
