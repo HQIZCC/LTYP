@@ -101,87 +101,27 @@
                                     </tr>
                                 </c:forEach>
                             </table>
-
+                            <center>
+                                <c:forEach begin="1" end="${pages}" step="1" var="p">
+                                    <a class="page gradient"
+                                       href="${ctx}/movie/findeResultPage?page=${p}&search=${search}">${p}</a>
+                                </c:forEach>
+                            </center>
+                            <center>
+                                <c:forEach begin="1" end="${typepages}" step="1" var="p">
+                                    <a class="page gradient"
+                                       href="${ctx}/movie/typeSearch?page=${p}&typeId=${typeId}">${p}</a>
+                                </c:forEach>
+                            </center>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="sidebar" class="col-1-3">
-                <div class="wrap-sidebar">
-                    <!---- Start Widget ---->
-                    <div class="widget wid-new-updates">
-                        <div class="wid-header">
-                            <h5>Hot Updates !</h5>
-                        </div>
-                        <div class="wid-content">
-                            <ul>
-                                <li><a href="#">Mad Max: Fury Road</a><span><img
-                                        src="${ctx}/staticfile/images/hot.png"/></span></li>
-                                <li><a href="#">The Age of Adaline</a><span><img
-                                        src="${ctx}/staticfile/images/hot.png"/></span></li>
-                                <li><a href="#">Pound of Flesh</a><span><img
-                                        src="${ctx}/staticfile/images/hot.png"/></span></li>
-                                <li><a href="#">Bloodbath Island</a><span><img src="${ctx}/staticfile/images/hot.png"/></span>
-                                </li>
-                                <li><a href="#">Pound of Flesh</a><span><img
-                                        src="${ctx}/staticfile/images/hot.png"/></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!---- Start Widget ---->
-                    <div class="widget wid-tag">
-                        <div class="wid-header">
-                            <h5>Tags</h5>
-                        </div>
-                        <div class="wid-content">
-                            <ul>
-                                <li><a href="#">animals</a></li>
-                                <li><a href="#">ssdad</a></li>
-                                <li><a href="#">ss</a></li>
-                                <li><a href="#">asdas</a></li>
-                                <li><a href="#">asdsals</a></li>
-                                <li><a href="#">dasdas</a></li>
-                                <li><a href="#">animals</a></li>
-                                <li><a href="#">aasdasls</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!---- Start Widget ---->
-                    <div class="widget wid-post">
-                        <div class="wid-header">
-                            <h5>Today's movies</h5>
-                        </div>
-                        <div class="wid-content">
-                            <div class="post">
-                                <a href="#"><img src="${ctx}/staticfile/images/1.jpg"/></a>
-                                <div class="wrapper">
-                                    <a href="#"><h6>A Blue Morning</h6></a>
-                                    <p>March 1, 2015</p>
-                                    <a href="#"><img src="${ctx}/staticfile/images/star.png"/></a>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <a href="#"><img src="${ctx}/staticfile/images/2.jpg"/></a>
-                                <div class="wrapper">
-                                    <a href="#"><h6>A Blue Morning</h6></a>
-                                    <p>March 1, 2015</p>
-                                    <a href="#"><img src="${ctx}/staticfile/images/star.png"/></a>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <a href="#"><img src="${ctx}/staticfile/images/3.jpg"/></a>
-                                <div class="wrapper">
-                                    <a href="#"><h6>A Blue Morning</h6></a>
-                                    <p>March 1, 2015</p>
-                                    <a href="#"><img src="${ctx}/staticfile/images/star.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!---- Start Widget ---->
 
-                </div>
-            </div>
+
+            <!---- Start Widget ---->
+            <%@include file="../right.jsp" %>
+
         </div>
     </section>
 

@@ -53,9 +53,11 @@ public class LoginController {
 
     //注册操作
     @RequestMapping("/regist")
-    public String saveUser(User user, UserInfo userInfo) {
+    public String saveUser(User user, UserInfo userInfo, Model model, HttpSession session) {
         userService.saveUser(user,userInfo);
-        return "redirect:/login/signin";
+        User userSendMail = userService.findUserByEmail(userInfo.getEmail());
+        session.setAttribute("userSendMail", userSendMail);
+        return "redirect:/sendValidateMail";
     }
 
     /**
@@ -70,6 +72,12 @@ public class LoginController {
         User result =  userService.checkUsername(username);
         response.setContentType("text/html;charset=utf-8");
         response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
+    }
+
+    @RequestMapping("logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user_login");
+        return "redirect:/index";
     }
 
 

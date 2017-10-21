@@ -1210,6 +1210,22 @@ function formSubmit (url,sTarget){
     return true;
 }
 
+/* 打开一个新页面：提交页面第二个表单 add by 胡佳豪 */
+function formSubmit2(url, sTarget) {
+    document.forms[1].target = sTarget
+    document.forms[1].action = url;
+    document.forms[1].submit();
+    return true;
+}
+
+/* 打开一个新页面：提交页面第三个表单 add by 胡佳豪 */
+function formSubmit3(url, sTarget) {
+    document.forms[2].target = sTarget
+    document.forms[2].action = url;
+    document.forms[2].submit();
+    return true;
+}
+
 function selectToInput(selectObj) {
 	var value = selectObj.options[selectObj.selectedIndex].value;
 //	alert(selectObj.parentElement.firstChild.tagName);

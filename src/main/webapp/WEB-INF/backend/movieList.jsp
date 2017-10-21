@@ -33,60 +33,7 @@
 
 
 <body>
-<header class="am-topbar admin-header">
-    <div class="am-topbar-brand"><img src="${ctx}/staticfile/assets/i/logo.png"></div>
-
-    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-        <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
-
-            <li class="am-dropdown tognzhi" data-am-dropdown>
-                <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o"
-                        data-am-dropdown-toggle> 全部功能<span class="am-badge am-badge-danger am-round">6</span></button>
-                <ul class="am-dropdown-content">
-
-
-                    <li class="am-dropdown-header">所有的功能都在这里</li>
-
-
-                    <li><a href="#">添加新电影 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></li>
-                    <li><a href="#">电影分类</a></li>
-                    <li><a href="#">用户列表</a></li>
-
-
-                </ul>
-            </li>
-
-
-            <li class="kuanjie">
-
-                <a href="${ctx}/backend/movieList">电影列表</a>
-                <a href="用户列表.html">用户列表</a>
-            </li>
-
-            <li class="soso">
-
-                <p>
-
-                    <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
-                        <option value="o">电影</option>
-                        <option value="o">用户</option>
-                    </select>
-
-                </p>
-
-                <p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="搜索全网"/></p>
-                <p>
-                    <button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button>
-                </p>
-            </li>
-
-
-            <li class="am-hide-sm-only" style="float: right;"><a href="javascript:;" id="admin-fullscreen"><span
-                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-        </ul>
-    </div>
-</header>
+<jsp:include page="backheader.jsp"/>
 
 <div class="am-cf admin-main">
 
@@ -156,7 +103,7 @@
             </div>
 
 
-            <form class="am-form am-g">
+            <form class="am-form am-g" name="movieList">
                 <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
                     <thead>
                     <tr class="am-success">
@@ -183,11 +130,13 @@
                 </table>
 
                 <div class="am-btn-group am-btn-group-xs">
+
                     <a href="#" class="am-btn am-btn-default" onclick="formSubmit('toview','_self');this.blur();"><span class="am-icon-plus"></span> 查看</a>
                     <a href="#" class="am-btn am-btn-default"
                        onclick="formSubmit('toupdate','_self');this.blur();"><span class="am-icon-plus"></span> 修改</a>
                     <a href="#" class="am-btn am-btn-default"
                        onclick="formSubmit('todelete','_self');this.blur();"><span class="am-icon-plus"></span> 删除</a>
+
 
                 </div>
 
@@ -214,19 +163,6 @@
 
 
 </div>
-
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="${ctx}/staticfile/assets/js/polyfill/rem.min.js"></script>
-<script src="${ctx}/staticfile/assets/js/polyfill/respond.min.js"></script>
-<script src="${ctx}/staticfile/assets/js/amazeui.legacy.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="${ctx}/staticfile/assets/js/amazeui.min.js"></script>
-<!--<![endif]-->
-
 
 </body>
 </html>

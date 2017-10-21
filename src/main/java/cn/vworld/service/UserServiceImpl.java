@@ -4,6 +4,8 @@ import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
+import cn.vworld.mapper.RoleMapper;
+import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
 import cn.vworld.utils.SendMail;
@@ -24,6 +26,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserInfoMapper userInfoMapper;
+
+    @Autowired
+    private RoleUserMapper roleUserMapper;
 
     @Override
     public User findUserByU_P(String username, String password) {
@@ -48,9 +53,12 @@ public class UserServiceImpl implements UserService{
         user.setState(0);
         user.setBan(0);
         userMapper.saveUser(user);
+        roleUserMapper.saveNormalRole(user.getUserId());
         userInfo.setUserInfoId(user.getUserId());
+        userInfo.setNickname(user.getUsername());
         userInfo.setCreateTime(new Date());
         userInfoMapper.saveUserInfo(userInfo);
+
     }
 
     @Override
@@ -171,7 +179,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void sendUpdatePasswordMail(String to, String userId, HttpSession session) throws Exception {
         String validate = UUID.randomUUID().toString();
-        String validateUrl = "链接地址?userId="+userId+"&validate="+validate;
+        String validateUrl = "toUpdatePassword?userId=" + userId + "&validate=" + validate;
         session.setAttribute("validate", validate);
         SendMail.sendMail(to, validateUrl);
     }

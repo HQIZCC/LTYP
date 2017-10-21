@@ -38,7 +38,7 @@
     <select id="findMovieList" resultType="cn.vworld.bean.MovieInfo">
          <![CDATA[
 
-              SELECT  * FROM movie_info limit #{showpage}, #{lines}
+              select  * from movie_info limit #{showpage}, #{lines}
 
 
         ]]>
