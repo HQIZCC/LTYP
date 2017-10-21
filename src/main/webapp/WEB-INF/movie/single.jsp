@@ -121,8 +121,9 @@
 							<input type="hidden" name="movieId" value="${movieInfo.movieId}">
 							<label for="comment">用户评论:</label>
 							<textarea name="commDetail" style="width: 600px; height: 80px" placeholder="您对此电影有什么看法呢?小影期待您的评论"></textarea>
-							<button type="submit">确定</button>
-						</form>
+                            <button type="submit">提交评论</button>
+
+                        </form>
 						</div>
 
                         <form action="/movie/insertScore" target="_self">
@@ -131,10 +132,16 @@
                             请评分:
                             <input type="radio" name="score" value="1">1
                             <input type="radio" name="score" value="2">2
-                            <input type="radio" name="score" value="3" checked="checked">3
+                            <input type="radio" name="score" value="3">3
                             <input type="radio" name="score" value="4">4
-                            <input type="radio" name="score" value="5">5
+                            <input type="radio" name="score" value="5" checked="checked">5
+                            <input type="radio" name="score" value="6">6
+                            <input type="radio" name="score" value="7">7
+                            <input type="radio" name="score" value="8">8
+                            <input type="radio" name="score" value="9">9
+                            <input type="radio" name="score" value="10">10
                             <button type="submit">提交评分</button>
+                            <p style="color: red">温馨提示:每个用户只有第一次评分有效哦,请慎重评分</p>
                         </form>
                     </div>
 				</div>
