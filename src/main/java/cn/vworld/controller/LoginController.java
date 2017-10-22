@@ -33,6 +33,10 @@ public class LoginController {
         //通过username和password来查询数据库
         User user= userService.findUserByU_P(username, password);
         if (user != null) {
+            if (user.getBan() == 1) {
+                model.addAttribute("msg", "账号已被封，请联系管理员！");
+                return "movie/message";
+            }
             model.addAttribute("user", user);
             session.setAttribute("user_login",user);
             return "redirect:/movie/showmovie";
