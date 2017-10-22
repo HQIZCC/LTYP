@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="cn.vworld.mapper.UserMapper">
     <select id="findUserByU_P" resultMap="userRM">
-       select u.*,r.* from
+        select u.*,r.* from
 (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
 ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
 left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
@@ -67,7 +67,7 @@ where username=#{username} and password = #{password}
         (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
           ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
         left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
-        where r.role_name = "用户"
+        where r.role_name = "用户" limit #{showpage}, #{lines}
     </select>
 
     <select id="findUserByUsername" resultMap="userRM">
@@ -141,5 +141,13 @@ where username=#{username} and password = #{password}
 
     <select id="findUserNumByKey" resultType="Integer">
         select count(*) from user where username like "%"#{key}"%"
+    </select>
+
+    <select id="findAllUserNum" resultType="Integer">
+      select count(*) from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+          ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where r.role_name = "用户"
     </select>
 </mapper>

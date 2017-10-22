@@ -71,7 +71,7 @@ public interface UserService {
      * 显示用户列表
      * @return
      */
-    List<User> findAllUser();
+    List<User> findAllUser(int showpage, int lines);
 
     /**
      * 按照用户名查询
@@ -132,4 +132,6 @@ public interface UserService {
     int findUserNumBykey(String key);
 
     List<User> findUserListByKey(int showpage, int lines, String key);
+
+    int findAllUserNum();
 }

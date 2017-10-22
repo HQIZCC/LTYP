@@ -121,12 +121,27 @@ public class UserController {
 
     //显示普通用户列表
     @RequestMapping("/backend/userList")
-    public String showUserList(Model model){
-        List<User> userList = userService.findAllUser();
+    public String showUserList(Model model, String showpage) {
+
+        int page = 1;
+
+        int lines = 8;
+
+        if (showpage != null) {
+            page = Integer.parseInt(showpage);
+        }
+
+        int allUsers = userService.findAllUserNum();
+
+        int allpages = allUsers % lines == 0 ? (allUsers / lines) : ((allUsers / lines) + 1);
+
+        List<User> userList = userService.findAllUser((page - 1) * lines, lines);
+
         model.addAttribute("userList", userList);
+        model.addAttribute("allpages", allpages);
+
         return "/backend/userList";
     }
-
 
 //    //按照username查找用户
 //    @RequestMapping("/backend/findUserByUsername")

@@ -26,7 +26,7 @@ public interface UserMapper {
     //根据用户邮箱查找用户
     User findUserByEmail(String email);
     //显示全用户列表
-    List<User> findAllUser();
+    List<User> findAllUser(@Param("showpage") int showpage, @Param("lines") int lines);
     //根据用户名查找用户，显示在用户列表
     List<User> findUserByUsername(@Param("showpage") int showpage, @Param("lines") int lines, @Param("username") String username);
     //显示管理员列表
@@ -52,4 +52,6 @@ public interface UserMapper {
     int findUserNumByKey(String key);
 
     List<User> findfindUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
+
+    int findAllUserNum();
 }
