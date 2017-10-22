@@ -48,13 +48,9 @@
         <div class="admin-biaogelist">
 
             <div class="listbiaoti am-cf">
-                <ul class="am-icon-flag on"> 栏目名称</ul>
+                <ul class="am-icon-flag on"> 电影</ul>
 
                 <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="${ctx}/backend/movieList">电影列表</a>
-                </dl>
-
-                <dl>
-                    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"><a href="${ctx}/backend/addMovie">添加新电影</a></button>
                 </dl>
 
 
@@ -131,11 +127,13 @@
 
                 <div class="am-btn-group am-btn-group-xs">
 
-                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit('toview','_self');this.blur();"><span class="am-icon-plus"></span> 查看</a>
+                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit2('toview','_self');this.blur();"><span
+                            class="am-icon-plus"></span> 查看</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit('toupdate','_self');this.blur();"><span class="am-icon-plus"></span> 修改</a>
+                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修改</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit('todelete','_self');this.blur();"><span class="am-icon-plus"></span> 删除</a>
+                       onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
+                        删除</a>
 
 
                 </div>

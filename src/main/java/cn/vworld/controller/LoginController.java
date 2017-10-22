@@ -37,7 +37,7 @@ public class LoginController {
             session.setAttribute("user_login",user);
             return "redirect:/movie/showmovie";
         }
-        return "/login/signin";
+        return "redirect:/login/signin";
     }
     //转到注册页面
     @RequestMapping("/signup")
@@ -74,7 +74,7 @@ public class LoginController {
         response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user_login");
         return "redirect:/index";

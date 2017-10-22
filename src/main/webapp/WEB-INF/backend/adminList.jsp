@@ -75,16 +75,18 @@
                             <td>${a.userInfo.email}</td>
                             <td>${a.userInfo.phone}</td>
                             <td>
-                                <c:if test="${a.ban==0}"><a
-                                        href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=1"
-                                        class="am-btn am-btn-default"><span class="am-icon-lock"></span> 封 号</a></c:if>
-                                <c:if test="${a.ban==1}"><a
-                                        href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=0"
-                                        class="am-btn am-btn-default"><span class="am-icon-unlock"></span> 解
-                                    封</a></c:if>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="${ctx}/backend/deleteAdmin?userId=${a.userId}"
-                                                           class="am-btn am-btn-default"><span
+                                <c:if test="${a.role.roleId!=2}">
+                                    <c:if test="${a.ban==0}"><a
+                                            href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=1"
+                                            class="am-btn am-btn-default"><span class="am-icon-lock"></span> 封 号</a></c:if>
+                                    <c:if test="${a.ban==1}"><a
+                                            href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=0"
+                                            class="am-btn am-btn-default"><span class="am-icon-unlock"></span> 解
+                                        封</a></c:if>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="${ctx}/backend/deleteAdmin?userId=${a.userId}"
+                                    class="am-btn am-btn-default"><span
                                     class="am-icon-trash"></span> 删 除</a>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
@@ -99,10 +101,6 @@
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
                     <li><a href="#">»</a></li>
                 </ul>
 

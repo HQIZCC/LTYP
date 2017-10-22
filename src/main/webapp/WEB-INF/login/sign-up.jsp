@@ -28,7 +28,7 @@
 
             }else{
 
-                $("#username_msg").html("<img src='images/right.ico'>");
+                $("#username_msg").html("<img src='${ctx}/staticfile/images/right.ico'>");
             }
         });
 
@@ -42,14 +42,14 @@
 
                 }else{
                     $("#password_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
 
 
                     var pass2 = $("input[name=password2]").val();
 
                     if(pass2){
                         $("#password2_msg")
-                            .html("<img src='images/right.ico'>");
+                            .html("<img src='${ctx}/staticfile/images/right.ico'>");
                     }
 
 
@@ -64,9 +64,9 @@
 
                 }else{
                     $("#password2_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                     $("#password_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -80,7 +80,7 @@
                 if(!formObj.checkEmail("email","邮箱格式不正确")){
                 }else{
                     $("#email_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -94,7 +94,7 @@
                 if(!formObj.checkphone("phone","手机号码格式不正确")){
                 }else{
                     $("#phone_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -246,7 +246,7 @@
                 </form>
             </div>
         </div>
-        <p><a href="/login/signin">sign-in</a></p>
+        <p><a href="/login/signin">登 录</a></p>
     </div>
 </div> 
 
