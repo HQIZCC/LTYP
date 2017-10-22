@@ -38,7 +38,7 @@
         <ul>
             <li><a href="${ctx}/backend/index">首页</a></li>
             <li><a href="${ctx}/index">返回前台</a></li>
-            <li><a href="${ctx}/backend/index">首页</a></li>
+            <li><a href="${ ctx }/login/logout">退出</a></li>
         </ul>
         <h3 class="am-icon-film"><em></em> <a href="#"> 电影集中营</a></h3>
         <ul>

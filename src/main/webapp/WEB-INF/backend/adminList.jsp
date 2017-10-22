@@ -60,7 +60,7 @@
                         <th class="table-name" style="text-align: center">姓名</th>
                         <th class="table-type" style="text-align: center">性别</th>
                         <th class="table-type" style="text-align: center">年龄</th>
-                        <th class="table-type" style="text-align: center">邮箱</th>
+                        <th class="table-type" style="text-align: center">职位</th>
                         <th class="table-type" style="text-align: center">手机号</th>
                         <th width="130px" class="table-set" style="text-align: center">操作</th>
                     </tr>
@@ -72,7 +72,7 @@
                             <td>${a.userInfo.name}</td>
                             <td>${a.userInfo.gender}</td>
                             <td>${a.userInfo.age}</td>
-                            <td>${a.userInfo.email}</td>
+                            <td>${a.role.roleName}</td>
                             <td>${a.userInfo.phone}</td>
                             <td>
                                 <c:if test="${a.role.roleId!=2}">
@@ -114,19 +114,6 @@
 
 
 </div>
-
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/polyfill/rem.min.js"></script>
-<script src="assets/js/polyfill/respond.min.js"></script>
-<script src="assets/js/amazeui.legacy.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/amazeui.min.js"></script>
-<!--<![endif]-->
-
 
 </body>
 </html>
