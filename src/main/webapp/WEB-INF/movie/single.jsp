@@ -48,6 +48,7 @@
     
 </head>
 <body>
+<%@include file="../head.jsp" %>
 <div class="wrap-body">
 
  
@@ -68,14 +69,13 @@
 							<div class="wrap-col">
 								<ul>
 									<li><p>电影名称:${movieInfo.movieName}</p></li>
-									
 									<li><p>导演: ${movieInfo.director}</p></li>
 									<li><p>演员: ${movieInfo.actor}</p></li>
 									<li><p>国家: ${movieInfo.country}</p></li>
-									
 									<li><p>上映日期: ${movieInfo.showTime}</p></li>
-									<li><a class="button bt1" href="#">Play</a><a class="button bt1" href="#">评论</a></li>
-									<li class="star"><a href="#"><img src="${ctx}/staticfile/images/star.png" /></a></li>
+                                    <li><p>评分: ${movieInfo.avgscore}</p></li>
+                                    <li><p>时长: ${movieInfo.playtime}</p></li>
+                                    <li><a class="button bt1" onclick="commClick()" href="#comment">评论</a></li>
 								</ul>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 
 
 						</table>
-						<button class="comm" onclick="commClick()">评论</button>
+                        <button class="comm" id="comment" onclick="commClick()">评论</button>
 
 						
 						
