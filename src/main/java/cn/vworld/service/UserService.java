@@ -129,9 +129,11 @@ public interface UserService {
      */
     User checkUsername(String username);
 
+
     int findUserNumBykey(String key);
 
     List<User> findUserListByKey(int showpage, int lines, String key);
 
     int findAllUserNum();
+
 }

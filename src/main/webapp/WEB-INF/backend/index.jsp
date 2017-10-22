@@ -27,9 +27,17 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
+
+    <script src="${ctx}/staticfile/userPersonalInfo/js/echarts.js"></script>
+    <script src="${ctx}/staticfile/userPersonalInfo/js/showChart.js"></script>
+    <script src="${ctx}/staticfile/userPersonalInfo/js/theme.js"></script>
     <script src="${ctx}/staticfile/js/echarts.js"></script>
     <script src="${ctx}/staticfile/js/showChart.js"></script>
     <script src="${ctx}/staticfile/js/theme.js"></script>
+</head>
+
+   
+
 
 
 
@@ -38,7 +46,9 @@
 </head>
 
 <body>
+
 <jsp:include page="backheader.jsp"/>
+
 
 <div class="am-cf admin-main">
 
@@ -49,8 +59,10 @@
             <div class="daohang">
                 <ul>
                     <li>
+
                         <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"/>
                         首页
+
                     </li>
                     <li>
                         <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a
@@ -99,13 +111,14 @@
                     <div class="xinxitj">今日热评</div>
 
                     <div class="row" style="margin-top: -100px">
+
                         <div id="showChart"
                              style="width: 100%; height: 600px; margin-left: 0px; margin-right: 6px; margin-bottom: 8px; float: left; overflow: hidden;"></div>
+
 
                     </div>
 
                     <div id="main" style="width: 100%;height:300px;"></div>
-
 
                 </div>
                 <div class="shuju">

@@ -16,7 +16,7 @@ public interface UserInfoMapper {
 
 
 
-
+    UserInfo findUserInfoById(String userInfoId);
 
 
 
@@ -153,4 +153,6 @@ public interface UserInfoMapper {
 
 
     void updateUserInfo(UserInfo userInfo);
+
+    void updateUserInfoByUser(UserInfo userInfo);
 }

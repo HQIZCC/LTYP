@@ -18,7 +18,9 @@ where username=#{username} and password = #{password}
 
     <resultMap id="userRM" type="User" autoMapping="true">
         <id property="userId" column="user_id"/>
-        <association property="userInfo" javaType="UserInfo" resultMap="userInfoRM"></association>
+        <association property="userInfo" javaType="UserInfo" resultMap="userInfoRM">
+
+        </association>
         <association property="role" javaType="Role">
             <id property="roleId" column="role_id"/>
             <result property="roleName" column="role_name"/>

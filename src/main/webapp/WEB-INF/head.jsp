@@ -95,7 +95,7 @@
                                     <a style="color: white" href="${ ctx }/login/signup">注册</a>
                                 </c:if>
                                 <c:if test="${ !(empty sessionScope.user_login) }">
-                                    欢迎 ${ user_login.username } 回来,&nbsp;
+									欢迎<a href="${ctx}/userPerInfo?userId=${user_login.userId}"> ${ user_login.username }</a> 回来,&nbsp;
                                     <a href="${ ctx }/login/logout">退出</a>
                                 </c:if>
                                 <c:if test="${ !(empty sessionScope.user_login) and user_login.role.roleId!=1 }">
@@ -128,7 +128,7 @@
 		</div>
 		<div class="row">
 			<div id="menu">
-				<nav>
+				<nav  id="nav1">
 					<div class="wrap-nav">
 					   <ul>
                            <li><a href="/movie/showmovie">首页</a></li>
