@@ -7,12 +7,14 @@ import cn.vworld.bean.User;
 import cn.vworld.mapper.BackendMovieMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class BackendMovieServiceImpl implements BackendMovieService {
 
     @Autowired
@@ -90,5 +92,15 @@ public class BackendMovieServiceImpl implements BackendMovieService {
         }
 
 
+    }
+
+    @Override
+    public int findMovieByKey(String key) {
+        return backendMovieMapper.findMovieByKey(key);
+    }
+
+    @Override
+    public List<MovieInfo> findMovieListBykey(int showpage, int lines, String key) {
+        return backendMovieMapper.findMovieListBykey(showpage, lines, key);
     }
 }

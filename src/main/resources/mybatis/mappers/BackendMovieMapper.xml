@@ -45,6 +45,15 @@
 
     </select>
 
+    <select id="findMovieListBykey" resultType="cn.vworld.bean.MovieInfo">
+
+              SELECT  * FROM movie_info where movie_name like "%"#{key}"%"
+      or director like "%"#{key}"%" or actor like "%"#{key}"%" or country like "%"#{key}"%"
+       limit #{showpage}, #{lines}
+
+
+    </select>
+
 
     <insert id="saveMovie">
         insert into movie_info(
@@ -91,5 +100,11 @@
     <delete id="deleteNullPosterUrl">
         delete from movie_image where image_id=#{imageId}
     </delete>
+
+    <select id="findMovieByKey" resultType="Integer">
+         select count(*) from movie_info
+where movie_name like "%"#{key}"%"
+      or director like "%"#{key}"%" or actor like "%"#{key}"%" or country like "%"#{key}"%"
+    </select>
 
 </mapper>

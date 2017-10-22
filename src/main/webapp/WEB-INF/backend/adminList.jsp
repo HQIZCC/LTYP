@@ -60,7 +60,7 @@
                         <th class="table-name" style="text-align: center">姓名</th>
                         <th class="table-type" style="text-align: center">性别</th>
                         <th class="table-type" style="text-align: center">年龄</th>
-                        <th class="table-type" style="text-align: center">邮箱</th>
+                        <th class="table-type" style="text-align: center">职位</th>
                         <th class="table-type" style="text-align: center">手机号</th>
                         <th width="130px" class="table-set" style="text-align: center">操作</th>
                     </tr>
@@ -72,19 +72,21 @@
                             <td>${a.userInfo.name}</td>
                             <td>${a.userInfo.gender}</td>
                             <td>${a.userInfo.age}</td>
-                            <td>${a.userInfo.email}</td>
+                            <td>${a.role.roleName}</td>
                             <td>${a.userInfo.phone}</td>
                             <td>
-                                <c:if test="${a.ban==0}"><a
-                                        href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=1"
-                                        class="am-btn am-btn-default"><span class="am-icon-lock"></span> 封 号</a></c:if>
-                                <c:if test="${a.ban==1}"><a
-                                        href="${ctx}/backend/updateAdmin9Ban?userId=${a.userId}&ban=0"
-                                        class="am-btn am-btn-default"><span class="am-icon-unlock"></span> 解
-                                    封</a></c:if>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="${ctx}/backend/deleteAdmin?userId=${a.userId}"
-                                                           class="am-btn am-btn-default"><span
+                                <c:if test="${a.role.roleId!=2}">
+                                    <c:if test="${a.ban==0}"><a
+                                            href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=1"
+                                            class="am-btn am-btn-default"><span class="am-icon-lock"></span> 封 号</a></c:if>
+                                    <c:if test="${a.ban==1}"><a
+                                            href="${ctx}/backend/updateAdminBan?userId=${a.userId}&ban=0"
+                                            class="am-btn am-btn-default"><span class="am-icon-unlock"></span> 解
+                                        封</a></c:if>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="${ctx}/backend/deleteAdmin?userId=${a.userId}"
+                                    class="am-btn am-btn-default"><span
                                     class="am-icon-trash"></span> 删 除</a>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
@@ -99,10 +101,6 @@
                 <ul class="am-pagination am-fr">
                     <li class="am-disabled"><a href="#">«</a></li>
                     <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
                     <li><a href="#">»</a></li>
                 </ul>
 
@@ -116,19 +114,6 @@
 
 
 </div>
-
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/polyfill/rem.min.js"></script>
-<script src="assets/js/polyfill/respond.min.js"></script>
-<script src="assets/js/amazeui.legacy.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/amazeui.min.js"></script>
-<!--<![endif]-->
-
 
 </body>
 </html>

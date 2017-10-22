@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
+    <script src="${ctx}/staticfile/js/jquery.min.js"></script>
 </head>
 <body>
 <header class="am-topbar admin-header">
@@ -61,7 +62,7 @@
             </li>
 
             <li class="soso">
-                <form class="am-form" action="${ctx}/backend/search" method="post">
+                <form class="am-form" name="search">
                     <p>
                         <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}" name="search">
                             <option value="movie">电影</option>
@@ -72,7 +73,9 @@
                     <p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="搜索全站" name="key"/>
                     </p>
                     <p>
-                        <input type="submit" class="am-btn am-btn-xs am-btn-default am-xiao" value="提交">
+                        <a href="#" class="am-btn am-btn-default"
+                           onclick="formSubmit('${ctx}/backend/search','_self');this.blur();"><i
+                                class="am-icon-search"></i></a>
                     </p>
                 </form>
             </li>

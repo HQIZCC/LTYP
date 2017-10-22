@@ -5,9 +5,9 @@ import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.mapper.UserInfoMapper;
+import cn.vworld.service.RoleService;
 import cn.vworld.service.UserService;
 import cn.vworld.utils.SendMail;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,28 +23,36 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //TODO
+    @Autowired
+    private RoleService roleService;
+
+
     //发送激活邮件
     @RequestMapping("/sendValidateMail")
-    public String sendMail(Model model, String userId, @RequestParam("email") String to){
-        String validateUrl = "链接地址?userId="+userId;
+    public String sendMail(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("userSendMail");
+        String userId = user.getUserId();
+        String to = user.getUserInfo().getEmail();
+        session.removeAttribute("userSendMail");
+        String validateUrl = "activateAccount?userId=" + userId;
         try {
             SendMail.sendMail(to, validateUrl);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("msg", "发送邮件出错，请联系管理员！");
-            return "显示信息的网址";
+            return "movie/message";
         }
-        return "输入注册成功的页面";
+
+        return "redirect:/login/signin";
     }
 
-    //TODO
+
     //激活邮件页面
     @RequestMapping("/activateAccount")
     public String activateAccount(Model model, String userId){
         userService.updateState(userId);
         model.addAttribute("msg", "账号激活成功！");
-        return "显示信息的页面";
+        return "movie/message";
     }
     //管理员修改用户禁用状态
     @RequestMapping("/backend/updateBan")
@@ -54,8 +62,6 @@ public class UserController {
         return "redirect:/backend/userList";
     }
 
-
-    //TODO
     //发送修改密码验证邮件
     @RequestMapping("/sendUpdatePasswordMail")
     public String sendUpdatePasswordMail(Model model, String userId, @RequestParam("email") String to, HttpSession session){
@@ -64,22 +70,28 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("msg", "发送邮件出错，请联系管理员！");
-            return "显示信息的网址";
+            return "movie/message";
         }
         model.addAttribute("msg", "发送邮件成功！");
-        return "显示信息的网址";
+        return "movie/message";
     }
 
-    //TODO
+
     //跳转到修改密码页面
     @RequestMapping("/toUpdatePassword")
     public String toUpdatePassword(String userId, String validate, Model model,  HttpSession session){
-        if(userService.toUpdatePassword(validate, session)){
-            //验证码判断正确
-            return "修改密码的页面";
+        try {
+            if (userService.toUpdatePassword(validate, session)) {
+                //验证码判断正确
+                model.addAttribute("userId", userId);
+                return "/login/reset-password";
+            }
+            model.addAttribute("msg", "跳转修改密码页面失败！请重新发送邮件");
+            return "movie/message";
+        } catch (Exception e) {
+            model.addAttribute("msg", "跳转修改密码页面失败！请重新发送邮件");
+            return "movie/message";
         }
-        model.addAttribute("msg", "跳转修改密码页面失败！");
-        return "显示信息的网址";
     }
 
     //TODO
@@ -88,7 +100,7 @@ public class UserController {
     public String updatePassword(String userId, String password, Model model, HttpSession session){
         userService.updatePassword(userId, password, session);
         model.addAttribute("msg", "修改密码成功，请重新登录！");
-        return "显示修改密码成功/或者跳转到登录页面";
+        return "movie/message";
     }
 
     //TODO
@@ -101,20 +113,35 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("msg", "发送邮件出错，请联系管理员！");
-            return "显示信息的网址";
+            return "movie/message";
         }
         model.addAttribute("msg", "发送邮件成功！");
-        return "显示信息的网址";
+        return "movie/message";
     }
 
     //显示普通用户列表
     @RequestMapping("/backend/userList")
-    public String showUserList(Model model){
-        List<User> userList = userService.findAllUser();
+    public String showUserList(Model model, String showpage) {
+
+        int page = 1;
+
+        int lines = 8;
+
+        if (showpage != null) {
+            page = Integer.parseInt(showpage);
+        }
+
+        int allUsers = userService.findAllUserNum();
+
+        int allpages = allUsers % lines == 0 ? (allUsers / lines) : ((allUsers / lines) + 1);
+
+        List<User> userList = userService.findAllUser((page - 1) * lines, lines);
+
         model.addAttribute("userList", userList);
+        model.addAttribute("allpages", allpages);
+
         return "/backend/userList";
     }
-
 
 //    //按照username查找用户
 //    @RequestMapping("/backend/findUserByUsername")
@@ -168,8 +195,8 @@ public class UserController {
     //跳转到管理员新增页面
     @RequestMapping("/backend/toAddAdmin")
     public String toAddAdmin(Model model) {
-//        List<Role> roleList = roleService.findAll();
-//        model.addAttribute("roleList", roleList);
+        List<Role> roleList = roleService.findAll();
+        model.addAttribute("roleList", roleList);
         return "/backend/addAdmin";
     }
 
@@ -181,4 +208,12 @@ public class UserController {
         return "redirect:/backend/adminList";
     }
 
+
+    @RequestMapping("/toSendForgetMail")
+    public String toSendForgetMail() {
+        return "/login/sendMail";
+    }
 }
+
+
+

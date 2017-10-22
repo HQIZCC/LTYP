@@ -28,7 +28,7 @@
 
             }else{
 
-                $("#username_msg").html("<img src='images/right.ico'>");
+                $("#username_msg").html("<img src='${ctx}/staticfile/images/right.ico'>");
             }
         });
 
@@ -42,14 +42,14 @@
 
                 }else{
                     $("#password_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
 
 
                     var pass2 = $("input[name=password2]").val();
 
                     if(pass2){
                         $("#password2_msg")
-                            .html("<img src='images/right.ico'>");
+                            .html("<img src='${ctx}/staticfile/images/right.ico'>");
                     }
 
 
@@ -64,9 +64,9 @@
 
                 }else{
                     $("#password2_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                     $("#password_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -80,7 +80,7 @@
                 if(!formObj.checkEmail("email","邮箱格式不正确")){
                 }else{
                     $("#email_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -94,7 +94,7 @@
                 if(!formObj.checkphone("phone","手机号码格式不正确")){
                 }else{
                     $("#phone_msg")
-                        .html("<img src='images/right.ico'>");
+                        .html("<img src='${ctx}/staticfile/images/right.ico'>");
                 }
             }
 
@@ -222,7 +222,7 @@
         <div class="block">
             <p class="block-heading">Sign Up</p>
             <div class="block-body">
-                <form>
+                <form onsubmit="return formObj.checkForm()" action="/login/regist" target="_self">
                     <label>用户名:</label>
                     <input type="text" class="username" name="username">
                     <span id ="username_msg" style="color:red"></span>
@@ -239,13 +239,14 @@
                     <label>手机号:</label>
                     <input type="text" class="phone" name="phone">
                     <span id="phone_msg" style="color:red;"></span>
-                    <a href="#" onclick="formSubmit('regist','_self');this.blur();" class="btn btn-primary pull-right">注 册</a>
+                    <%--<a href="#" onclick="formSubmit('regist','_self');this.blur();" class="btn btn-primary pull-right">注 册</a>--%>
+                    <button type="submit" class="btn btn-primary pull-right">注册</button>
                     <label class="remember-me"><input type="checkbox" name="agree"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>
                     <div class="clearfix"></div>
                 </form>
             </div>
         </div>
-        <p><a href="/login/signin">sign-in</a></p>
+        <p><a href="/login/signin">登 录</a></p>
     </div>
 </div> 
 

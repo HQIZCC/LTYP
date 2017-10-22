@@ -12,7 +12,7 @@
     <!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>zMovie</title>
+	<title>乐途影评</title>
 	<meta name="description" content="Free Responsive Html5 Css3 Templates | zerotheme.com">
 	<meta name="author" content="www.zerotheme.com">
 	
@@ -121,88 +121,38 @@
 							<input type="hidden" name="movieId" value="${movieInfo.movieId}">
 							<label for="comment">用户评论:</label>
 							<textarea name="commDetail" style="width: 600px; height: 80px" placeholder="您对此电影有什么看法呢?小影期待您的评论"></textarea>
-							<button type="submit">确定</button>
-						</form>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="sidebar" class="col-1-3">
-			<div class="wrap-sidebar">
-				<!---- Start Widget ---->
-				<div class="widget wid-new-updates">
-					<div class="wid-header">
-						<h5>Hot Updates !</h5>
-					</div>
-					<div class="wid-content">
-						<ul>
-						<li><a href="#">Mad Max: Fury Road</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						<li><a href="#">The Age of Adaline</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						<li><a href="#">Pound of Flesh</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						<li><a href="#">Bloodbath Island</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						<li><a href="#">Pound of Flesh</a><span><img src="${ctx}/staticfile/images/hot.png" /></span></li>
-						</ul>
-					</div>
-				</div>
-				<!---- Start Widget ---->
-				<div class="widget wid-tag">
-					<div class="wid-header">
-						<h5>Tags</h5>
-					</div>
-					<div class="wid-content">
-						<ul>
-						<li><a href="#">animals</a></li>
-						<li><a href="#">ssdad</a></li>
-						<li><a href="#">ss</a></li>
-						<li><a href="#">asdas</a></li>
-						<li><a href="#">asdsals</a></li>
-						<li><a href="#">dasdas</a></li>
-						<li><a href="#">animals</a></li>
-						<li><a href="#">aasdasls</a></li>
-						</ul>
-					</div>
-				</div>
-				<!---- Start Widget ---->
-				<div class="widget wid-post">
-					<div class="wid-header">
-						<h5>Today's movies</h5>
-					</div>
-					<div class="wid-content">
-						<div class="post">
-							<a href="#"><img src="${ctx}/staticfile/images/1.jpg"/></a>
-							<div class="wrapper">
-							  <a href="#"><h6>A Blue Morning</h6></a>
-							  <p>March 1, 2015</p>
-							  <a href="#"><img src="${ctx}/staticfile/images/star.png" /></a>
-							</div>
-						</div>
-						<div class="post">
-							<a href="#"><img src="${ctx}/staticfile/images/2.jpg"/></a>
-							<div class="wrapper">
-							 <a href="#"><h6>A Blue Morning</h6></a>
-							  <p>March 1, 2015</p>
-							  <a href="#"><img src="${ctx}/staticfile/images/star.png" /></a>
-							</div>
-						</div>
-						<div class="post">
-							<a href="#"><img src="${ctx}/staticfile/images/3.jpg"/></a>
-							<div class="wrapper">
-							 <a href="#"><h6>A Blue Morning</h6></a>
-							  <p>March 1, 2015</p>
-							  <a href="#"><img src="${ctx}/staticfile/images/star.png" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!---- Start Widget ---->
+                            <button type="submit">提交评论</button>
 
+                        </form>
+						</div>
+
+                        <form action="/movie/insertScore" target="_self">
+                            <input type="text" name="userId" value="${user_login.userId}" hidden="hidden">
+                            <input type="text" name="movieId" value="${movieInfo.movieId}" hidden="hidden">
+                            请评分:
+                            <input type="radio" name="score" value="1">1
+                            <input type="radio" name="score" value="2">2
+                            <input type="radio" name="score" value="3">3
+                            <input type="radio" name="score" value="4">4
+                            <input type="radio" name="score" value="5" checked="checked">5
+                            <input type="radio" name="score" value="6">6
+                            <input type="radio" name="score" value="7">7
+                            <input type="radio" name="score" value="8">8
+                            <input type="radio" name="score" value="9">9
+                            <input type="radio" name="score" value="10">10
+                            <button type="submit" onclick="">提交评分</button>
+                            <p style="color: red">温馨提示:每个用户只有第一次评分有效哦,请慎重评分</p>
+                        </form>
+                    </div>
+				</div>
 			</div>
 		</div>
+        <%@include file="../right.jsp" %>
 	</div>
-</section> 
+</section>
+    <script>
 
+    </script>
 
 </div>
 
