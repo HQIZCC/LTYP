@@ -27,11 +27,12 @@ public class LoginController {
 
     //点击登录页面后的操作
     @RequestMapping(value = "/login")
-    public String login(Model model, String username, String password, HttpSession session) {
+    public String login(Model model, String username, String password, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws IOException {
 //        User user= userService.findUserByU_P(username, password);
         //通过username和password来查询数据库
         User user= userService.findUserByU_P(username, password);
         if (user != null) {
+
             if (user.getBan() == 1) {
                 model.addAttribute("msg", "账号已被封，请联系管理员！");
                 return "movie/message";
@@ -41,6 +42,8 @@ public class LoginController {
             return "redirect:/movie/showmovie";
         }
         return "redirect:/login/signin";
+
+           
     }
     //转到注册页面
     @RequestMapping("/signup")
@@ -82,12 +85,6 @@ public class LoginController {
         session.removeAttribute("user_login");
         return "redirect:/index";
     }
-
-
-
-
-
-
 
 
 }

@@ -135,9 +135,9 @@
 						 <li><a href="single.html"> </a></li>
 						 <li><a href="single.html">社区</a></li>
 						 <li><a href="single.html"> </a></li>
-						 <li><a href="single.html">排行榜</a></li>
+                           <li><a href="/rank/list">排行榜</a></li>
 						 <li><a href="single.html"> </a></li>
-						 <li><a href="single.html">关于我们</a></li>
+                           <li><a href="https://github.com/a350844866/LTYP">关于我们</a></li>
 						 <li><a href="contact.html"> </a></li>
 					   </ul>
 					</div>

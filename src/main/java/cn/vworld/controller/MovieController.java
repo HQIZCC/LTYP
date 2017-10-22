@@ -5,14 +5,14 @@ import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.User;
 import cn.vworld.service.MovieService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/movie")
@@ -25,7 +25,7 @@ public class MovieController {
     private Integer movieNum = 0;//书籍的数量
     private Integer updateNum = 3;//右侧最近更新电影的数量
     private Integer resultPageMovie = 5;//在结果页每页显示的电影数
-
+    public static HashMap<User, List<String>> map = new HashMap<User, List<String>>();
     /**
      * 展现首页 默认页码为1
      *
@@ -109,7 +109,27 @@ public class MovieController {
     }
 
     @RequestMapping("/search")
-    public String search(String search, Model model) {
+    public String search(String search, Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user_login");
+        List<String> list = map.get(user);
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        Boolean flag = true;
+        for (String s : list) {
+            if (s.equals(search) || s.equals("")) {
+                flag = false;
+            }
+        }
+        if (flag) {
+            list.add(search);
+        }
+        if (list.size() > 9) {
+            list.remove(0);
+        }
+        map.put(user, list);
+        session.setAttribute("map", map);
+
         Integer page_ = page;
         List<MovieInfo> movieInfoList = movieService.limitMovieListBySearch(search, (page_ - 1) * resultPageMovie, resultPageMovie);
         Integer count = movieService.findMovieNumBySearch(search);
