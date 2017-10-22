@@ -35,14 +35,13 @@
             </div>
             <div class="wid-content">
                 <ul>
-                    <li><a href="#">animals</a></li>
-                    <li><a href="#">ssdad</a></li>
-                    <li><a href="#">ss</a></li>
-                    <li><a href="#">asdas</a></li>
-                    <li><a href="#">asdsals</a></li>
-                    <li><a href="#">dasdas</a></li>
-                    <li><a href="#">animals</a></li>
-                    <li><a href="#">aasdasls</a></li>
+                    <c:forEach items="${map}" var="item">
+                        <c:if test="${user_login==item.key}">
+                            <c:forEach items="${item.value}" var="search">
+                                <li><a href="/movie/search?search=${search}">${search}</a></li>
+                            </c:forEach>
+                        </c:if>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
