@@ -44,4 +44,6 @@ public interface BackendMovieMapper {
      * @param imageId
      */
     void deleteNullPosterUrl(String imageId);
+
+
 }

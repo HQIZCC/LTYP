@@ -27,7 +27,7 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
-    //TODO
+
     //发送激活邮件
     @RequestMapping("/sendValidateMail")
     public String sendMail(Model model, HttpSession session) {
@@ -47,7 +47,7 @@ public class UserController {
         return "redirect:/login/signin";
     }
 
-    //TODO
+
     //激活邮件页面
     @RequestMapping("/activateAccount")
     public String activateAccount(Model model, String userId){
@@ -62,7 +62,7 @@ public class UserController {
         userService.updateBan(userId, ban);
         return "redirect:/backend/userList";
     }
-    //TODO
+
     //发送修改密码验证邮件
     @RequestMapping("/sendUpdatePasswordMail")
     public String sendUpdatePasswordMail(Model model, String userId, @RequestParam("email") String to, HttpSession session){
@@ -77,17 +77,22 @@ public class UserController {
         return "movie/message";
     }
 
-    //TODO
+
     //跳转到修改密码页面
     @RequestMapping("/toUpdatePassword")
     public String toUpdatePassword(String userId, String validate, Model model,  HttpSession session){
-        if(userService.toUpdatePassword(validate, session)){
-            //验证码判断正确
-            model.addAttribute("userId", userId);
-            return "/login/reset-password";
+        try {
+            if (userService.toUpdatePassword(validate, session)) {
+                //验证码判断正确
+                model.addAttribute("userId", userId);
+                return "/login/reset-password";
+            }
+            model.addAttribute("msg", "跳转修改密码页面失败！请重新发送邮件");
+            return "movie/message";
+        } catch (Exception e) {
+            model.addAttribute("msg", "跳转修改密码页面失败！请重新发送邮件");
+            return "movie/message";
         }
-        model.addAttribute("msg", "跳转修改密码页面失败！请重新发送邮件");
-        return "movie/message";
     }
 
     //TODO
@@ -96,7 +101,7 @@ public class UserController {
     public String updatePassword(String userId, String password, Model model, HttpSession session){
         userService.updatePassword(userId, password, session);
         model.addAttribute("msg", "修改密码成功，请重新登录！");
-        return "显示修改密码成功/或者跳转到登录页面";
+        return "movie/message";
     }
 
     //TODO
@@ -190,6 +195,10 @@ public class UserController {
     }
 
 
+    @RequestMapping("/toSendForgetMail")
+    public String toSendForgetMail() {
+        return "/login/sendMail";
+    }
 }
 
 

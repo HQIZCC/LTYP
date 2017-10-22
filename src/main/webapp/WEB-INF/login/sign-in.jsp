@@ -53,7 +53,7 @@
             </div>
         </div>
         <p class="pull-right" style=""><a href="/login/signup" target="_self">注 册</a></p>
-        <p><a href="/login/forgetPassword">忘记密码 ?</a></p>
+        <p><a href="${ctx}/toSendForgetMail">忘记密码 ?</a></p>
     </div>
 </div>
  
