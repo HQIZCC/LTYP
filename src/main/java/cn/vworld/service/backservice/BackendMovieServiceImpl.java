@@ -91,4 +91,14 @@ public class BackendMovieServiceImpl implements BackendMovieService {
 
 
     }
+
+    @Override
+    public int findMovieByKey(String key) {
+        return backendMovieMapper.findMovieByKey(key);
+    }
+
+    @Override
+    public List<MovieInfo> findMovieListBykey(int showpage, int lines, String key) {
+        return backendMovieMapper.findMovieListBykey(showpage, lines, key);
+    }
 }

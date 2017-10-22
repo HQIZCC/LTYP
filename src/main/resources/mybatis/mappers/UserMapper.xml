@@ -75,7 +75,7 @@ where username=#{username} and password = #{password}
         (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
         ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
         left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
-        where r.role_name = "用户" and u.username like "%"#{username}"%"
+        where r.role_name = "用户" and u.username like "%"#{username}"%" limit #{showpage},#{lines}
     </select>
     <!--显示全部管理员-->
     <select id="findAllAdmin" resultMap="userRM">
@@ -138,4 +138,8 @@ where username=#{username} and password = #{password}
     <update id="updateState">
         update user set state = 1 where user_id = #{userId}
     </update>
+
+    <select id="findUserNumByKey" resultType="Integer">
+        select count(*) from user where username like "%"#{key}"%"
+    </select>
 </mapper>

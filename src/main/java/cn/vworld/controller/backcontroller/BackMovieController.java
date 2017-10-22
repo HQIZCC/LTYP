@@ -61,7 +61,7 @@ public class BackMovieController extends BaseController{
 
     //电影分页要求： 默认10行数据
     //             获取当前的总页数
-    //             获取当前电影的15行数据
+    //             获取当前电影的10行数据
     //             获取返回的当前页数
 
 
@@ -71,9 +71,10 @@ public class BackMovieController extends BaseController{
         int  page = 1;
 
         int lines = 10;
-           if(showpage != null){
-               page = Integer.parseInt(showpage);
-           }
+
+        if (showpage != null) {
+            page = Integer.parseInt(showpage);
+        }
 
 
        int allmovies = backendMovieService.findMovieNum();

@@ -88,9 +88,17 @@
                 </table>
 
                 <ul class="am-pagination am-fr">
-                    <li class="am-disabled"><a href="#">«</a></li>
-                    <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">»</a></li>
+                    <c:if test="${!empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
+                            <li><a href="${ctx}/backend/search?showpage=${p}&key=${search_key}&search=user">${p}</a>
+                            </li>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
+                            <li><a href="${ctx}/backend/userList?showpage=${p}">${p}</a></li>
+                        </c:forEach>
+                    </c:if>
                 </ul>
 
                 <hr/>

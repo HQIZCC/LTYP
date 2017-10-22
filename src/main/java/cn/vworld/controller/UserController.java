@@ -8,7 +8,6 @@ import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.service.RoleService;
 import cn.vworld.service.UserService;
 import cn.vworld.utils.SendMail;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
