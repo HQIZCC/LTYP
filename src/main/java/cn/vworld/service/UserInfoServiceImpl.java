@@ -4,8 +4,10 @@ import cn.vworld.bean.UserInfo;
 import cn.vworld.mapper.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class UserInfoServiceImpl implements UserInfoService{
 
     @Autowired

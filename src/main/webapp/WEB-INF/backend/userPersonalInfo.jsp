@@ -94,38 +94,40 @@
 
 
                     <!-- end of home -->
-                    
-                   
-                    
-                    <div class="panel" id="services">
-                        <h2>Our Services</h2>
-                        <div class="col_370 float_l">
-                            <h3>Service Overview</h3>
-                            <img src="images/templatemo_image_02.jpg" alt="Image 02" class="image_wrapper image_fr" />
-                            <p><em>Etiam quis velit non eu lacinia mi tempor hendrerit quis eu augue.</em></p>
-                            <p>Donec fringilla egestas ante, vel <a href="#">euismod</a> mi venenatis et. Ut molestie porta urna, vitae tempor tellus mollis at. Proin tincidunt luctus ipsum, quis volutpat neque iaculis sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin a neque et <a href="#">felis suscipit</a> scelerisque a eget enim. Duis tincidunt ligula ac mi porta id luctus. Vestibulum sed ultrices mauris. Proin cursus interdum massa. Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>.</p>
-                        </div>
-                        <div class="col_220 float_r">
-                            <h3>Our Services</h3>
-                            <ul class="service_list">
-                                <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
-                                <li><a href="#" class="service_two">Pellentesq tris senectus</a></li>
-                                <li><a href="#" class="service_three">Duis at commodo molestie</a></li>
-                                <li><a href="#" class="service_four">In aliquet in libero</a></li> 
-                                <li><a href="#" class="service_five">Maecenas ut pretium</a></li>   
-                            </ul>
-                        </div>
-                    </div> <!-- end of services -->
+
+
+                    <%--<div class="panel" id="services">--%>
+                    <%--<h2>Our Services</h2>--%>
+                    <%--<div class="col_370 float_l">--%>
+                    <%--<h3>Service Overview</h3>--%>
+                    <%--<img src="images/templatemo_image_02.jpg" alt="Image 02" class="image_wrapper image_fr" />--%>
+                    <%--<p><em>Etiam quis velit non eu lacinia mi tempor hendrerit quis eu augue.</em></p>--%>
+                    <%--<p>Donec fringilla egestas ante, vel <a href="#">euismod</a> mi venenatis et. Ut molestie porta urna, vitae tempor tellus mollis at. Proin tincidunt luctus ipsum, quis volutpat neque iaculis sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin a neque et <a href="#">felis suscipit</a> scelerisque a eget enim. Duis tincidunt ligula ac mi porta id luctus. Vestibulum sed ultrices mauris. Proin cursus interdum massa. Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>.</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="col_220 float_r">--%>
+                    <%--<h3>Our Services</h3>--%>
+                    <%--<ul class="service_list">--%>
+                    <%--<li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>--%>
+                    <%--<li><a href="#" class="service_two">Pellentesq tris senectus</a></li>--%>
+                    <%--<li><a href="#" class="service_three">Duis at commodo molestie</a></li>--%>
+                    <%--<li><a href="#" class="service_four">In aliquet in libero</a></li> --%>
+                    <%--<li><a href="#" class="service_five">Maecenas ut pretium</a></li>   --%>
+                    <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--</div> <!-- end of services -->--%>
                     
                     <div class="panel" id="gallery">
-                        <h3>美丽心情</h3>
+                        <h3>每日美图</h3>
                         <ul id="gallery_container">
-                            <li><a href="http://www.cssmoban.com/"><img src="images/gallery/image_01.jpg" alt="Image 01" /></li>
-                            <li><a href="#"><img src="images/gallery/image_02.jpg" alt="Image 02" /></a> </li>
-                            <li class="rmb"><a href="#"><img src="images/gallery/image_03.jpg" alt="Image 03" /></a> </li>
-                            <li><a href="#"><img src="images/gallery/image_04.jpg" alt="Image 04" /></a> </li>
-                            <li><a href="#"><img src="images/gallery/image_05.jpg" alt="Image 05" /></a> </li>
-                            <li class="rmb"><a href="#"><img src="images/gallery/image_06.jpg" alt="Image 06" /></a> </li>
+                            <li><a href="http://www.cssmoban.com/"><img src="${ctx}/staticfile/images/gallery/1.jpg"
+                                                                        alt="Image 01"/></li>
+                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/2.jpg" alt="Image 02"/></a></li>
+                            <li class="rmb"><a href="#"><img src="${ctx}/staticfile/images/gallery/3.jpg"
+                                                             alt="Image 03"/></a></li>
+                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/4.jpg" alt="Image 04"/></a></li>
+                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/5.jpg" alt="Image 05"/></a></li>
+                            <li class="rmb"><a href="#"><img src="${ctx}/staticfile/images/gallery/6.jpg"
+                                                             alt="Image 06"/></a></li>
                         </ul>
                     </div> <!-- end of gallery -->
                     
@@ -154,8 +156,11 @@
                                     <input type="radio" name="gender" value="女" <c:if test="${userInfo.gender=='女'}">checked='checked'</c:if>/>女
 									 </td>
                                         <td>
-                                    
-                                    <label for="email">邮箱:</label> <input type="text" id="email" name="email" class="validate-email required input_field" value="${userInfo.email}"/>
+
+                                            <label for="email">邮箱:</label> <input type="text" id="email" name="email"
+                                                                                  class="validate-email required input_field"
+                                                                                  readonly="readonly"
+                                                                                  value="${userInfo.email}"/>
                                     
                                     
                                      </td>
@@ -172,8 +177,8 @@
                                     </tr>
                                      <tr>
 	                                     <td>
-                                    <label for="text">上传头像:</label> 
-                                    <input type="file" />
+                                             <%--<label for="text">上传头像:</label> --%>
+                                             <%--<input type="file" />--%>
 
                                     
                                      </td>
@@ -191,7 +196,8 @@
                                              <a href="${ctx}/sendUpdatePasswordMail?userId=${userInfo.userInfoId}&email=${userInfo.email}">修改密码</a>
                                          </td>
                                     <td>
-                                    <input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />
+                                        <%--<input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />--%>
+                                        <button type="reset" value="重置" class="submit_btn float_r">重置</button>
                                     </td>
 
                                     </tr>
@@ -224,9 +230,9 @@
         	<div id="menu">
                 <ul class="navigation">
                 	<li><a href="#home" class="selected">我的首页</a></li>
-                    
-                    <li><a href="#services">发下心情</a></li>
-                    <li><a href="#portfolio">臭美一下</a></li>
+
+                    <%--<li><a href="#services">发下心情</a></li>--%>
+                    <li><a href="#portfolio">每日美图</a></li>
                     <li><a href="#contactus">换个身份</a></li>
                 </ul>
                 <div class="cleaner"></div>

@@ -1,5 +1,6 @@
 package cn.vworld.controller;
 
+import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;

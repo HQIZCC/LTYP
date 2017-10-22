@@ -31,6 +31,7 @@ public class LoginController {
 
     @RequestMapping("/signin")
     public String signIn(String username, String password, Model model) {
+
         return "/login/sign-in";
     }
 
@@ -89,7 +90,7 @@ public class LoginController {
         }
 
 
-        return "redirect:/login/signin";
+//        return "redirect:/login/signin";
 
            
 
@@ -135,5 +136,12 @@ public class LoginController {
         return "redirect:/index";
     }
 
+    @RequestMapping("AjaxCheckEmailExist")
+    public void AjaxCheckEmailExist(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String email = request.getParameter("email");
+        User result = userService.checkEmailExist(email);
+        response.setContentType("text/html;charset=utf-8");
+        response.getWriter().write(result != null ? "邮箱已存在!" : "恭喜您!邮箱可以使用");
+    }
 
 }

@@ -136,4 +136,11 @@ public interface UserService {
 
     int findAllUserNum();
 
+    /**
+     * 查询数据库看看email是否存在
+     *
+     * @param email 传入的email
+     * @return 查到的User对象
+     */
+    User checkEmailExist(String email);
 }
