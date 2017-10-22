@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>用户列表</title>
+    <title>用户添加</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -97,7 +97,8 @@
                             <select name="roleId">
                                 <option value="">---请选择---</option>
                                 <c:forEach items="${roleList}" var="r">
-                                    <option value="${r.roleId}">${r.roleName}</option>
+                                    <option value="${r.roleId}"
+                                            <c:if test="${r.roleId<=2}">hidden="hidden"</c:if>>${r.roleName}</option>
                                 </c:forEach>
                             </select>
                         </td>

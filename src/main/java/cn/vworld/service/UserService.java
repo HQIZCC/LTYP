@@ -1,6 +1,5 @@
 package cn.vworld.service;
 
-import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
@@ -72,14 +71,16 @@ public interface UserService {
      * 显示用户列表
      * @return
      */
-    List<User> findAllUser();
+    List<User> findAllUser(int showpage, int lines);
 
     /**
      * 按照用户名查询
-     * @param username
-     * @return List<User>
+     *
+     * @param i
+     * @param lines
+     *@param username  @return List<User>
      */
-    List<User> findUserByUsername(String username);
+    List<User> findUserByUsername(int showpage, int lines, String username);
 
     /**
      * 显示管理员列表
@@ -129,5 +130,10 @@ public interface UserService {
     User checkUsername(String username);
 
 
+    int findUserNumBykey(String key);
+
+    List<User> findUserListByKey(int showpage, int lines, String key);
+
+    int findAllUserNum();
 
 }

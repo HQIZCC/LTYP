@@ -38,5 +38,10 @@ public interface BackendMovieService {
     // 存储电影信息
     public void saveMovie(MovieInfo movieInfo,String[] xqpath);
 
+    /**
+     * 根据用户输入的搜索内容查询满足条件的电影
+     */
+    int findMovieByKey(String key);
 
+    List<MovieInfo> findMovieListBykey(int showpage, int lines, String key);
 }

@@ -4,6 +4,7 @@ import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.service.UserInfoService;
 import cn.vworld.service.UserService;
+
 import cn.vworld.tool.Md5HashPassword;
 import com.sun.deploy.net.HttpResponse;
 import org.apache.shiro.SecurityUtils;
@@ -35,15 +36,21 @@ public class LoginController {
 
     //点击登录页面后的操作
     @RequestMapping(value = "/login")
-    public String login(Model model, String username, String password, HttpSession session) {
+    public String login(Model model, String username, String password, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws IOException {
 //        User user= userService.findUserByU_P(username, password);
         //通过username和password来查询数据库
       /*  User user= userService.findUserByU_P(username, password);
         if (user != null) {
+
+            if (user.getBan() == 1) {
+                model.addAttribute("msg", "账号已被封，请联系管理员！");
+                return "movie/message";
+            }
             model.addAttribute("user", user);
             session.setAttribute("user_login",user);
             return "redirect:/movie/showmovie";
         }
+
         return "/login/signin";*/
         //判断用户名和密码是否为空
         if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
@@ -81,6 +88,11 @@ public class LoginController {
             return "/login/sign-in";
         }
 
+
+        return "redirect:/login/signin";
+
+           
+
     }
     //转到注册页面
     @RequestMapping("/signup")
@@ -96,9 +108,11 @@ public class LoginController {
 
     //注册操作
     @RequestMapping("/regist")
-    public String saveUser(User user, UserInfo userInfo) {
+    public String saveUser(User user, UserInfo userInfo, Model model, HttpSession session) {
         userService.saveUser(user,userInfo);
-        return "redirect:/login/signin";
+        User userSendMail = userService.findUserByEmail(userInfo.getEmail());
+        session.setAttribute("userSendMail", userSendMail);
+        return "redirect:/sendValidateMail";
     }
 
     /**
@@ -115,11 +129,11 @@ public class LoginController {
         response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
     }
 
-
-
-
-
-
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("user_login");
+        return "redirect:/index";
+    }
 
 
 }
