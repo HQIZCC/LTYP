@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
+    <script src="${ctx}/staticfile/userPersonalInfo/js/echarts.js"></script>
+    <script src="${ctx}/staticfile/userPersonalInfo/js/showChart.js"></script>
+    <script src="${ctx}/staticfile/userPersonalInfo/js/theme.js"></script>
+
 </head>
-<body>
+
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p>
 <![endif]-->
 </head>
@@ -50,7 +54,7 @@
 
 
                     <li><a href="#">添加新电影 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></a></li>
+                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></li>
                     <li><a href="#">电影分类</a></li>
                     <li><a href="#">用户列表</a></li>
 
@@ -131,7 +135,7 @@
             <div class="daohang">
                 <ul>
                     <li>
-                        <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页
+                        <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"/> 首页
                     </li>
                     <li>
                         <button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a
@@ -178,43 +182,17 @@
                 </div>
                 <div class="admin-biaoge">
                     <div class="xinxitj">今日热评</div>
-                    <table class="am-table">
-                        <thead>
-                        <tr>
-                            <th>电影名称</th>
-                            <th>上映时间</th>
-                            <th>评论总数</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${movieInfoList}" var="movieInfo">
-                            <tr>
-                                <td>${movieInfo.movieName}</td>
-                                <td>${movieInfo.showTime}</td>
-                                <td>${movieInfo.avgscore}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+
+                    <div class="row" style="margin-top: -100px">
+                            <div id="showChart"
+                                 style="width: 100%; height: 600px; margin-left: 0px; margin-right: 6px; margin-bottom: 8px; float: left; overflow: hidden;"></div>
+
+                    </div>
+
+                    <div id="main" style="width: 100%;height:300px;"></div>
 
 
-                    <div class="xinxitj">活跃用户</div>
-                    <table class="am-table">
-                        <thead>
-                        <tr>
-                            <th>用户名称</th>
-                            <th>评论数量</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${userList}" var="user">
-                            <tr>
-                                <td>${user.username}</td>
-                                <td>普卡</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+
                 </div>
                 <div class="shuju">
                     <div class="shujuone">

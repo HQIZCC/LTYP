@@ -22,7 +22,7 @@
 
     <!-- 查找所有的电影 -->
     <select id="findAllMovie" resultType="cn.vworld.bean.MovieInfo">
-        select * from movie_info
+        select * from movie_info limit 0,5
     </select>
 
     <!-- 查询所有的电影类型 -->
@@ -32,7 +32,7 @@
 
     <!-- 查询用户对应的评论数量 -->
     <select id="findUserByCommentNum" resultType="User">
-        select * from user
+        select * from user limit 0,5
     </select>
 
     <select id="findMovieList" resultType="cn.vworld.bean.MovieInfo">

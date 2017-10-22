@@ -1,19 +1,16 @@
 package cn.vworld.controller;
 
-import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
-import cn.vworld.mapper.UserInfoMapper;
+import cn.vworld.service.UserInfoService;
 import cn.vworld.service.UserService;
 import cn.vworld.utils.SendMail;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -23,6 +20,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserInfoService userInfoService;
     //TODO
     //发送激活邮件
     @RequestMapping("/sendValidateMail")
@@ -179,6 +178,68 @@ public class UserController {
         Integer ban = Integer.parseInt(b);
         userService.updateBan(userId, ban);
         return "redirect:/backend/adminList";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @RequestMapping("/userPerInfo")
+    public String userPerInfo(String userId,Model model){
+        System.out.println(userId);
+
+
+        UserInfo userInfo = userInfoService.findUserInfoById(userId);
+        System.out.println(userInfo.toString());
+        model.addAttribute("userInfo",userInfo);
+        return "/backend/userPersonalInfo";
+    }
+    @RequestMapping("/updateUserInfoByUser")
+    public String updateUserInfo(UserInfo userInfo){
+
+        userInfoService.updateUserInfo(userInfo);
+
+        return "/backend/userPersonalInfo";
     }
 
 }

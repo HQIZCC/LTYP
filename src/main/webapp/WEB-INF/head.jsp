@@ -12,7 +12,7 @@
                                     <a style="color: white" href="${ ctx }/login/signup">注册</a>
                                 </c:if>
                                 <c:if test="${ !(empty sessionScope.user_login) }">
-                                    欢迎 ${ user_login.username } 回来,&nbsp;
+									欢迎<a href="${ctx}/userPerInfo?userId=${user_login.userId}"> ${ user_login.username }</a> 回来,&nbsp;
                                     <a href="${ ctx }/login/logout">退出</a>
                                 </c:if>
                             </li>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="row">
 			<div id="menu">
-				<nav>
+				<nav  id="nav1">
 					<div class="wrap-nav">
 					   <ul>
 						 <li class="active"><a href="/movie/showmovie">首页</a></li>
@@ -54,6 +54,34 @@
 						 <li><a href="single.html">关于我们</a></li>
 						 <li><a href="contact.html"> </a></li>
 					   </ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="row">
+			<div id="menu2">
+				<nav id="nav2">
+					<div class="wrap-nav">
+						<ul style="margin-right: -200px">
+							<li class="active"><a href="/movie/showmovie">首页</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">社区</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">排行榜</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">关于我们</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">社区</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">排行榜</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">关于我们</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">排行榜</a></li>
+							<li><a href="single.html"> </a></li>
+							<li><a href="single.html">关于我们</a></li>
+							<li><a href="contact.html"> </a></li>
+						</ul>
 					</div>
 				</nav>
 			</div>

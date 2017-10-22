@@ -68,4 +68,17 @@ public class User extends BaseEntity{
     public void setBan(Integer ban) {
         this.ban = ban;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", state=" + state +
+                ", ban=" + ban +
+                ", userInfo=" + userInfo +
+                ", role=" + role +
+                '}';
+    }
 }

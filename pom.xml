@@ -83,6 +83,7 @@
             <artifactId>mail</artifactId>
             <version>1.4.7</version>
         </dependency>
+
     </dependencies>
 
     <!--引入tomcat插件-->
