@@ -140,7 +140,7 @@
                             <input type="radio" name="score" value="8">8
                             <input type="radio" name="score" value="9">9
                             <input type="radio" name="score" value="10">10
-                            <button type="submit">提交评分</button>
+                            <button type="submit" onclick="">提交评分</button>
                             <p style="color: red">温馨提示:每个用户只有第一次评分有效哦,请慎重评分</p>
                         </form>
                     </div>
@@ -149,8 +149,10 @@
 		</div>
         <%@include file="../right.jsp" %>
 	</div>
-</section> 
+</section>
+    <script>
 
+    </script>
 
 </div>
 

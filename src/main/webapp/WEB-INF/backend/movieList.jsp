@@ -131,11 +131,12 @@
 
                 <div class="am-btn-group am-btn-group-xs">
 
-                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit('toview','_self');this.blur();"><span class="am-icon-plus"></span> 查看</a>
+                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit2('toview','_self');this.blur();"><span
+                            class="am-icon-plus"></span> 查看</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit('toupdate','_self');this.blur();"><span class="am-icon-plus"></span> 修改</a>
+                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-plus"></span> 修改</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit('todelete','_self');this.blur();"><span class="am-icon-plus"></span> 删除</a>
+                       onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-plus"></span> 删除</a>
 
 
                 </div>

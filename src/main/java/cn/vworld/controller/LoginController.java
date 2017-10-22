@@ -28,16 +28,22 @@ public class LoginController {
 
     //点击登录页面后的操作
     @RequestMapping(value = "/login")
-    public String login(Model model, String username, String password, HttpSession session) {
+    public String login(Model model, String username, String password, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws IOException {
 //        User user= userService.findUserByU_P(username, password);
         //通过username和password来查询数据库
         User user= userService.findUserByU_P(username, password);
         if (user != null) {
-            model.addAttribute("user", user);
-            session.setAttribute("user_login",user);
-            return "redirect:/movie/showmovie";
+            if (user.getBan() != 1 && user.getState() == 1) {
+                model.addAttribute("user", user);
+                session.setAttribute("user_login", user);
+                return "redirect:/movie/showmovie";
+            } else {
+                response.setContentType("text/html;charset=utf-8");
+                response.getWriter().write("<h1>您的账号未激活邮箱或被封号,5秒后自动跳转至首页<h1>");
+                response.setHeader("refresh", "5;url=" + request.getContextPath() + "/index");
+            }
         }
-        return "/login/signin";
+        return null;
     }
     //转到注册页面
     @RequestMapping("/signup")
@@ -79,12 +85,6 @@ public class LoginController {
         session.removeAttribute("user_login");
         return "redirect:/index";
     }
-
-
-
-
-
-
 
 
 }
