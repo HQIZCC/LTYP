@@ -3,7 +3,6 @@ package cn.vworld.controller;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.service.UserService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,17 +32,18 @@ public class LoginController {
         //通过username和password来查询数据库
         User user= userService.findUserByU_P(username, password);
         if (user != null) {
-            if (user.getBan() != 1 && user.getState() == 1) {
-                model.addAttribute("user", user);
-                session.setAttribute("user_login", user);
-                return "redirect:/movie/showmovie";
-            } else {
-                response.setContentType("text/html;charset=utf-8");
-                response.getWriter().write("<h1>您的账号未激活邮箱或被封号,5秒后自动跳转至首页<h1>");
-                response.setHeader("refresh", "5;url=" + request.getContextPath() + "/index");
+
+            if (user.getBan() == 1) {
+                model.addAttribute("msg", "账号已被封，请联系管理员！");
+                return "movie/message";
             }
+            model.addAttribute("user", user);
+            session.setAttribute("user_login",user);
+            return "redirect:/movie/showmovie";
         }
-        return null;
+        return "redirect:/login/signin";
+
+           
     }
     //转到注册页面
     @RequestMapping("/signup")
@@ -80,7 +80,7 @@ public class LoginController {
         response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user_login");
         return "redirect:/index";

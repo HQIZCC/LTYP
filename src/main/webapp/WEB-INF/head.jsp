@@ -98,7 +98,7 @@
                                     欢迎 ${ user_login.username } 回来,&nbsp;
                                     <a href="${ ctx }/login/logout">退出</a>
                                 </c:if>
-                                <c:if test="${ !(empty sessionScope.user_login) }">
+                                <c:if test="${ !(empty sessionScope.user_login) and user_login.role.roleId!=1 }">
                                     &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/backend/index" style="color: #ffffff;" target="_self">后台管理</a>
                                 </c:if>
                             </li>

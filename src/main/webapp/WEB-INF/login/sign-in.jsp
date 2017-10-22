@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+      <title>乐途影评</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -53,7 +53,7 @@
             </div>
         </div>
         <p class="pull-right" style=""><a href="/login/signup" target="_self">注 册</a></p>
-        <p><a href="/login/forgetPassword">忘记密码 ?</a></p>
+        <p><a href="${ctx}/toSendForgetMail">忘记密码 ?</a></p>
     </div>
 </div>
  

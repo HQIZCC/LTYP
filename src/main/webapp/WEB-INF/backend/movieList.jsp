@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>电影列表页面</title>
+    <title>电影列表</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -48,13 +48,9 @@
         <div class="admin-biaogelist">
 
             <div class="listbiaoti am-cf">
-                <ul class="am-icon-flag on"> 栏目名称</ul>
+                <ul class="am-icon-flag on"> 电影</ul>
 
                 <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="${ctx}/backend/movieList">电影列表</a>
-                </dl>
-
-                <dl>
-                    <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"><a href="${ctx}/backend/addMovie">添加新电影</a></button>
                 </dl>
 
 
@@ -134,19 +130,31 @@
                     <a href="#" class="am-btn am-btn-default" onclick="formSubmit2('toview','_self');this.blur();"><span
                             class="am-icon-plus"></span> 查看</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-plus"></span> 修改</a>
+                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修改</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-plus"></span> 删除</a>
+                       onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
+                        删除</a>
+
 
 
                 </div>
 
                 <ul class="am-pagination am-fr">
-                    <c:forEach begin="1" end="${allpages}" step="1" var="p">
+                    <c:if test="${!empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
 
-                        <li><a href="${ctx}/backend/movieList?showpage=${p}">${p}</a></li>
+                            <li><a href="${ctx}/backend/search?showpage=${p}&key=${search_key}&search=movie">${p}</a>
+                            </li>
 
-                    </c:forEach>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
+
+                            <li><a href="${ctx}/backend/movieList?showpage=${p}">${p}</a></li>
+
+                        </c:forEach>
+                    </c:if>
                 </ul>
 
 

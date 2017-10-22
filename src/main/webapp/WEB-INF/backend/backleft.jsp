@@ -31,25 +31,31 @@
 <div class="nav-navicon admin-main admin-sidebar">
 
 
-    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;">
+        欢迎系统管理员：${user_login.userInfo.nickname}</div>
     <div class="sideMenu">
-        <h3 class="am-icon-home"><em></em> <a href="#">乐途后台首页</a></h3>
+        <h3 class="am-icon-home"><em></em> <a href="#"> 乐途</a></h3>
         <ul>
             <li><a href="${ctx}/backend/index">首页</a></li>
+            <li><a href="${ctx}/index">返回前台</a></li>
+            <li><a href="${ ctx }/login/logout">退出</a></li>
         </ul>
-        <h3 class="am-icon-film"><em></em> <a href="#">电影集中营</a></h3>
+        <h3 class="am-icon-film"><em></em> <a href="#"> 电影集中营</a></h3>
         <ul>
             <li><a href="${ctx}/backend/movieList">电影列表</a></li>
-            <li><a href="电影分类.html">电影分类</a></li>
         </ul>
-        <h3 class="icon-facetime-video"><em></em> <a href="#"> 电影管理</a></h3>
+        <h3 class="am-icon-folder-open"><em></em><a href="#"> 电影管理</a></h3>
         <ul>
             <li><a href="${ctx}/backend/addMovie">添加新电影</a></li>
         </ul>
-        <h3 class="am-icon-users"><em></em><a href="#">用户管理</a></h3>
+        <h3 class="am-icon-users"><em></em><a href="#"> 用户管理</a></h3>
         <ul>
             <li><a href="${ctx}/backend/userList">用户列表</a></li>
             <li><a href="${ctx}/backend/adminList">管理员列表</a></li>
+        </ul>
+        <h3 class="am-icon-bookmark"><em></em><a href="#"> 角色管理</a></h3>
+        <ul>
+            <li><a href="${ctx}/role/list">角色列表</a></li>
         </ul>
     </div>
     <!-- sideMenu End -->

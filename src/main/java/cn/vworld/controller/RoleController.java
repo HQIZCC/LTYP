@@ -17,14 +17,14 @@ public class RoleController {
 
     @RequestMapping("/addRole")
     public String toRole(){
-        return "/role/addRole";
+        return "/backend/addRole";
     }
 
     @RequestMapping("/list")
     public String findRole(Model model){
         List<Role> roleList=roleService.findAll();
         model.addAttribute("roleList",roleList);
-        return "/role/roleList";
+        return "/backend/roleList";
     }
 
     @RequestMapping("/tosave")
