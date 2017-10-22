@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>电影列表页面</title>
+    <title>电影列表</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -134,6 +134,7 @@
                     <a href="#" class="am-btn am-btn-default"
                        onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
                         删除</a>
+
 
 
                 </div>

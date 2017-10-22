@@ -30,8 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="findMovieListBySearch" resultType="MovieInfo">
         select * from movie_info
-where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
-      or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
+        where movie_name like "%"#{search}"%"
+        or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
     </select>
 
     <select id="findNewUpdateMovie" resultType="MovieInfo">

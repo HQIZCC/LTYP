@@ -98,7 +98,7 @@
                                     欢迎 ${ user_login.username } 回来,&nbsp;
                                     <a href="${ ctx }/login/logout">退出</a>
                                 </c:if>
-                                <c:if test="${ !(empty sessionScope.user_login) }">
+                                <c:if test="${ !(empty sessionScope.user_login) and user_login.role.roleId!=1 }">
                                     &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/backend/index" style="color: #ffffff;" target="_self">后台管理</a>
                                 </c:if>
                             </li>
@@ -135,9 +135,9 @@
 						 <li><a href="single.html"> </a></li>
 						 <li><a href="single.html">社区</a></li>
 						 <li><a href="single.html"> </a></li>
-						 <li><a href="single.html">排行榜</a></li>
+                           <li><a href="/rank/list">排行榜</a></li>
 						 <li><a href="single.html"> </a></li>
-						 <li><a href="single.html">关于我们</a></li>
+                           <li><a href="https://github.com/a350844866/LTYP">关于我们</a></li>
 						 <li><a href="contact.html"> </a></li>
 					   </ul>
 					</div>
