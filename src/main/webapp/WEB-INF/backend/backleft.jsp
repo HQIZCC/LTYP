@@ -43,7 +43,6 @@
         <h3 class="am-icon-film"><em></em> <a href="#"> 电影集中营</a></h3>
         <ul>
             <li><a href="${ctx}/backend/movieList">电影列表</a></li>
-            <li><a href="电影分类.html">电影分类</a></li>
         </ul>
         <h3 class="am-icon-folder-open"><em></em><a href="#"> 电影管理</a></h3>
         <ul>

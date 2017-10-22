@@ -139,11 +139,21 @@
                 </div>
 
                 <ul class="am-pagination am-fr">
-                    <c:forEach begin="1" end="${allpages}" step="1" var="p">
+                    <c:if test="${!empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
 
-                        <li><a href="${ctx}/backend/movieList?showpage=${p}">${p}</a></li>
+                            <li><a href="${ctx}/backend/search?showpage=${p}&key=${search_key}&search=movie">${p}</a>
+                            </li>
 
-                    </c:forEach>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty search_key}">
+                        <c:forEach begin="1" end="${allpages}" step="1" var="p">
+
+                            <li><a href="${ctx}/backend/movieList?showpage=${p}">${p}</a></li>
+
+                        </c:forEach>
+                    </c:if>
                 </ul>
 
 

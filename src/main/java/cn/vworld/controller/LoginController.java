@@ -3,7 +3,6 @@ package cn.vworld.controller;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.service.UserService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

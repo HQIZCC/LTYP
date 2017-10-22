@@ -45,5 +45,7 @@ public interface BackendMovieMapper {
      */
     void deleteNullPosterUrl(String imageId);
 
+    int findMovieByKey(String key);
 
+    List<MovieInfo> findMovieListBykey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 }

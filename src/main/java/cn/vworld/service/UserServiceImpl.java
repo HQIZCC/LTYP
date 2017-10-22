@@ -1,10 +1,8 @@
 package cn.vworld.service;
 
-import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
-import cn.vworld.mapper.RoleMapper;
 import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
@@ -45,6 +43,17 @@ public class UserServiceImpl implements UserService{
     public User checkUsername(String username) {
         return userMapper.checkUsername(username);
     }
+
+    @Override
+    public int findUserNumBykey(String key) {
+        return userMapper.findUserNumByKey(key);
+    }
+
+    @Override
+    public List<User> findUserListByKey(int showpage, int lines, String key) {
+        return userMapper.findfindUserListByKey(showpage, lines, key);
+    }
+
 
     @Override
     public void saveUser(User user,UserInfo userInfo) {
@@ -195,8 +204,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> findUserByUsername(String username) {
-        return userMapper.findUserByUsername(username);
+    public List<User> findUserByUsername(int showpage, int lines, String username) {
+        return userMapper.findUserByUsername(showpage, lines, username);
     }
 
     @Override
