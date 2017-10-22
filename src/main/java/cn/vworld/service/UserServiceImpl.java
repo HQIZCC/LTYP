@@ -54,6 +54,11 @@ public class UserServiceImpl implements UserService{
         return userMapper.findfindUserListByKey(showpage, lines, key);
     }
 
+    @Override
+    public int findAllUserNum() {
+        return userMapper.findAllUserNum();
+    }
+
 
     @Override
     public void saveUser(User user,UserInfo userInfo) {
@@ -198,10 +203,12 @@ public class UserServiceImpl implements UserService{
         return userMapper.findUserByEmail(to);
     }
 
+
     @Override
-    public List<User> findAllUser() {
-        return userMapper.findAllUser();
+    public List<User> findAllUser(int showpage, int lines) {
+        return userMapper.findAllUser(showpage, lines);
     }
+
 
     @Override
     public List<User> findUserByUsername(int showpage, int lines, String username) {
