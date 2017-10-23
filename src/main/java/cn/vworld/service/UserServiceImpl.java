@@ -6,6 +6,7 @@ import cn.vworld.bean.UserInfo;
 import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
+import cn.vworld.tool.Md5HashPassword;
 import cn.vworld.utils.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User checkEmailExist(String email) {
+        return userMapper.checkEmailExist(email);
+    }
+
+    @Override
     public int findAllUserNum() {
         return userMapper.findAllUserNum();
     }
@@ -66,6 +72,7 @@ public class UserServiceImpl implements UserService{
         user.setCreateTime(new Date());
         user.setState(0);
         user.setBan(0);
+        user.setPassword(Md5HashPassword.getMd5Hash(user.getPassword(), user.getUsername()));
         userMapper.saveUser(user);
         roleUserMapper.saveNormalRole(user.getUserId());
         userInfo.setUserInfoId(user.getUserId());
@@ -84,100 +91,6 @@ public class UserServiceImpl implements UserService{
     public void updateBan(String userId, Integer ban) {
         userMapper.updateBan(userId, ban);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public boolean toUpdatePassword(String validate, HttpSession session) {
