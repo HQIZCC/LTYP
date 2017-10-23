@@ -25,7 +25,12 @@
 	right:-100px;
 	top:0;
 }
-	
+
+.txReturn{
+    position: absolute;
+    right:-130px;
+    top:280px;
+}
 </style>
 </head>
 <body>
@@ -73,8 +78,9 @@
                                     <label for="text">个性签名:</label>${userInfo.sign}
 
                                    
-	                                <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/ktr.jpg" class="txImg" style="width:100px;height:100px;border-radius:100%;overflow:hidden;"										/>
-                                 
+	                                <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/ktr.jpg"
+                                         class="txImg" style="width:100px;height:100px;border-radius:100%;overflow:hidden;"/>
+                                    <label for="text" class="txReturn"> <a href="${ctx}/index">返回首页</a></label>
 									
                             	</form>
                             </div>
@@ -190,7 +196,7 @@
                                     </tr>
                                      <tr>
 	                        			<td>
-                                    <input type="submit" value="Send" id="submit" name="submit" class="submit_btn float_l" />
+                                    <input type="submit" value="修改" id="submit" name="submit" class="submit_btn float_l" />
                                     </td>
                                          <td>
                                              <a href="${ctx}/sendUpdatePasswordMail?userId=${userInfo.userInfoId}&email=${userInfo.email}">修改密码</a>
