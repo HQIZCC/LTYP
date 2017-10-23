@@ -130,16 +130,17 @@
                 <div class="am-btn-group am-btn-group-xs">
 
                     <a href="#" class="am-btn am-btn-default" onclick="formSubmit2('toview','_self');this.blur();"><span
-                            class="am-icon-plus"></span>查看</a>
+                            class="am-icon-plus"></span> 查 看</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修改</a>
+                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修 改</a>
                     <a href="#" class="am-btn am-btn-default"
                        onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
-                        删除</a>
+                        删 除</a>
 
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('downLoadFilmList','_self');this.blur();"><span class="icon-beer"></span>
-                        下载</a>
+                       onclick="formSubmit2('downLoadFilmList','_self');this.blur();"><span
+                            class="am-icon-download"></span>
+                        下 载</a>
 
                 </div>
 

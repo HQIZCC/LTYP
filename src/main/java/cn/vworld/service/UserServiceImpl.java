@@ -103,8 +103,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void updatePassword(String userId, String password, HttpSession session) {
+        User user = userMapper.findUserByUserId(userId);
+        password = Md5HashPassword.getMd5Hash(password, user.getUsername());
         userMapper.updatePassword(userId, password);
-        session.invalidate();//修改密码完成后自动退出
+
+        session.removeAttribute("user_login");//修改密码完成后自动退出
     }
 
     @Override

@@ -103,7 +103,6 @@
 								<!-- 影评内容 -->
 								${c.commDetail}
 								<br/>
-								<button type="submit" value="good" style="margin-left:680px">点赞(5)</button>
 								<hr style="height:1px;border:none;border-top:1px dashed #F8F8FF;"/>
 							</td>
 						</tr>

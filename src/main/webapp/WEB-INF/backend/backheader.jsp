@@ -82,7 +82,7 @@
 
 
             <li class="am-hide-sm-only" style="float: right;"><a href="javascript:;" id="admin-fullscreen"><span
-                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">欢迎你</span></a></li>
         </ul>
     </div>
 </header>

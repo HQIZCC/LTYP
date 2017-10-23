@@ -49,7 +49,7 @@
                      
                     <input type="password" class="span12" placeholder="请输入密码" name="password">
                     <a href="#" onclick="formSubmit('login','_self');this.blur();" class="btn btn-primary pull-right">登 录</a>
-                    <label class="remember-me"><input type="checkbox"> Remember me</label>
+                    <label class="remember-me"><input name="autologin" type="checkbox"> Remember me</label>
                     <div class="clearfix"></div>
                 </form>
             </div>

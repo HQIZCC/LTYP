@@ -250,7 +250,7 @@
                     <span id="phone_msg" style="color:red;"></span>
                     <%--<a href="#" onclick="formSubmit('regist','_self');this.blur();" class="btn btn-primary pull-right">注 册</a>--%>
                     <button type="submit" class="btn btn-primary pull-right">注册</button>
-                    <label class="remember-me"><input type="checkbox" name="agree"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>
+                    <%--<label class="remember-me"><input type="checkbox" name="agree"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>--%>
                     <div class="clearfix"></div>
                 </form>
             </div>
