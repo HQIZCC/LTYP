@@ -9,6 +9,7 @@
 <%@ include file="../base.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -40,23 +41,31 @@
             <li><a href="${ctx}/index">返回前台</a></li>
             <li><a href="${ ctx }/login/logout">退出</a></li>
         </ul>
-        <h3 class="am-icon-film"><em></em> <a href="#"> 电影集中营</a></h3>
-        <ul>
-            <li><a href="${ctx}/backend/movieList">电影列表</a></li>
-        </ul>
-        <h3 class="am-icon-folder-open"><em></em><a href="#"> 电影管理</a></h3>
-        <ul>
-            <li><a href="${ctx}/backend/addMovie">添加新电影</a></li>
-        </ul>
-        <h3 class="am-icon-users"><em></em><a href="#"> 用户管理</a></h3>
-        <ul>
-            <li><a href="${ctx}/backend/userList">用户列表</a></li>
-            <li><a href="${ctx}/backend/adminList">管理员列表</a></li>
-        </ul>
-        <h3 class="am-icon-bookmark"><em></em><a href="#"> 角色管理</a></h3>
-        <ul>
-            <li><a href="${ctx}/role/list">角色列表</a></li>
-        </ul>
+        <C:if test="${user_login.role.roleId==2 or user_login.role.roleId==4}">
+            <h3 class="am-icon-film"><em></em> <a href="#"> 电影集中营</a></h3>
+            <ul>
+                <li><a href="${ctx}/backend/movieList">电影列表</a></li>
+            </ul>
+            <h3 class="am-icon-folder-open"><em></em><a href="#"> 电影管理</a></h3>
+            <ul>
+                <li><a href="${ctx}/backend/addMovie">添加新电影</a></li>
+            </ul>
+        </C:if>
+        <c:if test="${user_login.role.roleId==2 or user_login.role.roleId==3}">
+            <h3 class="am-icon-users"><em></em><a href="#"> 用户管理</a></h3>
+            <ul>
+                <li><a href="${ctx}/backend/userList">用户列表</a></li>
+                <c:if test="${user_login.role.roleId==2}">
+                    <li><a href="${ctx}/backend/adminList">管理员列表</a></li>
+                </c:if>
+            </ul>
+        </c:if>
+        <c:if test="${user_login.role.roleId==2}">
+            <h3 class="am-icon-bookmark"><em></em><a href="#"> 角色管理</a></h3>
+            <ul>
+                <li><a href="${ctx}/role/list">角色列表</a></li>
+            </ul>
+        </c:if>
     </div>
     <!-- sideMenu End -->
 

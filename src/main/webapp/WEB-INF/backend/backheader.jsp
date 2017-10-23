@@ -45,10 +45,11 @@
                     <li class="am-dropdown-header">所有的功能都在这里</li>
 
 
-                    <li><a href="#">添加新电影 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></li>
-                    <li><a href="#">电影分类</a></li>
-                    <li><a href="#">用户列表</a></li>
+                    <li><a href="${ctx}/backend/addMovie">添加新电影 <span
+                            class="am-badge am-badge-danger am-round">556</span></a></li>
+                    <li><a href="${ctx}/backend/movieList">电影列表 <span
+                            class="am-badge am-badge-danger am-round">69</span></a></li>
+                    <li><a href="${ctx}/backend/userList">用户列表</a></li>
 
 
                 </ul>
