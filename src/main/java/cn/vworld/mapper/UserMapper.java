@@ -54,4 +54,6 @@ public interface UserMapper {
     List<User> findfindUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 
     int findAllUserNum();
+
+    User checkEmailExist(String email);
 }

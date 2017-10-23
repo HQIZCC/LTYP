@@ -118,6 +118,7 @@ header #search input[type="submit"]{
 
 .logo img{max-height: 80px;display: inline-block;}
 
+
 #nav1 {
     margin: 0px auto 0px auto;
     display: inline-block;
@@ -132,12 +133,14 @@ header #search input[type="submit"]{
     display: inline-block;
 }
 
+
 #menu {background-color:#000;border-bottom: 4px solid #fcab2b;text-align: center;}
 #menu ul{padding:0px;margin:0px;list-style: none;}
 #menu ul li{display:inline;}
 #menu ul form {float: left;padding: 0px 20px;}
 #menu ul a {float:left;color: #fff; text-transform: uppercase;padding: 10px 20px;font-size: 15px;letter-spacing: 2px;}
 #menu a:hover{background: #fcab2b;}
+
 
 #menu2 {
     background-color: #000;
@@ -172,6 +175,7 @@ header #search input[type="submit"]{
 #menu2 a:hover {
     background: #fcab2b;
 }
+
 header .nav-bar { }
 header .nav-bar .wrap-nav{}
 /* ---------------------------------------------------------------------------- */

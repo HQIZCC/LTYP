@@ -16,6 +16,15 @@
             $("#username_msg").html(result);
         });
         });
+        $("input[name='email']").blur(function () {
+            if (!formObj.checkNull("email", "邮箱不能为空")) {
+                return;
+            }
+            var email = $(this).val();
+            $.post("${ctx}/login/AjaxCheckEmailExist", {"email": email}, function (result) {
+                $("#email_msg").html(result);
+            });
+        });
 
 
 

@@ -83,4 +83,19 @@ public class UserInfo extends BaseEntity{
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userInfoId='" + userInfoId + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", sign='" + sign + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", hpic='" + hpic + '\'' +
+                ", nickname='" + nickname + '\'' +
+                '}';
+    }
 }
