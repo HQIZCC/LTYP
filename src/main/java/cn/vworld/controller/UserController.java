@@ -107,7 +107,7 @@ public class UserController {
         }
     }
 
-    //TODO
+
     //修改用户密码
     @RequestMapping("/updatePassword")
     public String updatePassword(String userId, String password, Model model, HttpSession session){
@@ -116,7 +116,7 @@ public class UserController {
         return "movie/message";
     }
 
-    //TODO
+
     //用户“忘记密码”界面的发送邮件
     @RequestMapping("/sendForgetMail")
     public String sendForgetMail(Model model, @RequestParam("email") String to, HttpSession session){
@@ -186,16 +186,16 @@ public class UserController {
         return "redirect:/backend/adminList";
     }
 
-    //TODO
-    //用户信息查看
-    @RequestMapping("/findUserInfo")
-    public String findUserInfo(Model model, String userId){
-        User user = userService.findUserByUserId(userId);
-        List<Type> typeList = userService.findUserType(userId);
-        model.addAttribute("user", user);
-        model.addAttribute("typeList", typeList);
-        return "用户详情界面";
-    }
+
+//    //用户信息查看
+//    @RequestMapping("/findUserInfo")
+//    public String findUserInfo(Model model, String userId){
+//        User user = userService.findUserByUserId(userId);
+//        List<Type> typeList = userService.findUserType(userId);
+//        model.addAttribute("user", user);
+//        model.addAttribute("typeList", typeList);
+//        return "用户详情界面";
+//    }
 
 
     //用户信息修改

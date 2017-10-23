@@ -77,6 +77,15 @@ public class LoginController {
 
             //获取用户真实信息
             User user = (User) subject.getPrincipal();
+            if (user.getBan() == 1) {
+                model.addAttribute("msg", "账号已被封，请联系管理员！");
+                return "movie/message";
+            }
+            if (user.getState() == 0) {
+                model.addAttribute("msg", "请去邮箱激活你的账号");
+                session.setAttribute("user_login", user);
+                return "movie/message";
+            }
             //将用户信息存入session域
             session.setAttribute("user_login", user);
 
