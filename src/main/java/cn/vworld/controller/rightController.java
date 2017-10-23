@@ -8,13 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class rightController {
     @RequestMapping("/right")
-    public String RightData(Model model, HttpServletRequest request) throws Exception {
+    public String RightData(Model model, HttpServletRequest request, HttpSession session) throws Exception {
         List<String> LinksDate = new ArrayList<String>();
         List<EchartDate> echartDateList = GetHtml.ParseMovieData(request);
         for (int i = 0; i < 5; i++) {
@@ -23,7 +24,7 @@ public class rightController {
             str = str.substring(4, len - 5);
             LinksDate.add(str);
         }
-        model.addAttribute("LinksDate", LinksDate);
-        return "index";
+        session.setAttribute("LinksDate", LinksDate);
+        return "redirect:/index";
     }
 }
