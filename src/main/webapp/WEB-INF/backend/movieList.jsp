@@ -141,10 +141,6 @@
                        onclick="formSubmit2('downLoadFilmList','_self');this.blur();"><span class="icon-beer"></span>
                         下载</a>
 
-
-
-
-
                 </div>
 
                 <ul class="am-pagination am-fr">
