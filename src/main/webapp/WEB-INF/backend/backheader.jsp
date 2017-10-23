@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
-    <script src="${ctx}/staticfile/assets/js/app.js"></script>
     <script src="${ctx}/staticfile/js/jquery.min.js"></script>
+    <script src="${ctx}/staticfile/assets/js/app.js"></script>
 </head>
 <body>
 <header class="am-topbar admin-header">
