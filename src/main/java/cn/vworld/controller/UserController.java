@@ -1,13 +1,13 @@
 package cn.vworld.controller;
 
-import cn.vworld.bean.Role;
-import cn.vworld.bean.Type;
-import cn.vworld.bean.User;
-import cn.vworld.bean.UserInfo;
+
+import cn.vworld.bean.*;
+
 
 import cn.vworld.service.UserInfoService;
 
 import cn.vworld.mapper.UserInfoMapper;
+
 import cn.vworld.service.RoleService;
 
 import cn.vworld.service.UserService;
@@ -18,8 +18,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -236,6 +243,56 @@ public class UserController {
     @RequestMapping("/toSendForgetMail")
     public String toSendForgetMail() {
         return "/login/sendMail";
+    }
+
+
+    //下载电影表数据
+    @RequestMapping("/backend/downLoadFilmList")
+    public void downloadFileList( HttpServletResponse response, String tableType) throws IOException {
+
+        HashMap<String,String> map=new HashMap<String,String>();
+        map.put("tableType",tableType);
+        List<MovieInfo> list = userService.downLoadFilmList(map);
+        // 3.定义保存销售榜单数据对象
+        StringBuffer buffer = new StringBuffer("电影名称,上映时间,所属国家,评分\n");
+        // 4.遍历list集合,拼接数据
+
+        for (MovieInfo info : list) {
+            buffer.append(info.getMovieName()).append(",").append(info.getShowTime()).append(",")
+                    .append(info.getCountry()).append(",").append(info.getAvgscore()).append("\n");
+        }
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        String fname = tableType + sdf.format(date) + ".csv";
+        // 告知浏览器以附件下载的方式打开
+        response.setHeader("Content-Disposition", "attachment;filename=" + fname);
+        response.setContentType("text/html;charset=gbk");
+        response.getWriter().write(buffer.toString());
+    }
+
+    //下载用户表数据
+    @RequestMapping("backend/downLoadUserList")
+    public void downLoadUserList( HttpServletResponse response,String tableType) throws IOException {
+        HashMap<String,String> map=new HashMap<String,String>();
+        map.put("tableType",tableType);
+
+        List<User> list = userService.downLoadUserList(map);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        SimpleDateFormat  a=new SimpleDateFormat("yyyy年MM月dd日");
+        // 3.定义保存销售榜单数据对象
+        StringBuffer buffer = new StringBuffer("用户ID,用户名字,用户状态,创建时间,更新时间\n");
+        // 4.遍历list集合,拼接数据
+        for (User info : list) {
+            buffer.append(info.getUserId()).append(",").append(info.getUsername()).append(",")
+                    .append(info.getState()).append(",").append(a.format(info.getCreateTime())).append(",").append(a.format(info.getUpdateTime())).append("\n");
+        }
+
+        Date date = new Date();
+        String fname = tableType + sdf.format(date) + ".csv";
+        // 告知浏览器以附件下载的方式打开
+        response.setHeader("Content-Disposition", "attachment;filename=" + fname);
+        response.setContentType("text/html;charset=gbk");
+        response.getWriter().write(buffer.toString());
     }
 
 }

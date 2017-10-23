@@ -18993,7 +18993,7 @@
             var zrUtil = __webpack_require__(4);
             var compatStyle = __webpack_require__(82);
 
-            function get(opt, path) {
+            function get (opt, path) {
                 path = path.split(',');
                 var obj = opt;
                 for (var i = 0; i < path.length; i++) {
@@ -19005,7 +19005,7 @@
                 return obj;
             }
 
-            function set(opt, path, val, overwrite) {
+            function set (opt, path, val, overwrite) {
                 path = path.split(',');
                 var obj = opt;
                 var key;

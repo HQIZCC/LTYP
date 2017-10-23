@@ -44,8 +44,8 @@
 
             <div class="block-body">
                 <form>
-                    
-                    <input type="text" class="span12" placeholder="用户名" name="username">
+
+                    <input type="text" class="span12" placeholder="请输入用户名" name="username">
                      
                     <input type="password" class="span12" placeholder="请输入密码" name="password">
                     <a href="#" onclick="formSubmit('login','_self');this.blur();" class="btn btn-primary pull-right">登 录</a>

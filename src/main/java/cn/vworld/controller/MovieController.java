@@ -9,7 +9,6 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -118,7 +117,7 @@ public class MovieController {
         }
         Boolean flag = true;
         for (String s : list) {
-            if (StringUtils.isEmpty(s) || s.equals(" ")) {
+            if (s.equals(search) || s.equals("")) {
                 flag = false;
             }
         }

@@ -1,9 +1,12 @@
+
+
 var titleData = [];
 var subtextData = [];
 var legendData = [];
 var xAxisDate = [];
 var seriesData1 = [];
 var seriesData2 = [];
+
 $(document).ready(function () {
     var myChart = echarts.init(document.getElementById('main'));
 // 指定图表的配置项和数据
@@ -107,3 +110,4 @@ $.ajax({
         alert(errorThrown);
     }
 });
+
