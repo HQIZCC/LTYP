@@ -114,6 +114,7 @@
                     <tbody>
                     <c:forEach items="${movieList}" var="m" varStatus="status">
                         <tr>
+
                             <td><input type="checkbox" name="movieId" value="${m.movieId}"/></td>
                             <td>${status.index+1}</td>
                             <td>${m.movieName}</td>
@@ -122,6 +123,7 @@
                             <td class="am-hide-sm-only">${m.avgscore}</td>
                         </tr>
                     </c:forEach>
+                    <input type="hidden" name="tableType" value="movie_info" >
                     </tbody>
                 </table>
 
@@ -134,6 +136,12 @@
                     <a href="#" class="am-btn am-btn-default"
                        onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
                         删除</a>
+
+                    <a href="#" class="am-btn am-btn-default"
+                       onclick="formSubmit2('downLoadFilmList','_self');this.blur();"><span class="icon-beer"></span>
+                        下载</a>
+
+
 
 
 
