@@ -2,259 +2,411 @@
 <%@ include file="../base.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Mini Two Theme - Free CSS Template</title>
-<meta name="keywords" content="mini two, one page layout, web design, orange header, free templates, coda slider, JS, CSS, HTML" />
-<meta name="description" content="Mini Two Theme is a free CSS template provided by templatemo.com" />
-<link href="${ctx}/staticfile/userPersonalInfo/css/templatemo_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="${ctx}/staticfile/userPersonalInfo/css/coda-slider.css" type="text/css" charset="utf-8" />
+    <title>Home </title>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-<script src="${ctx}/staticfile/userPersonalInfo/js/jquery-1.2.6.js" type="text/javascript"></script>
-<script src="${ctx}/staticfile/userPersonalInfo/js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
-<script src="${ctx}/staticfile/userPersonalInfo/js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
-<script src="${ctx}/staticfile/userPersonalInfo/js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
-<script src="${ctx}/staticfile/userPersonalInfo/js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
-<script src="${ctx}/staticfile/userPersonalInfo/js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
-<style>
-
-.txImg{
-	position: absolute;
-	right:-100px;
-	top:0;
-}
-
-.txReturn{
-    position: absolute;
-    right:-130px;
-    top:280px;
-}
-</style>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta Tags -->
+    <!-- Style Sheets -->
+    <link href="${ctx}/staticfile/userPersonalInfo/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="${ctx}/staticfile/userPersonalInfo/css/font-awesome.css" rel="stylesheet">
+    <link href="${ctx}/staticfile/userPersonalInfo/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- //Style Sheets -->
+    <!--web-fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <!--//web-fonts-->
 </head>
+
 <body>
+<!-- banner -->
+<div class="banner" id="home">
+    <div class="container">
+        <!-- header -->
+        <header>
 
-<div id="slider">
-    <div id="templatemo_header_wrapper">
-        <div id="templatemo_header">
-            <div id="header"><h1><a href="#">Free CSS Template</a></h1></div>
-        </div>
-    </div>
-    
-    <div id="templatemo_main">
-    	
-        <div id="templatemo_content">
-         
-        	<div class="scroll">
-        		<div class="scrollContainer">
-              	
-                    <div class="panel" id="home">
-                          <h3>个人信息</h3>
-                    	<div class="cleaner_h10"></div>
-                        <div class="col_370 float_l" >
-                            <div id="contact_form">
-                                <form  name="contact" style="position:relative">
-                        			
-                                    <label for="author">真实姓名:</label>${userInfo.name}
-            
-                                    <div class="cleaner_h10"></div>
-                                    <label for="email">年龄:</label>${userInfo.age}
-                                    <div class="cleaner_h10"></div>
-                                    
-                                    <label for="text">性别:</label>${userInfo.gender}
+            <div class="header-bottom-agileits">
+                <div class="w3-logo">
+                    <h1><a href="index.html">个人 主页<span class="sub-logo">个人 主页</span></a></h1>
+                </div>
+                <!-- navigation -->
+                <nav class="navbar navbar-default shift">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-                                    <div class="cleaner_h10"></div>
-                                    
-                                    <label for="text">邮箱:</label>${userInfo.email}
-
-                                    <div class="cleaner_h10"></div>
-                                    <label for="text">电话:</label>${userInfo.phone}
-
-                                    <div class="cleaner_h10"></div>
-                                    <label for="text">昵称:</label>${userInfo.nickname}
-
-                                    <div class="cleaner_h10"></div>
-                                    <label for="text">个性签名:</label>${userInfo.sign}
-
-                                   
-	                                <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/ktr.jpg"
-                                         class="txImg" style="width:100px;height:100px;border-radius:100%;overflow:hidden;"/>
-                                    <label for="text" class="txReturn"> <a href="${ctx}/index">返回首页</a></label>
-									
-                            	</form>
-                            </div>
-                        </div>
-                       <!--   <div class="col_220 float_r">   
-                            <h3>Our Services</h3>
-                            
-                            <ul class="service_list">
-                                <li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>
-                                <li><a href="#" class="service_two">Pellentesq tris senectus</a></li>
-                                <li><a href="#" class="service_three">Duis at commodo molestie</a></li>
-                                <li><a href="#" class="service_four">In aliquet in libero</a></li> 
-                                <li><a href="#" class="service_five">Maecenas ut pretium</a></li>   
-                            </ul>
-                        </div>   -->              
                     </div>
 
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="active" href="index.html">主页</a></li>
+                            <li><a class="scroll" href="#about">关于我</a></li>
 
-                    <!-- end of home -->
-
-
-                    <%--<div class="panel" id="services">--%>
-                    <%--<h2>Our Services</h2>--%>
-                    <%--<div class="col_370 float_l">--%>
-                    <%--<h3>Service Overview</h3>--%>
-                    <%--<img src="images/templatemo_image_02.jpg" alt="Image 02" class="image_wrapper image_fr" />--%>
-                    <%--<p><em>Etiam quis velit non eu lacinia mi tempor hendrerit quis eu augue.</em></p>--%>
-                    <%--<p>Donec fringilla egestas ante, vel <a href="#">euismod</a> mi venenatis et. Ut molestie porta urna, vitae tempor tellus mollis at. Proin tincidunt luctus ipsum, quis volutpat neque iaculis sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin a neque et <a href="#">felis suscipit</a> scelerisque a eget enim. Duis tincidunt ligula ac mi porta id luctus. Vestibulum sed ultrices mauris. Proin cursus interdum massa. Validate <a href="#" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="#" rel="nofollow"><strong>CSS</strong></a>.</p>--%>
-                    <%--</div>--%>
-                    <%--<div class="col_220 float_r">--%>
-                    <%--<h3>Our Services</h3>--%>
-                    <%--<ul class="service_list">--%>
-                    <%--<li><a href="#" class="service_one">Morbi luctus vitae cursus</a></li>--%>
-                    <%--<li><a href="#" class="service_two">Pellentesq tris senectus</a></li>--%>
-                    <%--<li><a href="#" class="service_three">Duis at commodo molestie</a></li>--%>
-                    <%--<li><a href="#" class="service_four">In aliquet in libero</a></li> --%>
-                    <%--<li><a href="#" class="service_five">Maecenas ut pretium</a></li>   --%>
-                    <%--</ul>--%>
-                    <%--</div>--%>
-                    <%--</div> <!-- end of services -->--%>
-                    
-                    <div class="panel" id="gallery">
-                        <h3>每日美图</h3>
-                        <ul id="gallery_container">
-                            <li><a href="http://www.cssmoban.com/"><img src="${ctx}/staticfile/images/gallery/1.jpg"
-                                                                        alt="Image 01"/></li>
-                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/2.jpg" alt="Image 02"/></a></li>
-                            <li class="rmb"><a href="#"><img src="${ctx}/staticfile/images/gallery/3.jpg"
-                                                             alt="Image 03"/></a></li>
-                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/4.jpg" alt="Image 04"/></a></li>
-                            <li><a href="#"><img src="${ctx}/staticfile/images/gallery/5.jpg" alt="Image 05"/></a></li>
-                            <li class="rmb"><a href="#"><img src="${ctx}/staticfile/images/gallery/6.jpg"
-                                                             alt="Image 06"/></a></li>
+                            <li><a class="scroll" href="#portfolio">个人相册</a></li>
+                            <li><a class="scroll" href="#contact">修改个人信息</a></li>
+                            <li><a href="${ctx}/index">返回前台</a></li>
                         </ul>
-                    </div> <!-- end of gallery -->
-                    
-                    <div class="panel" id="contactus">
-                    	<h3>修改个人信息</h3>
-                    	
-                        <div class="col_370 float_l">
-                            <div id="contact_form">
-                                <form method="post" name="contact" action="updateUserInfoByUser">
-	                                <table id="userInfoTalbe">
-                        			<input id="id" name="userInfoId" type="hidden" value="${userInfo.userInfoId}" />
-                        			<tr>
-	                        			<td>
-                                   			 <label for="name">真实姓名:</label> <input type="text" id="name" name="name" class="required input_field" value="${userInfo.name}"/>
-                                   	    </td>
-                                        <td>
-            								 <label for="email">年龄:</label><input type="text" id="age" name="age" class="required input_field" value="${userInfo.age}"/>
-                                    		 
-                                   		 </td>
-                                    </tr>
-                                    <tr>
-	                        			<td>
-                                    <label for="text">性别:</label>
 
-                                    <input type="radio" name="gender" value="男" <c:if test="${userInfo.gender=='男'}">checked='checked'</c:if>/>男
-                                    <input type="radio" name="gender" value="女" <c:if test="${userInfo.gender=='女'}">checked='checked'</c:if>/>女
-									 </td>
-                                        <td>
+                    </div>
+                    <!-- /.navbar-collapse -->
 
-                                            <label for="email">邮箱:</label> <input type="text" id="email" name="email"
-                                                                                  class="validate-email required input_field"
-                                                                                  readonly="readonly"
-                                                                                  value="${userInfo.email}"/>
-                                    
-                                    
-                                     </td>
-                                    </tr>
-                                     <tr>
-	                        			<td>
-                                    <label for="email">电话:</label> <input type="text" id="phone" name="phone" class="validate-email required input_field" value="${userInfo.phone}"/>
-                                   
-                                     </td>
-                                        <td>
-                                     <label for="email">昵称:</label> <input type="text" id="nickname" name="nickname" class="validate-email required input_field" value="${userInfo.nickname}"/>
-                                    <div class="cleaner_h10"></div>
-                                      </td>
-                                    </tr>
-                                     <tr>
-	                                     <td>
-                                             <%--<label for="text">上传头像:</label> --%>
-                                             <%--<input type="file" />--%>
+                </nav>
+            </div>
+            <div class="clearfix"></div>
+            <!-- //navigation -->
+        </header>
+        <!-- //header -->
+        <div class="banner-text-w3-agileits">
+            <h5>Hi, 我是</h5>
+            <h2>${userInfo.name}</h2>
+            <p>这是我的个人主页</p>
+            <div class="botton">
+                <a href="#about" class="scroll">关于我 <span class="fa fa-caret-right"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<!--about-->
+<div class="about-w3layouts" id="about">
+    <div class="container">
+        <div class="tittle-agileinfo">
+            <div class="title-wthree">
+                <h5 class="title-w3"><span>01</span>个人信息</h5>
+                <div class="clearfix"></div>
+            </div>
+            <div class="about-top">
+                <h3 class="subheading-agileits-w3layouts">我的信息</h3>
+                <p class="para-agileits-w3layouts"></p>
+            </div>
+        </div>
+        <div class="col-md-4 about-left-agileits">
+            <div class="services-grids social">
+                <a class="fa fa-delicious" aria-hidden="true"></a>
+                <p class="para-agileits-w3layouts"></p>
+                <div class="clearfix"></div>
+                <h6>Logo Design</h6>
+            </div>
+            <div class="services-grids">
+                <a class="fa fa-globe" aria-hidden="true"></a>
+                <p class="para-agileits-w3layouts"></p>
+                <h6>Website</h6>
+            </div>
+            <div class="services-grids">
+                <a class="fa fa-desktop" aria-hidden="true"></a>
+                <p class="para-agileits-w3layouts"></p>
+                <h6>Softwares</h6>
+            </div>
+            <div class="services-grids">
+                <a class="fa fa-mobile" aria-hidden="true"></a>
+                <p class="para-agileits-w3layouts"></p>
+                <h6>Applications</h6>
+            </div>
+            <div class="clearfix"></div>
+        </div>
 
-                                    
-                                     </td>
-	                        			<td>
-                                    <label for="text">个性签名:</label> <textarea id="text" name="sign" style="width:240px" class="required">${userInfo.sign}</textarea>
+        <div class="col-md-8 about-right">
+            <div class="about-border-w3ls">
+            </div>
+            <div class="person-info-agileits-w3layouts">
+                <p class="para-agileits-w3layouts"><span>你好!, 我是 ${userInfo.name} </span>
 
-                                    <div class="cleaner_h10"></div>
-                                     </td>
-                                    </tr>
-                                     <tr>
-	                        			<td>
-                                    <input type="submit" value="修改" id="submit" name="submit" class="submit_btn float_l" />
-                                    </td>
-                                         <td>
-                                             <a href="${ctx}/sendUpdatePasswordMail?userId=${userInfo.userInfoId}&email=${userInfo.email}">修改密码</a>
-                                         </td>
-                                    <td>
-                                        <%--<input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />--%>
-                                        <button type="reset" value="重置" class="submit_btn float_r">重置</button>
-                                    </td>
+                </p>
+                <ul>
+                    <li><span>姓名</span>: ${userInfo.name} </li>
+                    <li><span>年龄</span>: ${userInfo.age} </li>
+                    <li><span>性别</span>: ${userInfo.gender}</li>
+                    <li><span>邮箱</span>: ${userInfo.email}</li>
+                    <li><span>手机号</span>: ${userInfo.phone}</li>
+                    <li><span>昵称</span>: <a href="#">${userInfo.nickname}</a></li>
+                    <li><span>个人签名</span>: ${userInfo.sign}</li>
 
-                                    </tr>
-                                    </table>
-                            	</form>
-                            </div>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+
+                <div class="pos-w3ls">
+                    <h4><span class="red-w3ls">点</span> 击我</h4>
+                    <div class="button-w3layouts"><a href="#contact" class="scroll">修改 信息</a></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--//about-->
+<!--education-->
+
+<!--//experience-->
+<!-- awards and skills -->
+
+<!-- //awards and skills -->
+<!-- language -->
+
+<!-- //language -->
+<!-- gallery -->
+<div class="gallery" id="portfolio" style="margin-top: 45px;">
+    <div class="container">
+        <div class="title-wthree">
+            <h5 class="title-w3"><span>02</span>个人相册</h5>
+            <div class="clearfix"></div>
+        </div>
+        <div class="w3ls_gallery_grids">
+            <div class="col-md-4 w3_agile_gallery_grid">
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/1.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/1.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/2.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/2.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/3.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/3.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 w3_agile_gallery_grid">
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/4.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/4.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/5.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/5.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/6.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/6.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 w3_agile_gallery_grid">
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/7.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/7.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/8.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/8.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="Donec sapien massa, placerat ac sodales ac, feugiat quis est."
+                       href="${ctx}/staticfile/userPersonalInfo/images/gallery/9.jpg">
+                        <div class="agile_gallery_grid1">
+                            <img src="${ctx}/staticfile/userPersonalInfo/images/gallery/9.jpg" alt=" "
+                                 class="img-responsive"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- //gallery -->
+
+<!-- footer -->
+
+<!-- contact -->
+<div class="contact-agileits-w3layouts" id="contact">
+    <div class="contact-right-wthree">
+        <div class="container">
+            <div class="title-wthree">
+                <h5 class="title-w3"><span>03</span>修改个人信息</h5>
+                <div class="clearfix"></div>
+            </div>
+            <div class="address-w3layouts">
+                <p class="para-agileits-w3layouts"></p>
+                <h4>${userInfo.email}</h4>
+                <h6>${userInfo.phone}</h6>
+                <p class="para-agileits-w3layouts"></p>
+            </div>
+            <div class="botttom-nav-agileits">
+                <div class="w3l-social">
+                    <ul>
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-google-plus"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div class="wthree-form">
+        <div class="container">
+            <div class="col-md-6 contact-form agile_inner_grids">
+                <h5 class="title-w3">修改</h5>
+                <form action="updateUserInfoByUser" method="post">
+                    <div class="fields-grid">
+                        <input id="id" name="userInfoId" type="hidden" value="${userInfo.userInfoId}"/>
+
+                        <div class="styled-input">
+                            <input type="text" name="name" placeholder="真实姓名" value="${userInfo.name}">
+                        </div>
+
+                        <div class="styled-input">
+                            <input type="text" name="age" placeholder="年龄" value="${userInfo.age}">
+                        </div>
+
+                        <div class="styled-input">
+                            <input type="radio" name="gender" value="男"
+                                   <c:if test="${userInfo.gender=='男'}">checked='checked'</c:if>/>男
+                            <input type="radio" name="gender" value="女"
+                                   <c:if test="${userInfo.gender=='女'}">checked='checked'</c:if>/>女
+                        </div>
+
+                        <div class="styled-input">
+                            <input type="text" name="phone" placeholder="手机" value="${userInfo.phone}">
+                        </div>
+
+                        <div class="styled-input">
+                            <input type="email" name="email" placeholder="邮箱" value="${userInfo.email}">
+                        </div>
+
+                        <div class="styled-input">
+                            <input type="text" name="nickname" placeholder="昵称" value="${userInfo.nickname}">
                         </div>
 
 
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="styled-input textarea-grid">
+                        <textarea name="sign" placeholder="个人签名" required="">${userInfo.sign}</textarea>
+                    </div>
+                    <input type="submit" value="确定"/>
 
-                        <!--<div class="col_220 float_r">
-                            <h4>Mailing Address</h4>
-                            <h5>Company Name</h5>
-                            225-184 Aliquam quis lacus, <br />
-                            Lorem ipsum dolor sit, 15520<br />
-                            Quisque a ante velit<br /><br />
-                            
-                            <strong>Phone:</strong> 042-252-4880 <br />
-            				<strong>Email:</strong> <a href="mailto:info@yoursite.com">info@yoursite.com</a><br />
-                        </div>-->
-                    </div> <!-- end of contact us -->
-				
-            	</div>
-			</div>
-        
-        	<div class="cleaner"></div>
-        </div> <!-- end of tempatemo_content -->
-    
-    	<div id="templatemo_sidebar">
-        	<div id="menu">
-                <ul class="navigation">
-                	<li><a href="#home" class="selected">我的首页</a></li>
-
-                    <%--<li><a href="#services">发下心情</a></li>--%>
-                    <li><a href="#portfolio">每日美图</a></li>
-                    <li><a href="#contactus">换个身份</a></li>
-                </ul>
-                <div class="cleaner"></div>
+                    <a href="${ctx}/sendUpdatePasswordMail?userId=${userInfo.userInfoId}&email=${userInfo.email}">修改密码</a>
+                </form>
             </div>
-    	</div> <!-- end of templatemo_sidebar -->
-    </div>
-    
-    <div id="templatemo_footer_wrapper">
-        <div id="templatemo_footer">
-        
-            Copyright © 2048 <a href="#">Your Company Name</a> | Template from <a href="http://www.cssmoban.com" target="_parent" title="网站模板">网站模板</a>
-            
-            <div class="cleaner"></div>
-		</div>        
+
+            <div class="clearfix"></div>
+        </div>
     </div>
 </div>
+<!-- //contact -->
+<!-- Footer -->
+<div class="copyright-wthree">
+    <div class="container">
+        <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+        </p>
+    </div>
+</div>
+<!-- //Footer -->
 
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover"
+                                                                         style="opacity: 1;"> </span></a>
+<!-- //smooth scrolling -->
+<script type='text/javascript' src='${ctx}/staticfile/userPersonalInfo/js/jquery-2.2.3.min.js'></script>
+<!-- start-smoth-scrolling -->
+<!--gallery -->
+<script src="${ctx}/staticfile/userPersonalInfo/js/jquery.chocolat.js"></script>
+<link rel="stylesheet" href="${ctx}/staticfile/userPersonalInfo/css/chocolat.css" type="text/css" media="screen">
+<!--light-box-files -->
+<script type="text/javascript">
+    $(function () {
+        $('.w3_agile_gallery_grid a').Chocolat();
+    });
+</script>
+<!-- //gallery -->
+<script type="text/javascript" src="${ctx}/staticfile/userPersonalInfo/js/move-top.js"></script>
+<script type="text/javascript" src="${ctx}/staticfile/userPersonalInfo/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 1000);
+        });
+    });
+</script>
+<!-- start-smoth-scrolling -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!--js for bootstrap working-->
+<script src="${ctx}/staticfile/userPersonalInfo/js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
 </body>
+
 </html>
