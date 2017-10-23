@@ -1,8 +1,6 @@
 package cn.vworld.service;
 
-import cn.vworld.bean.Type;
-import cn.vworld.bean.User;
-import cn.vworld.bean.UserInfo;
+import cn.vworld.bean.*;
 import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
@@ -13,8 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
+import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
 
 @Service
 @Transactional
@@ -60,6 +61,8 @@ public class UserServiceImpl implements UserService{
     }
 
 
+
+
     @Override
     public void saveUser(User user,UserInfo userInfo) {
         user.setUserId(UUID.randomUUID().toString());
@@ -84,98 +87,6 @@ public class UserServiceImpl implements UserService{
     public void updateBan(String userId, Integer ban) {
         userMapper.updateBan(userId, ban);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -259,5 +170,18 @@ public class UserServiceImpl implements UserService{
         }
         userInfo.setUpdateTime(new Date());
         userInfoMapper.updateUserInfo(userInfo);
+    }
+
+
+    @Override
+    public List<MovieInfo> downLoadFilmList(HashMap<String, String> map) {
+        List<MovieInfo> list=userMapper.downLoadFilmList(map);
+        return list;
+    }
+
+    @Override
+    public List<User> downLoadUserList(HashMap<String, String> map) {
+        List<User> list=userMapper.downLoadUserList(map);
+        return list;
     }
 }

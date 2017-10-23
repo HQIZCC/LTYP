@@ -103,7 +103,11 @@
 
                 <hr/>
                 <p style="color:red;">注：各大站内管理员删除数据时请谨慎操作</p>
+                <input type="hidden" name="tableType" value="user" >
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="am-btn am-btn-default" onclick="formSubmit2('downLoadUserList','_self');this.blur();"><span
+                        class="am-icon-plus"></span> 下载数据</a></p>
             </form>
+
             <jsp:include page="backfoot.jsp"/>
         </div>
 

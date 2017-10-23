@@ -1,11 +1,10 @@
 package cn.vworld.mapper;
 
-import cn.vworld.bean.Role;
-import cn.vworld.bean.Type;
-import cn.vworld.bean.User;
+import cn.vworld.bean.*;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.apache.shiro.web.filter.mgt.DefaultFilter;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface UserMapper {
@@ -54,4 +53,10 @@ public interface UserMapper {
     List<User> findfindUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 
     int findAllUserNum();
+    
+
+    List<MovieInfo> downLoadFilmList(HashMap<String, String> map);
+
+
+    List<User> downLoadUserList(HashMap<String, String> map);
 }
