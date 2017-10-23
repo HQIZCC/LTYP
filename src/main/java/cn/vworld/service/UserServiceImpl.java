@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService{
         User user = userMapper.findUserByUserId(userId);
         password = Md5HashPassword.getMd5Hash(password, user.getUsername());
         userMapper.updatePassword(userId, password);
-
+        session.removeAttribute("validate");
         session.removeAttribute("user_login");//修改密码完成后自动退出
     }
 
