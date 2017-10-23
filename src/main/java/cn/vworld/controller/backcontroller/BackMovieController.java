@@ -18,7 +18,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -57,6 +59,17 @@ public class BackMovieController extends BaseController{
         model.addAttribute("userList", userList);
 
 
+        Map<String,String> map = new HashMap<>();
+        map.put("剧情",(int) (Math.random()*35)+10+"");
+        map.put("战争",(int) (Math.random()*35)+10+"");
+        map.put("动画",(int) (Math.random()*35)+10+"");
+        map.put("爱情",(int) (Math.random()*35)+10+"");
+        map.put("科幻",(int) (Math.random()*35)+10+"");
+        map.put("动作",(int) (Math.random()*35)+10+"");
+        map.put("犯罪",(int) (Math.random()*35)+10+"");
+        map.put("恐怖",(int) (Math.random()*35)+10+"");
+        map.put("励志",(int) (Math.random()*35)+10+"");
+        model.addAttribute("map", map);
         return "/backend/index";
     }
 

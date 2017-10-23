@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class returnEchartDate {
+
     public String titleData;
     public String subtextData;
     public String Alltoxoffice;
     public List<String> xAxisDate = new ArrayList<String>();
     public List<String> seriesData1 = new ArrayList<String>();
     public List<String> seriesData2 = new ArrayList<String>();
+
 
     public returnEchartDate(String titleData,
                             String subtextData,
@@ -24,4 +26,4 @@ public class returnEchartDate {
         this.seriesData1 = seriesData1;
         this.seriesData2 = seriesData2;
     }
-}
+

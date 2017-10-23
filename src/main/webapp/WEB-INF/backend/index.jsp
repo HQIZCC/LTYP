@@ -25,10 +25,81 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
-    <script src="${ctx}/staticfile/js/jquery-1.4.2.js"></script>
-    <script src="${ctx}/staticfile/js/echarts.js"></script>
-    <script src="${ctx}/staticfile/js/showChart.js"></script>
+
+    <%--<script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>--%>
     <script src="${ctx}/staticfile/assets/js/app.js"></script>
+
+    <script src="${ctx}/staticfile/js/jquery-1.9.1.min.js"></script>
+    <script src="${ctx}/staticfile/js/echarts.js"></script>
+
+    <script src="${ctx}/staticfile/js/theme.js"></script>
+
+
+    <script>
+        var chartOutChar = null;
+
+        var option1 = {
+            title: {
+
+                text: "2017电影不同电影类型的票房",
+
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x: 'center',
+                y: 'bottom',
+                data: ['剧情', '战争', '动画', '爱情', '科幻', '动作', '犯罪', '恐怖', '励志']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel']
+                    },
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            calculable: true,
+            series: [
+
+                {
+                    name: '面积模式',
+                    type: 'pie',
+                    radius: [30, 110],
+                    center: ['50%', '50%'],
+                    roseType: 'area',
+                    data: [
+                        <c:forEach items="${map}" var="m">
+                            {value: ${m.value}, name: '${m.key}'},
+
+                        </c:forEach>
+                    ]
+                }
+            ]
+        };
+
+
+        //载入图表
+        $(function () {
+            chartOutChar = echarts.init(document.getElementById('showChart'));
+            chartOutChar.setOption(option1);
+
+        });
+    </script>
+
+</head>
+
+   
+
+
 
 
 </head>
@@ -96,11 +167,13 @@
                     <div class="xinxitj">今日热评</div>
 
 
-                    <div class="row" style="margin-top: 50px">
-                        <div id="showChart"
-                             style="width: 100%; height: 500px; margin-left: 0px; margin-right: 6px; margin-bottom: 8px; float: left; overflow: hidden;"></div>
+                   <div class="row" style="margin-top: 100px">
+                         <div id="showChart" style="width: 100%; height: 400px; margin-left: 0px;
+                             margin-right: 6px; margin-bottom: 8px; float: left; overflow: hidden;">
 
-                    </div>
+                         </div>
+                     </div>
+
 
 
                     <div id="main" style="width: 100%;height:400px;"></div>

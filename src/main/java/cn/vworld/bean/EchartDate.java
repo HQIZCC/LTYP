@@ -1,11 +1,13 @@
 package cn.vworld.bean;
 
 public class EchartDate {
+
     private String MovieName;
     private String Allboxoffice;
     private String Dayboxoffice;
     private String Movielink;
     private String MovieTile;
+
 
 
     public String getMovieName() {
@@ -59,4 +61,4 @@ public class EchartDate {
                 ", MovieTile='" + MovieTile + '\'' +
                 '}';
     }
-}
+
