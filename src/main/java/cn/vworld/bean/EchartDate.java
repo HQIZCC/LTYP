@@ -9,7 +9,6 @@ public class EchartDate {
     private String MovieTile;
 
 
-
     public String getMovieName() {
         return MovieName;
     }
@@ -61,4 +60,5 @@ public class EchartDate {
                 ", MovieTile='" + MovieTile + '\'' +
                 '}';
     }
+}
 

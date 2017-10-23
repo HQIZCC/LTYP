@@ -26,4 +26,5 @@ public class returnEchartDate {
         this.seriesData1 = seriesData1;
         this.seriesData2 = seriesData2;
     }
+}
 
