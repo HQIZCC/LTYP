@@ -1,7 +1,15 @@
 package cn.vworld.controller;
 
+
 import cn.vworld.bean.*;
+
+
+import cn.vworld.service.UserInfoService;
+
+import cn.vworld.mapper.UserInfoMapper;
+
 import cn.vworld.service.RoleService;
+
 import cn.vworld.service.UserService;
 import cn.vworld.utils.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +34,11 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private RoleService roleService;
 
+    private UserInfoService userInfoService;  
+
+    @Autowired
+    private RoleService roleService;
 
     //发送激活邮件
     @RequestMapping("/sendValidateMail")
@@ -210,11 +221,30 @@ public class UserController {
         return "redirect:/backend/adminList";
     }
 
+    @RequestMapping("/userPerInfo")
+    public String userPerInfo(String userId,Model model){
+        System.out.println(userId);
+
+
+        UserInfo userInfo = userInfoService.findUserInfoById(userId);
+        System.out.println(userInfo.toString());
+        model.addAttribute("userInfo",userInfo);
+        return "/backend/userPersonalInfo";
+    }
+    @RequestMapping("/updateUserInfoByUser")
+    public String updateUserInfo(UserInfo userInfo){
+
+        userInfoService.updateUserInfo(userInfo);
+
+        return "/backend/userPersonalInfo";
+    }
+
 
     @RequestMapping("/toSendForgetMail")
     public String toSendForgetMail() {
         return "/login/sendMail";
     }
+
 
     //下载电影表数据
     @RequestMapping("/backend/downLoadFilmList")
@@ -264,6 +294,7 @@ public class UserController {
         response.setContentType("text/html;charset=gbk");
         response.getWriter().write(buffer.toString());
     }
+
 }
 
 

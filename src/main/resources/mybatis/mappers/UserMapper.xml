@@ -18,7 +18,9 @@ where username=#{username} and password = #{password}
 
     <resultMap id="userRM" type="User" autoMapping="true">
         <id property="userId" column="user_id"/>
-        <association property="userInfo" javaType="UserInfo" resultMap="userInfoRM"></association>
+        <association property="userInfo" javaType="UserInfo" resultMap="userInfoRM">
+
+        </association>
         <association property="role" javaType="Role">
             <id property="roleId" column="role_id"/>
             <result property="roleName" column="role_name"/>
@@ -152,6 +154,7 @@ where username=#{username} and password = #{password}
     </select>
 
 
+
     <select id="downLoadFilmList" resultType="MovieInfo">
         select movie_name,show_time,country,avgscore from ${tableType}
     </select>
@@ -164,5 +167,16 @@ where username=#{username} and password = #{password}
         from ${tableType}
     </select>
 
+
+
+    <!--根据邮箱来查询是否有这个User-->
+    <select id="checkEmailExist" resultMap="userRM">
+        select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+        ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id)
+        u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where email=#{email}
+    </select>
 
 </mapper>

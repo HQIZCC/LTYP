@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.vworld</groupId>
   <artifactId>LTYP</artifactId>
-  <packaging>war</packaging>
+    <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>LTYP Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -84,11 +84,20 @@
             <version>1.4.7</version>
         </dependency>
 
+
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.7.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.7.3</version>
+        </dependency>
+
+
     </dependencies>
 
     <!--引入tomcat插件-->
