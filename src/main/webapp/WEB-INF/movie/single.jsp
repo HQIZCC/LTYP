@@ -103,7 +103,6 @@
 								<!-- 影评内容 -->
 								${c.commDetail}
 								<br/>
-								<button type="submit" value="good" style="margin-left:680px">点赞(5)</button>
 								<hr style="height:1px;border:none;border-top:1px dashed #F8F8FF;"/>
 							</td>
 						</tr>
@@ -113,16 +112,15 @@
 						</table>
                         <button class="comm" id="comment" onclick="commClick()">评论</button>
 
-						
-						
-						<div class="commForm">
-						<form action="/movie/commitComment" target="_self">
+
+                        <div class="commForm">
+                            <form action="/movie/commitComment" target="_self" onsubmit="return formObj.checkForm()">
 							<input type="hidden" name="userId" value="${user.userId}">
 							<input type="hidden" name="movieId" value="${movieInfo.movieId}">
 							<label for="comment">用户评论:</label>
-							<textarea name="commDetail" style="width: 600px; height: 80px" placeholder="您对此电影有什么看法呢?小影期待您的评论"></textarea>
+                                <textarea id="comment1" name="commDetail" style="width: 600px; height: 80px"
+                                          placeholder="您对此电影有什么看法呢?小影期待您的评论,超过20个字才能提交呢"></textarea>
                             <button type="submit">提交评论</button>
-
                         </form>
 						</div>
 
@@ -157,4 +155,16 @@
 </div>
 
 </body>
+<script type="text/javascript">
+    var formObj = {
+        checkForm: function () {
+            var flag = document.getElementById("comment1").value.length > 20;
+            if (!flag) {
+                alert("请输入超过20个字评论");
+            }
+            return flag;
+        }
+    }
+    //        document.getElementById("comment1").value.length > 20;
+</script>
 </html>

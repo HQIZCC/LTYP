@@ -122,10 +122,10 @@ public class MovieController {
             }
         }
         if (flag) {
-            list.add(search);
+            list.add(0, search);
         }
         if (list.size() > 9) {
-            list.remove(0);
+            list.remove(9);
         }
         map.put(user, list);
         session.setAttribute("map", map);

@@ -38,7 +38,7 @@ public class BackDoMovieController {
     public String toView(String movieId, Model model){
 
         if(movieId == null){
-            return "/backend/movieList";
+            return "redirect:/backend/movieList";
         }
 
         /** 查询电影详情，但是里面只有一张海报图片 */
@@ -70,7 +70,7 @@ public class BackDoMovieController {
 
 
         if (movieId == null) {
-            return "/backend/movieList";
+            return "redirect:/backend/movieList";
         }
 
         /** 查询电影详情，但是里面只有一张海报图片 */
@@ -155,6 +155,10 @@ public class BackDoMovieController {
      */
     @RequestMapping("/todelete")
     public String toDelete(@RequestParam("movieId") String[] movieIds) {
+
+        if (movieIds.length == 0) {
+            return "redirect:/backend/movieList";
+        }
 
         backDoMovieService.deleteMovieInfoByMovieIds(movieIds);
         backDoMovieService.deleteMovieImageByMovieIds(movieIds);

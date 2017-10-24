@@ -97,9 +97,10 @@
                                 <c:if test="${ !(empty sessionScope.user_login) }">
                                     欢迎${ user_login.username } 回来,&nbsp;
                                     <a style="color: white" href="${ ctx }/login/logout">退出</a>
-                                </c:if>
-                                <c:if test="${ !(empty sessionScope.user_login) and user_login.role.roleId!=1 }">
                                     &nbsp;&nbsp;|&nbsp;&nbsp;<a href="${ctx}/userPerInfo?userId=${user_login.userId}" style="color: #ffffff;" target="_self">个人信息</a>
+                                </c:if>
+
+                                <c:if test="${ !(empty sessionScope.user_login) and user_login.role.roleId!=1 }">
                                     &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/backend/index" style="color: #ffffff;" target="_self">后台管理</a>
                                 </c:if>
                             </li>
@@ -134,7 +135,7 @@
 					   <ul>
                            <li><a href="/movie/showmovie">首页</a></li>
                            <li><a href="#"> </a></li>
-                           <li><a href="#">排行榜</a></li>
+                           <li><a href="/rank/list">排行榜</a></li>
 						 <li><a href="single.html"> </a></li>
                            <li><a href="/html/baiduMap.html">最近电影院</a></li>
                            <li><a href="#"> </a></li>

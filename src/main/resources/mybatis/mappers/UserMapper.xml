@@ -152,6 +152,23 @@ where username=#{username} and password = #{password}
         left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
         where r.role_name = "用户"
     </select>
+
+
+
+    <select id="downLoadFilmList" resultType="MovieInfo">
+        select movie_name,show_time,country,avgscore from ${tableType}
+    </select>
+
+
+
+
+    <select id="downLoadUserList" resultType="User">
+        select user_id,username,state,create_time, update_time
+        from ${tableType}
+    </select>
+
+
+
     <!--根据邮箱来查询是否有这个User-->
     <select id="checkEmailExist" resultMap="userRM">
         select u.*,r.* from
@@ -161,4 +178,5 @@ where username=#{username} and password = #{password}
         left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
         where email=#{email}
     </select>
+
 </mapper>

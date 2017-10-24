@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="${ctx}/staticfile/assets/css/admin.css">
     <script src="${ctx}/staticfile/assets/js/jquery.min.js"></script>
-    <script src="${ctx}/staticfile/assets/js/app.js"></script>
     <script src="${ctx}/staticfile/js/jquery.min.js"></script>
+    <script src="${ctx}/staticfile/assets/js/app.js"></script>
 </head>
 <body>
 <header class="am-topbar admin-header">
@@ -45,10 +45,11 @@
                     <li class="am-dropdown-header">所有的功能都在这里</li>
 
 
-                    <li><a href="#">添加新电影 <span class="am-badge am-badge-danger am-round">556</span></a></li>
-                    <li><a href="#">电影列表 <span class="am-badge am-badge-danger am-round">69</span></a></li>
-                    <li><a href="#">电影分类</a></li>
-                    <li><a href="#">用户列表</a></li>
+                    <li><a href="${ctx}/backend/addMovie">添加新电影 <span
+                            class="am-badge am-badge-danger am-round">556</span></a></li>
+                    <li><a href="${ctx}/backend/movieList">电影列表 <span
+                            class="am-badge am-badge-danger am-round">69</span></a></li>
+                    <li><a href="${ctx}/backend/userList">用户列表</a></li>
 
 
                 </ul>
@@ -82,7 +83,7 @@
 
 
             <li class="am-hide-sm-only" style="float: right;"><a href="javascript:;" id="admin-fullscreen"><span
-                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">欢迎你</span></a></li>
         </ul>
     </div>
 </header>

@@ -32,7 +32,7 @@ public class SingleController {
     //为了localhost:8090的直接跳转
     @RequestMapping("/")
     public String index() {
-        return "redirect:/index";
+        return "redirect:/right";
 
     }
 }

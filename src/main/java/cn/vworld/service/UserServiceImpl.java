@@ -1,8 +1,6 @@
 package cn.vworld.service;
 
-import cn.vworld.bean.Type;
-import cn.vworld.bean.User;
-import cn.vworld.bean.UserInfo;
+import cn.vworld.bean.*;
 import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
@@ -14,8 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
+import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
 
 @Service
 @Transactional
@@ -66,6 +67,8 @@ public class UserServiceImpl implements UserService{
     }
 
 
+
+
     @Override
     public void saveUser(User user,UserInfo userInfo) {
         user.setUserId(UUID.randomUUID().toString());
@@ -92,6 +95,7 @@ public class UserServiceImpl implements UserService{
         userMapper.updateBan(userId, ban);
     }
 
+
     @Override
     public boolean toUpdatePassword(String validate, HttpSession session) {
         return session.getAttribute("validate").equals(validate);
@@ -99,8 +103,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void updatePassword(String userId, String password, HttpSession session) {
+        User user = userMapper.findUserByUserId(userId);
+        password = Md5HashPassword.getMd5Hash(password, user.getUsername());
         userMapper.updatePassword(userId, password);
-        session.invalidate();//修改密码完成后自动退出
+        session.removeAttribute("validate");
+        session.removeAttribute("user_login");//修改密码完成后自动退出
     }
 
     @Override
@@ -145,6 +152,7 @@ public class UserServiceImpl implements UserService{
         user.setCreateTime(new Date());
         user.setState(1);
         user.setBan(0);
+        user.setPassword(Md5HashPassword.getMd5Hash(user.getPassword(), user.getPassword()));
         userMapper.saveUser(user);
         userInfo.setUserInfoId(user.getUserId());
         userInfo.setCreateTime(new Date());
@@ -172,5 +180,18 @@ public class UserServiceImpl implements UserService{
         }
         userInfo.setUpdateTime(new Date());
         userInfoMapper.updateUserInfo(userInfo);
+    }
+
+
+    @Override
+    public List<MovieInfo> downLoadFilmList(HashMap<String, String> map) {
+        List<MovieInfo> list=userMapper.downLoadFilmList(map);
+        return list;
+    }
+
+    @Override
+    public List<User> downLoadUserList(HashMap<String, String> map) {
+        List<User> list=userMapper.downLoadUserList(map);
+        return list;
     }
 }

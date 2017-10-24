@@ -18,10 +18,12 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 @Controller
 @RequestMapping("/login")
@@ -77,8 +79,31 @@ public class LoginController {
 
             //获取用户真实信息
             User user = (User) subject.getPrincipal();
+            if (user.getBan() == 1) {
+                model.addAttribute("msg", "账号已被封，请联系管理员！");
+                return "movie/message";
+            }
+            if (user.getState() == 0) {
+                model.addAttribute("msg", "请去邮箱激活你的账号");
+                session.setAttribute("user_login", user);
+                return "movie/message";
+            }
+            String remname = request.getParameter("remname");
+            if ("true".equals(remname)) {
+                Cookie cookie = new Cookie("remname", URLEncoder.encode(username, "utf-8"));
+                cookie.setPath(request.getContextPath() + "/");
+                cookie.setMaxAge(3600 * 24 * 30);
+                response.addCookie(cookie);
+            } else {//删除Cookie
+                Cookie cookie = new Cookie("remname", "");
+                cookie.setPath(request.getContextPath() + "/");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+            request.getSession().setAttribute("user_login", user);
+
             //将用户信息存入session域
-            session.setAttribute("user_login", user);
+//            session.setAttribute("user_login", user);
 
             //subject.getSession().setAttribute("userSession", user);   subject获取session
             return "redirect:/movie/showmovie";
